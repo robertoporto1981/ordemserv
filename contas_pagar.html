@@ -1,0 +1,76 @@
+<?php session_start() ?>
+
+<?php require_once 'testa_login.php'; ?>
+
+<html lang='pt-BR'>
+  
+  <head>
+
+  	<meta charset="utf-8">
+
+  	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+       
+  		<title>Contas a pagar</title>
+
+<meta charset="utf-8">
+
+</head>
+  
+<body>
+  
+ 	 <h1 id="titulo-programas">Contas a pagar<p></h1>
+      
+     <form method="POST" action="contas_pagar.php">
+  
+  		<label>Data de Lancamento:</label><input type="date" name='data'  maxlength="10" size="12" required>
+  		
+  		    <label>Data do Vencimento:</label><input type="date" name='datavenc' maxlength="10" size="12" required>
+  		
+  		        <label>Fornecedor:</label><input type="text" name="fornecedor" maxlength="40" size="40" required>
+  		
+  		          <label>Descrição:</label><input type="text" name='descr' maxlength="30" size="40" required><br><p>
+  		
+  		            <label>Valor R$:</label><input type="text" name='valor' maxlength="10" size="12" required>
+  		
+  		              <label>Parcela Nº:</label><input type="number" name="parcela" maxlength="2" size="2" required>                                                          
+  	 
+<!--<label>Status:</label>  <input type="radio" name='status' value='pagar'>
+              
+               <input type="radio" name='status' value='pago'>pago     -->
+ 
+    
+  
+  <input type="submit" id="btn-salvar" value="Registrar">
+  
+  </form>
+  
+  <h2>&nbsp;</h2>
+
+<br>
+<hr>
+  
+<h2>Consulta</h2>
+     
+<form method="POST" action="consulta_pagar.php">
+  
+  		<input type="radio" name = "busca" value='pagar'>pagar
+  
+  			<input type="radio" name="busca" value='pago'>pago
+  				
+  				<input type="submit" id="btn-pesquisar" value="Pesquisar">
+</form>
+
+</hr>
+
+   <form method="POST" action="menu.php">
+
+<p align ="left"> <input type="submit" id="btn-sair" value="Sair">
+  
+  </body>
+
+</html>
+ 
+
+  
+  
+  

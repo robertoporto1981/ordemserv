@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro empresa</title>
+
+	 <meta charset="utf-8">	
+	
+		<meta lang="pt-br">	
+
+			<link type="text/css" rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body>
+
+	<h1 id="titulo-programas">Cadastro empresa</h1>
+
+<form method="POST" action="form_cadastro_empresa.php">
+
+	<label for="codigo">Codigo:*</label>
+
+	<input type="text" name="codigo" maxlength="2" size="2" required>
+
+	<label for="descricao">Descricao:*</label>
+
+	<input type="text" name="descricao" maxlength="30" size="30" required>
+
+	<label for="endereco">Endereço:</label>		
+
+	<input type="endereco" name="endereco" maxlength="30" size="30" required>
+
+	<label for="numero">Nº</label>
+
+	<input type="text" name="numero" maxlength="8" size="8" required>
+
+	<label for="complemento">Complemento</label>
+
+	<input type="text" name="complemento" maxlength="10" size="10">
+
+	<label for="municipio">Municipio:</label>
+
+	<input type="text" name="municipio" maxlength="30" size="30">
+
+	<label for="uf">UF:</label>
+
+	<input type="text" name="uf" maxlength="2" size="2">
+
+	<label for="cnpj">CNPJ:</label>														
+
+	<input type="text" name="cnpj" maxlength="14" size="14">
+
+	<label for="inscricao">IE:</label>		
+	
+	<input type="text" name="ie" maxlength="14" size="14">	
+
+	<label for="telefone">Telefone:</label>																												
+
+	<input type="text" name="telefone" maxlength="11" size="11">	
+
+	<label for="email">E-mail:</label>		
+
+	<input type="email" name="email" maxlength="30" size="30"><br><p>
+
+<input type="submit" id="btn-salvar" value="INCLUIR"><p>
+
+</form>
+
+<form method="POST" action="menu.php">
+	
+	<input type="submit" id="btn-sair" value="SAIR">
+
+</form>
+
+</body>
+</html>

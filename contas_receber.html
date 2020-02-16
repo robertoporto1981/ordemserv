@@ -1,0 +1,83 @@
+<?php require_once 'testa_login.php'; ?>
+<html lang='pt-BR'>
+
+  <head>
+
+  	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+     
+  		 
+ <title>Conta a receber</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</head>
+  
+<body>
+  
+<h1 id="titulo-programas">Contas a receber</h1><p>
+  
+<!--<p aling ="left"><image src ="images/contasareceber.png" alt=" Smiley face" height="60" width="60"</a>-->
+    
+<form method="POST" action="contas_receber.php">
+    
+  <!--Data do Vencimento:<input type="date" name='datavenc' maxlength="10" size="12" required>-->
+  <label>Data do Vencimento:</label><input type="date" name='datalanc' maxlength="10" size="12" required>
+  
+<label>Cliente:</label><input type="text" name="nome" maxlength="40" size="40" required>
+  
+		<label>Descrição:</label><input type="text" name='descr' maxlength="30" size="40" required><br><p>
+  
+  <!--Valor R$:<input type="text" name='valor' maxlength="10" size="12" required>-->
+  
+  			<label>Parcela Nº:</label><input type="number" name="parcela" maxlength="2" size="2" required> 
+  
+  				<label>Total R$:</label><input type="text" name="total" maxlength="12" size="12" required>  
+                              
+  
+<!-- <label>Status:</label><input type="radio" name='status' value='RECEBER'>Receber
+  
+         <input type="radio" name='status' value='PAGO'>Pago       -->
+  
+ <input type="submit" id="btn-salvar" value="Registrar">
+  
+ </form>
+ 
+ <h2>&nbsp;</h2>
+  
+<br>  
+
+<hr>
+
+ <h2>Consulta</h2>
+     
+ 		<form method="POST" action="consulta_receber.php">
+  
+ 			<input type="radio" name = "busca" value='pago'>Pago
+  
+  				<input type="radio" name="busca" value='receber'>Receber
+  
+  					<input type="submit" id="btn-pesquisar" value="Pesquisar">
+
+  
+  </form>
+
+<hr>  
+
+		<form method="POST" action="menu.php">
+
+			<input type="submit" id="btn-sair" value="Voltar">
+
+</form>
+
+
+
+
+
+  </body>
+
+</html>
+ 
+
+  
+  
+  

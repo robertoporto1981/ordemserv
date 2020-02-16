@@ -1,0 +1,256 @@
+body {
+
+}
+
+@page {
+    size: A4
+  }
+    /* min-width */
+@media screen and (min-width: 900px) {
+  
+}
+ 
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+}
+ 
+/* max device width */
+@media screen and (max-device-width: 480px) {
+    
+}
+
+label{
+
+font-family: Helvetica;
+font-weight:normal;
+font-stretch:normal;
+
+}
+
+
+#logo{
+width:auto;
+height: auto;
+position:static;
+height:100px;
+border:2px solid black;
+
+
+
+}
+
+#cabecalho{
+clear:both;
+float:right;
+margin-right:650px;
+margin-top:5px;
+font-family:Helvetica;
+
+}
+
+#numero-ped{
+clear:both;
+float:right;
+position:static;
+width:160px;
+height:20px;
+margin-top:-60px;
+margin-right:80px;
+
+}
+
+#data{
+clear:both;
+float:right;
+position:static;
+width:160px;
+height:20px;
+margin-top:-40px;
+margin-right:80px;
+
+}
+
+#cnpj{
+position:static;
+width:160px;
+height:20px;
+
+}
+
+#nome-empresa{
+clear:both;
+float:left;
+position:static;
+width:160px;
+height:20px;
+margin-left:580px;
+margin-top:-20px;
+
+}
+
+#emissao{
+clear:both;
+float:left;
+position:static;
+width:200px;
+height:20px;
+margin-top:5pt;
+}
+
+#usuario{
+clear:both;
+float:left;
+position:static;
+width:200px;
+height:20px;
+margin-top:5pt;
+}
+
+#loja{
+clear:both;
+float:left;
+position:static;
+width:200px;
+height:20px;
+margin-top:5pt;
+}
+
+#end{
+clear:both;
+float:left;
+position:static;
+width:200px;
+height:20px;
+margin-left:585px;
+margin-top:-15pt;
+}
+
+#fone-empresa{
+clear:both;
+float:right;
+position:static;
+width:200px;
+height:20px;
+margin-left:1000px;
+margin-top:-14pt;
+
+
+}
+#cnpj-cpf{
+clear:both;
+float:left;
+margin-top:2px;
+
+}
+
+#inc-rg{
+clear:both;
+float:right;
+width:200px;
+height:20px;
+position: static;
+margin-top:-37px;
+
+
+
+}
+
+#vendedor{
+clear:both;
+float:left;
+width:200px;
+height:20px;
+margin-top:2px;
+position: static;
+
+}
+
+#portador{
+clear:both;
+float:right;
+width:200px;
+height:20px;
+position: static;
+margin-top:-22px;
+}
+
+#end-cobranca{
+clear:both;
+float:left;
+width:200px;
+height:20px;
+position: static;
+margin-left:585px;
+margin-top:-10px;
+}
+
+#transportador{
+clear:both;
+float:left;
+width:200px;
+height:20px;
+position: static;
+margin-top:-5px;
+
+}
+
+
+#borda-cliente{
+width:auto;
+height:120px;
+border:1px solid black;
+margin-top:100px;
+
+}
+
+#produtos{
+	margin-top:10px;
+	
+}
+
+td{
+	margin-top:10px;
+	width:1000px;
+	text-align: center;
+	border:1px solid black;
+}
+
+tr{
+
+}
+#total-itens{
+	clear:both;
+	float:left;
+}
+
+#itens{
+	clear:both;
+	position:static;
+	background: silver;
+	margin-top:10px;
+
+}
+
+#vl-pecas{
+	clear:both;
+	float:left;
+	margin-left:600px;
+	margin-top:-15px;
+
+}
+#total-pedido{
+	clear:both;
+	float:right;
+	margin-top:-20px;
+	margin-right:200px;
+	
+}
+
+#total-desconto{
+	clear:both;
+	float:right;
+	margin-top:20px;
+	margin-right:200px;
+	
+}
+

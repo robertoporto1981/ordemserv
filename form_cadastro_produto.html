@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang='pt-BR'>
+
+<head>
+	
+        
+		<meta charset='utf-8'>
+		
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+		
+		<link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
+		
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/> 
+
+		<script src="cadastro_produto.js" ></script>
+
+</head>
+
+<title>Cadastro de produtos</title>
+
+	
+<h1 id="titulo-programas">Cadastro de produtos</h1>
+
+<!--<form method="POST" action="form_cadastro_produto.php">-->
+
+	<form method="POST" action="form_cadastro_produto.php" enctype="multipart/form-data">
+
+	
+
+  	
+		<label for="descricao">Descrição:*</label>
+		
+<input type="text" id="descricao" name ="descricao" maxlength="40"size="40" required>
+
+</div>
+<label>Grupo:</label>
+    
+	<select name="grupo">
+    
+		<option value="CELULARES/TABLETS">CELULARES/TABLETS</option>
+
+		<option value="ELETRONICA">ELETRONICA</option>
+
+        <option value="INFORMATICA">INFORMATICA</option>
+
+		<option value="VIDEOGAMES">VIDEO GAMES</option>
+
+        <option value="OUTROS">OUTROS</option>
+                    
+        <option value="FERROS">FERROS</option>
+                    
+        <option value="ACOS">AÇOS</option>
+                    
+        <option value="TUBOS">TUBOS</option>
+
+		<option value="FERRAMENTAS">FERRAMENTAS</option>              
+
+		<option value="ACESSORIOS">ACESSORIOS</option>
+
+</select>   	
+    
+<label for="codbarras">Cód. de Barras:</label>
+    
+	<input type="text" name="codbarras" maxlength="13" size="13">
+		
+	<label for="quantidade">Quantidade:*</label>
+		
+<input type="text" name="quantidade" maxlength="4" size="4" required>
+    
+<p>
+
+<label>Unidade:</label>
+    
+    <select name="unidade">
+    
+        <option value="UN">UN</option>
+    
+        	<option value="MM">MM</option>
+    
+       		<option value="CM">CM</option>
+    
+       		<option value="MT">MT</option>
+    
+         	<option value="KG">KG</option>
+      
+			<option value="GR">GR</option>
+      
+      		<option value="BA">BA</option> 
+     
+     		<option value="ML">ML</option>
+      
+      		<option value="LT">LT</option> 
+      
+      		<option value="TL">TL</option> 
+                        
+</select>                  
+           
+ 
+<label for="precocompr">Preço de compra R$:</label>
+        
+<input type="text" id="precocompr" name = "preco_compra" maxlength="7" size="7">
+	
+
+<label for="precovenda">Preço de venda R$:* </label>
+
+<input type="text" id="precovenda" name = "preco_venda" maxlength="7" size="7" required>
+
+<label for="notacompra">Nota de compra nº:</label>
+
+<input type="text" id="notacompra" name = "nota_compra" maxlength="10" size="10">
+			
+<label for="fornecedor">Fornecedor:</label>
+
+<input type="text" id="fornecedor" name = "fornecedor" maxlenght="12" size="12"><p><br>
+		
+		<br>
+
+<form method="post" enctype="multipart/form-data">
+
+   <input name="arquivo" type="file" />
+   
+   <br />
+   
+
+
+
+
+<br>		
+		
+	<input type="submit" id="btn-salvar" value="Salvar">
+	
+	<input type="reset" id="btn-limpar" value="Limpar">
+      
+
+<hr>	        
+
+</form>
+
+
+
+ <form method="POST" action="menu.php">
+
+  <p align ="left"><input type="submit" id="btn" value="voltar">
+
+</form>
+
+</body>
+
+</html>

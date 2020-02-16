@@ -1,0 +1,104 @@
+<?php session_start() ?>
+
+<?php $usuario = $_SESSION['login'] ?>
+
+<?php require_once 'testa_login.php'; ?>
+
+<!DOCTYPE html>
+
+<html lang='pt-BR'>
+	
+	<head>
+		
+		<meta charset="uft-8">
+	
+			<link type="text/css" rel="stylesheet" href="stylesheet.css">
+
+				</head>
+
+<body>
+
+<h1 id="titulo-programas">Consulta OS</h1>
+
+	<div id="consulta_campo">		
+
+		<form method="POST" action="pesquisa_os.php">		
+				
+		
+
+		<!--<input type="text" id="consultaos" name = "os" size="2"> -->
+
+		<label>Numero OS:</label>
+
+			<input type="text" id="consultaos" name="os" placeholder="Buscar..." size="6">
+
+		<!--input type='image' src="images/lupa.png" width ="15px" height="14">-->
+
+				<label>Filtro</label>
+
+	 <select name="status">    
+
+				<option selected value="%%%">Todas</option>
+  		 
+				<option value="ABERTO">Em aberto</option>
+
+    			<option value="ORCAMENTO">Orcamento</option>
+    
+    				<option value="EM ANDAMENTO">Em andamento</option>
+    
+    					<option value="AGUARDANDO APROVACAO">Aguardando aprovacao</option>
+    
+    						<option value="AGUARDANDO PECAS">Aguardando pecas</option>
+    
+    							<option value="APROVADO">Aprovado</option>
+                    
+                    <option value="FINALIZADO">Finalizado</option>                  
+    
+    <option value="NAO APROVADO">Nao aprovado</option>
+           
+    <option value="GARANTIA">Garantia</option>
+    
+    <option value="SEM CONSERTO">Sem conserto</option>
+
+    <option value="CANCELADO">Cancelado</option>
+
+    
+</select>     
+  
+<input type='image' src="images/lupa.png" width ="15px" height="14"> 
+	
+</div>
+
+</form>
+
+<div id="consulta_campo2">
+
+	<form method="POST" action="pesquisa_os2.php">
+
+			<!--<input type="text" id="consultaos" name = "nome" size="60"> -->
+ 	<label>Nome:</label>
+
+ 		<input type="text" placeholder="Buscar..." size="60" name="nome">
+
+					<input type='image' src="images/lupa.png" width ="15px" height="14">
+  
+
+				</div>
+
+</form>
+
+
+
+<br>
+
+<br>
+
+<hr>
+
+<input type="button" id="btn-sair" onclick="window.close()" value="Sair" />
+
+<a href="javascript:void()" onclick="window.close()">
+
+</body>
+
+</html>

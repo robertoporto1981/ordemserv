@@ -1,0 +1,28 @@
+body{
+  max-width: 900px;
+	margin:10px;
+	border:solid;
+		
+}
+
+input{
+	background-color: silver;
+}
+#titulo-recibo{
+	text-align: center;
+
+}
+
+
+
+#receb {
+   float: right;
+   border: 1px solid #000;
+   border-radius: 1px;
+   background: silver;
+   padding: 2px 2px 2px 2px;
+
+   
+
+}
+

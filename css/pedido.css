@@ -1,0 +1,316 @@
+body {
+margin:7pt;
+font-size:11px;
+
+           
+}
+    /* min-width */
+@media screen and (min-width: 900px) {
+  
+}
+ 
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  
+}
+ 
+/* max device width */
+@media screen and (max-device-width: 480px) {
+    
+}
+
+#head{
+	border:2px solid black;
+	text-align:center;
+	font-family:Open Sans;
+	font-weight: bold;
+	font-size:medium;
+	/*background-color: #0E32CC;*/
+	color:black;
+	
+}
+
+input{
+	background-color:silver;
+	font-weight:normal;
+	box-shadow: 5px;
+
+
+
+
+}
+
+hr{
+
+  background-color:black;
+}
+
+#box1{
+
+	border:1px solid black;
+}
+
+#titulo-pedido{
+text-align:center;
+background-color: black;
+color:white;
+
+}
+
+
+
+
+#dados-cliente{
+	font-weight: bold;
+  
+}
+
+#formulario{
+	max-width:auto;
+	max-height:auto;
+   font-weight:bold;
+}
+
+#borda{
+
+	text-align: center;
+}
+
+#produtos{
+	border:1px solid black;
+	font-weight: bold;
+	color:black;
+}
+
+#btn-inserir{
+	clear:both;
+	float:left;
+	position:static;
+	margin-top:-22pt;
+	margin-left: 1pt;
+}
+
+#pedido-campos-busca{
+	clear:both;
+	float:left;
+	margin-left:35pt;
+	
+}
+
+#descricao{
+	clear:both;
+	float:left;
+	position:static;
+	margin-top:-20pt;
+	margin-left:200pt;
+	font-weight:bold;
+  color:red;
+	
+
+}
+
+#quantidade{
+	clear:both;
+	float:left;
+	position: static;
+	font-size:12pt;
+	margin-left:490pt;
+	margin-top:-20pt;
+}
+
+#input-quantidade{
+	clear:both;
+	float:left;
+	position:static;
+	margin-left:515pt;
+	margin-top:-20pt;
+	background-color: red;
+}
+
+#valr-unit{
+	clear:both;
+	float:left;
+	position:static;
+	margin-left:590pt;
+	margin-top:-20pt;
+		
+}
+
+#valor-unit{
+	clear:both;
+	float:left;
+	position:static;
+	margin-left:622pt;
+	margin-top:-20pt;
+	background-color:silver;
+	color:red;	
+}
+
+#btn-quantidade{
+
+}
+
+#desconto{
+	clear:both;
+	position:static;
+	font-size:12pt;
+	margin-left:660pt;
+	margin-top:-20pt;
+	color:red;
+
+}
+#input-desconto{
+	clear:both;
+	float:left;
+	position:static;
+	margin-left:510pt;
+	margin-top:-20pt;
+	background-color: red;
+}
+
+
+
+
+#total-unitario{
+	clear:both;
+	float:left;
+	position:static;
+	margin-left:760pt;
+	margin-top:-20pt;
+
+}
+
+#subtotal{
+	clear:both;
+	float:left;
+	position:static;
+	margin-left:790pt;
+	margin-top:-20pt;
+	color:red;
+	background-color:silver;
+}
+
+#btn-lixeira{
+	clear:both;
+	float:left;
+	position:static;
+	margin-top:-20pt;
+}
+
+#grade-produtos{
+	position:static;
+	text-align: left;
+	font-weight: bold;
+	color:black;
+
+}
+
+
+div#lista-produtos{
+  margin-top:5pt;
+  max-width: auto;
+  max-height: auto;
+  overflow-y: scroll;
+  font-size:small;
+}
+
+table {
+  max-width:auto;
+  max-height:auto;
+}
+
+#coluna-item{
+
+}
+
+#coluna-codigo{
+}
+
+#coluna-produto{
+	
+}
+
+#coluna-quantidade{
+
+
+}
+
+#coluna-unitario{
+
+}
+
+#coluna-unitario{
+
+}
+
+#coluna-total{
+
+
+	
+	
+}
+
+#observacoes{
+    font-weight:bold;
+	color:black;
+	clear:both;
+	float:left;
+	position:static;
+
+
+}
+
+#total-pedido{
+	clear:both;
+	float:right;
+	position:static;
+	font-weight:bold;
+	font-family: sans-serif;
+	font-size: 30px;
+	color:black;
+	margin-top:-100px;
+	margin-right:500px;
+}
+
+#total{
+	clear:both;
+	float:right;
+	position:static;
+	color:red;
+}
+
+#forma-pagamento{
+	clear:both;
+	float:left;
+	margin-left:400px;
+	position:static;
+	
+	
+}
+
+#cancela-pedido{
+	clear:both;
+	float:right;
+	margin-right:320px;
+	margin-top:-30px;
+	position:static;
+	
+}	
+
+#finalizar-pedido{
+	clear:both;
+	float:right;
+	margin-right:140px;
+	margin-top:-30px;
+	position:static;
+}
+
+#totalitens{
+	clear:both;
+	float:left;
+	font-weight:bold;
+	color:black;
+	font-size:30px;
+	margin-top:-150px;
+	margin-left:400px;
+}

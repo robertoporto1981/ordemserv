@@ -1,0 +1,19 @@
+<?php
+
+	include 'form_cadastro_cliente.php';
+
+$cliente = $_POST['cliente'];
+	
+		
+	
+$strcon = mysqli_connect('localhost','root','','aula') or die('Erro ao conectar ao banco de dados');
+
+$sql = "select * from clientes where "('$cliente')"; 
+	
+		
+mysqli_query($strcon,$sql) or die ("Erro ao consultar!");
+
+mysqli_close($strcon);
+
+
+?>

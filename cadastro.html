@@ -1,0 +1,48 @@
+<?php require_once 'testa_login.php' ?>
+
+<html>
+
+<head>
+  
+  <meta lang="pt-br">
+	   
+     <meta charset="utf-8">
+
+	<link type="text/css" rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<title> Cadastro de Usuários </title>
+
+<body>
+
+	<h1 id="titulo-programas">Cadastro de usuários</h1>
+
+<div class="altera-login">
+
+
+<form method="POST" action="cadastro.php"><p>
+		
+<label>Nome:</label><input type ="text" name="nome" id="nome" maxlength="20" size="20">
+
+<p><label>Login:</label><input type="text" name="login" id="login"><br><p>
+		
+		    <label>Senha:</label><input type="password" name="senha" id="senha"><br><p>
+		
+<input type="submit" id="btn-salvar" value="Cadastrar" id="cadastrar"  name="cadastrar">
+
+</form>
+
+
+
+<form method="POST" action="menu.php">
+
+<input type="submit" id="btn-sair" value="Sair">
+
+</div>
+
+</form>
+
+</body>
+
+</html>

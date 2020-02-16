@@ -1,0 +1,256 @@
+
+    /* min-width */
+@media screen and (min-width: 992px) {
+           
+}
+ 
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+           
+}
+ 
+/* max device width */
+@media screen and (max-device-width: 480px) {
+           
+}
+
+/* max device width */
+@media screen and (max-device-width: 640px) {
+           
+}
+
+
+
+
+
+body{
+  
+  margin-top:-10px;
+    
+  
+} 
+ 
+.sub-menu {
+    margin: 0;
+    padding: 0;
+    text-align:center;
+}
+
+.clearfix:after{
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.menu,
+.sub-menu {
+    list-style: none;
+    background: #000;
+}
+.sub-menu {
+    background: #444;
+
+}
+.menu a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.menu li {
+    position: relative;
+}
+.menu > li {
+    float: left;
+}
+.menu > li:hover {
+    background: #444;
+}
+.menu li:hover > .sub-menu {
+    display: block;
+}
+.sub-menu {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+}
+.sub-menu li:hover {
+    background: #555;
+}
+.sub-menu .sub-menu {
+    top: 0;
+    left: 100%;
+}
+
+#borda-alertas{
+border:2px solid black;
+width:auto;
+height:auto;
+
+
+}
+
+#saudacao{
+  position:static;
+  margin-top:-10pt;
+  margin-left:10px;
+  font-weight:normal;
+   
+     
+}
+
+#data{
+clear:both;
+position:static;
+float:right; 
+margin-top:-30pt;
+
+
+
+}
+
+#mensagem-os {
+  width:auto;
+  height:30px;
+  border-radius:8px;
+  text-align:left;
+  color:blue;
+  padding: 2px 2px 6px 5px;
+
+  }
+  
+  #mensagem-os2 {
+  width:auto;
+  height:30px;
+  border-radius:8px;
+  text-align:left;
+  color:white;
+  padding: 2px 2px 6px 5px;
+
+  }
+
+#mensagem-receber {
+  width:auto;
+  height:30px;
+  margin-top:-60px;
+  text-align:center;
+  padding: 2px 2px 2px 300px;
+  float:left;
+  color:green;
+  
+ 
+}
+
+#mensagem-receber2 {
+  width:auto;
+  height:30px;
+  margin-top:-60px;
+  text-align:center;
+  padding: 2px 2px 2px 300px;
+  float:left;
+  color:white;
+ 
+}
+
+#mensagem-pagar {
+  width:auto;
+  height:30px;
+  margin-top:-60px;
+  text-align:center;
+  padding: 2px 2px 2px 600px;
+  float:left;
+  color:red;
+ 
+}
+
+#mensagem-pagar2 {
+  width:auto;
+  height:30px;
+  margin-top:-58px;
+  text-align:center;
+  padding: -20px -50px -15px -300px;
+  float:center;
+  color:red;
+ 
+}
+
+#alerta{
+  
+  text-align: center;
+  font-family:Verdadana, Sans-serif, serif;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background:black;
+  color:white;
+  
+}
+
+#avisos-importantes{
+margin-top:-2px;
+position:static;
+background-color:#AF0000;
+border:2px solid black;
+color:white;
+text-align:center;
+
+
+}
+
+#campo-contas-receber{
+margin-top:15px;
+width:400px;
+height:auto;
+border:2px solid black;
+
+}
+
+#aniversariante-do-dia{
+clear:both;
+float:right;
+position:static;
+margin-right:500px;
+margin-top:-120px;
+width:400px;
+height:auto;
+border:2px solid black;
+
+}
+
+#alerta2{
+margin-top:-2px;
+color:white;
+background-color:#AF0000;
+border:2px solid black;
+font-family:Verdadana, Sans-serif, serif;
+text-align:center;
+
+
+}
+
+#corpo{
+
+
+
+}
+
+#border{
+
+border: 3px solid black;
+
+}
+
+
+
+
+
+
+

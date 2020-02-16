@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NewDataSet>
+<Table>
+    <Transacao_ID>76BFBF9A-9BD9-4336-BEEA-2841D0ECFAAB</Transacao_ID>
+    <Cliente_Nome>Venda com leitor de chip e senha</Cliente_Nome>
+    <Debito_Credito>Crédito</Debito_Credito>
+    <Tipo_Transacao>Pagamento</Tipo_Transacao>
+    <Status>Aprovada</Status>
+    <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+    <Valor_Bruto>276,0000</Valor_Bruto>
+    <Valor_Desconto>0,0000</Valor_Desconto>
+    <Valor_Taxa>15,4300</Valor_Taxa>
+    <Valor_Liquido>260,5700</Valor_Liquido>
+    <Data_Transacao>12/10/2019 16:52:05</Data_Transacao>
+    <Data_Compensacao>12/10/2019 01:00:00</Data_Compensacao>
+    <Parcelas>3</Parcelas>
+    <Codigo_Usuario>581118</Codigo_Usuario>
+    <Codigo_Venda>495485</Codigo_Venda>
+    <Serial_Leitor>6A432457</Serial_Leitor>
+    <Recebimentos>1</Recebimentos>
+    <Recebidos>1</Recebidos>
+    <Valor_Recebido>260,5700</Valor_Recebido>
+    <Valor_Tarifa_Intermediacao>0,0000</Valor_Tarifa_Intermediacao>
+    <Valor_Taxa_Intermediacao>15,4300</Valor_Taxa_Intermediacao>
+    <Valor_Taxa_Parcelamento>0,0000</Valor_Taxa_Parcelamento>
+    <Valor_Tarifa_Boleto>0,0000</Valor_Tarifa_Boleto>
+    <Bandeira_Cartao_Credito>MasterCard</Bandeira_Cartao_Credito>
+</Table>
+<Table>
+    <Transacao_ID>86F72FB9-DC59-4DFF-91B7-A037E37BA9EB</Transacao_ID>
+    <Cliente_Nome>Venda com leitor de chip e senha</Cliente_Nome>
+    <Debito_Credito>Crédito</Debito_Credito>
+    <Tipo_Transacao>Pagamento</Tipo_Transacao>
+    <Status>Aprovada</Status>
+    <Tipo_Pagamento>Cartão de Débito</Tipo_Pagamento>
+    <Valor_Bruto>200,0000</Valor_Bruto>
+    <Valor_Desconto>0,0000</Valor_Desconto>
+    <Valor_Taxa>4,7800</Valor_Taxa>
+    <Valor_Liquido>195,2200</Valor_Liquido>
+    <Data_Transacao>12/10/2019 16:50:21</Data_Transacao>
+    <Data_Compensacao>13/10/2019 01:00:00</Data_Compensacao>
+    <Parcelas>1</Parcelas>
+    <Codigo_Usuario>581118</Codigo_Usuario>
+    <Codigo_Venda>356848</Codigo_Venda>
+    <Serial_Leitor>6A432457</Serial_Leitor>
+    <Recebimentos>1</Recebimentos>
+    <Recebidos>1</Recebidos>
+    <Valor_Recebido>195,2200</Valor_Recebido>
+    <Valor_Tarifa_Intermediacao>0,0000</Valor_Tarifa_Intermediacao>
+    <Valor_Taxa_Intermediacao>4,7800</Valor_Taxa_Intermediacao>
+    <Valor_Taxa_Parcelamento>0,0000</Valor_Taxa_Parcelamento>
+    <Valor_Tarifa_Boleto>0,0000</Valor_Tarifa_Boleto>
+</Table>
+<Table>
+    <Transacao_ID>75942D58-6AF8-4547-A34A-7D8317291231</Transacao_ID>
+    <Cliente_Nome>ROBERTO JUNIOR PORTO</Cliente_Nome>
+    <Cliente_Email>roberto.porto@outlook.com</Cliente_Email>
+    <Debito_Credito>Débito</Debito_Credito>
+    <Tipo_Transacao>Saque</Tipo_Transacao>
+    <Status>Aprovada</Status>
+    <Valor_Bruto>455,7900</Valor_Bruto>
+    <Valor_Desconto>0,0000</Valor_Desconto>
+    <Valor_Taxa>0,0000</Valor_Taxa>
+    <Valor_Liquido>455,7900</Valor_Liquido>
+    <Data_Transacao>15/10/2019 19:26:15</Data_Transacao>
+    <Data_Compensacao>15/10/2019 19:26:15</Data_Compensacao>
+    <Parcelas>1</Parcelas>
+    <Recebimentos>0</Recebimentos>
+    <Recebidos>0</Recebidos>
+    <Valor_Recebido>0,0000</Valor_Recebido>
+    <Valor_Tarifa_Intermediacao>0,0000</Valor_Tarifa_Intermediacao>
+    <Valor_Taxa_Intermediacao>0,0000</Valor_Taxa_Intermediacao>
+    <Valor_Taxa_Parcelamento>0,0000</Valor_Taxa_Parcelamento>
+    <Valor_Tarifa_Boleto>0,0000</Valor_Tarifa_Boleto>
+</Table>
+</NewDataSet>
