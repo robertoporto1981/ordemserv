@@ -1,7 +1,7 @@
 <?php session_start() ?>
 
 <?php
-require_once 'conexao.php'
+require_once 'conexao.php';
 
 require_once 'time_zone.php';
 
