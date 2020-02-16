@@ -38,26 +38,23 @@ while ($contasareceber = mysqli_fetch_array($consulta)){
     $vencimento = $contasareceber[2];
 
     $valor = $contasareceber[6];
-    
+
     $parcela = $contasareceber[7];
-    
+
     $total = $contasareceber[8];
 
-}
-     
-} 
-  
-  
+
 ?>
-     
+
+
 <html lang='pt-BR'>
 
      <head>
 
            <meta charset="utf-8">
-      
+
       <title>Comprovante</title>
-      
+
         <link type="text/css" rel="stylesheet" href="css/stylesheet.css">
 
     </head>

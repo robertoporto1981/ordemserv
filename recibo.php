@@ -12,6 +12,8 @@ $mes = date('m');
 
 $ano = date('Y');
 
+//Conexao com banco
+require_once 'conexao.php';
 
 
 if($mes == 01){
@@ -70,21 +72,15 @@ if($mes == 01){
 
 <?php
 
-// Conexão ao banco
-   
-$link = mysql_connect('localhost','root','');
-
 // Seleciona o Banco de dados através da conexão acima
 
-$conexao = mysql_select_db('aula',$link); 
-
-$sql = "SELECT * FROM empresa   ";
+$sql = "SELECT * FROM empresa";
 
 
-$consulta = mysql_query($sql);
+$consulta = mysqli_query($conexao,$sql);
 // Armazena os dados da consulta em um array associativo
 
-while($registro = mysql_fetch_assoc($consulta)){
+while($registro = mysqli_fetch_assoc($consulta)){
 
 		$empresa = $registro['descricao'];
 
@@ -102,7 +98,6 @@ while($registro = mysql_fetch_assoc($consulta)){
 
 <head>
 
- 
 <meta charset='utf-8'>
 
 	<link type="text/css" rel="stylesheet" href="css/recibo.css"/>
@@ -114,9 +109,8 @@ while($registro = mysql_fetch_assoc($consulta)){
 
 
 <div id="recibo">
-	
-	<h2 id="titulo-recibo">RECIBO</h2>				
- 	
+	<h2 id="titulo-recibo">RECIBO</h2>
+
 
 <hr>
 
@@ -129,7 +123,7 @@ while($registro = mysql_fetch_assoc($consulta)){
 <p>Recebi(emos) de <b><?php echo $nome ?></b></p>
 
 <p>A importância de R$<input type="text" name="valor" maxlength="6" size="6">,&nbsp;<input type ="text" name ="importancia" maxlength="30" size="30"></p>
- 
+
 <p>Referente a&nbsp;<input type="text" name="ref" maxlength="300" size="100"></p>
 
 <p>Canoas,&nbsp;<?php echo $dia ?>&nbsp;de&nbsp;<?php echo $mes ?>&nbsp;<?php echo $ano ?>. </p>
@@ -141,11 +135,11 @@ while($registro = mysql_fetch_assoc($consulta)){
 
 <p>CNPJ:<b><?php echo $cnpj ?></b></p>	                 <p>Celular:<b><?php echo $telefone ?></b></p>
 
-<p>IE:<b><?php echo $ie ?></b></p> 	
+<p>IE:<b><?php echo $ie ?></b></p>
 
 <hr>
 
-	
+
 
 <!--<form>
 
