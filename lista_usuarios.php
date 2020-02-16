@@ -5,64 +5,43 @@
 <html lang='pt-BR'>
 
 <head>
-			
-	<link type="text/css" rel="stylesheet" href="stylesheet.css">
 
+<!--<link type="text/css" rel="stylesheet" href="stylesheet.css">-->
+	<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
 <body>
-		    
+<div class ="container">
+
 <title>Usuarios</title>
 
-<h1 id="titulo-programas">Usuarios</h1>  
-
-<div id="usuarios">
-
-<div id="btn-usuarios-novo">
+<h1>Usuários</h1>  
 
 	<form method="POST"  action="cadastro.html">
 
-		<input type="submit" id="btn" value="NOVO">
+		<input type="submit" class="btn btn-success" value="NOVO">
 
 	</form>
-
-</div>
- 
-
-
-<div id="btn-usuarios-voltar">
 
 	<form method="POST" action="menu.php">
 
-		<p align ="left"><input type="submit" id="btn" value="VOLTAR">
+		<p align ="left"><input type="submit" class="btn btn-dark" value="VOLTAR">
 
 	</form>
-
-</div>	
-
-
 
 <?php
 
 // Conexão ao banco
+require_once 'conexao.php';
 
-require_once 'conexao.php' ;
- 
- $usuario = $_SESSION['login'];
-
-
-
+$usuario = $_SESSION['login'];
 
 $sql = "SELECT * FROM usuarios order by id asc ";
 
-
 $consulta = mysqli_query($conexao,$sql);
- 
 
+			echo '<font face="verdana"><table border  class="table" style="width:60%">';
 
-echo '<font face="verdana"><table border style="width:100%">';
-
-			
 			echo '<tr>';
 
 			echo '<td id="borda">#</td>';
@@ -77,9 +56,13 @@ echo '<font face="verdana"><table border style="width:100%">';
 
 			echo '</tr>';
 
+			echo '</thead>';
+
 // Armazena os dados da consulta em um array associativo
 
 while($registro = mysqli_fetch_assoc($consulta)){
+
+			echo '<thead class="thead-light">';
 
 			echo '<tr>';
 
@@ -89,14 +72,12 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 			echo '<td id="campos">'.$registro["nome"].'</td>';
 
-			echo '<td id="campos">'.$registro["login"].'</td>';        
-   
+			echo '<td id="campos">'.$registro["login"].'</td>';
+
 			echo '</tr>';
 }
 
 			echo '</table>';
-
-
 
 
 
