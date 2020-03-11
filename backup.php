@@ -43,7 +43,7 @@ $sql = "UPDATE BACKUP SET databackup = '$data'";
 	
 echo"<script language='javascript' type='text/javascript'>alert('Backup efetuado com sucesso!');window.location.href='menu.php'</script>";	
 
-
+//
 
 
 mysqli_query($conexao,$sql) or die ("Erro ao gerar SQL!");
