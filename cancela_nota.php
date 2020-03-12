@@ -14,7 +14,6 @@ echo"<script language='javascript' type='text/javascript'>alert('Cupom cancelado
  
  mysqli_close($conexao);
 
-
 ?>
 
 <?php //session_destroy() ?>
