@@ -1,7 +1,7 @@
 <?php session_start () ?>
 
 <?php
- 
+// 
 $usuario = $_SESSION['login'];
   
 if(isset($_SESSION['login'])){
@@ -14,7 +14,7 @@ if(isset($_SESSION['login'])){
       
  }  
   
-  $codigo = $_SESSION['codigo'];
+$codigo = $_SESSION['codigo'];
 
 $descricao = $_POST['descricao'];
 
