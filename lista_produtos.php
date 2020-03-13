@@ -72,26 +72,22 @@ if(isset($_SESSION['login'])){
  		echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
       
 }
-
-  
-
-
 //SQL
 $sql = "SELECT * FROM produto order by cod asc";
 
 $consulta = mysqli_query($conexao,$sql);
 
- 	echo '<table border style="width:100%">';
+    echo '<table border style="width:100%">';
 
     echo '<tr>';
 
-	echo '<td id="borda"></td>';
+	  echo '<td id="borda"></td>';
 
-	echo '<td id="borda">IMAGEM:</td>';  
+	  echo '<td id="borda">IMAGEM:</td>';  
 
     echo '<td id="borda">CODIGO:</td>';
 
-	echo '<td id="borda">PRODUTO:</td>';
+	  echo '<td id="borda">PRODUTO:</td>';
 
     echo '<td id="borda">QUANTIDADE:</td>';
        

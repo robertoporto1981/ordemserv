@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html>
 	<head>
 
@@ -10,20 +12,15 @@
 </body>
 
 <?php
-// Conexão ao banco
 
-   session_start(); 
-
+//Session
 $usuario = $_SESSION['login'];
 
 //Conexao
 
 require_once 'conexao.php';
 
-
-
 $sql = "SELECT * FROM servicos where usuario = '$usuario' order by descricao asc";
-
 
 $consulta = mysqli_query($conexao,$sql);
 
@@ -44,7 +41,6 @@ $consulta = mysqli_query($conexao,$sql);
 
 while($registro = mysqli_fetch_assoc($consulta)){
 
-
 		echo '<tr>';
 
 		echo '<td>'.$registro["cod"].'</td>';
@@ -56,11 +52,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 		echo '</tr>';
   
 }
-
 		echo '</table>';
-
-}
-
 
 
 ?>

@@ -33,7 +33,7 @@ $consulta = mysqli_query($conexao,$sql);
 		echo '<td id="borda">VALOR R$:</td>';
 
 		echo '</tr>';
-
+    
 
 // Armazena os dados da consulta em um array associativo:
 
@@ -54,7 +54,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 		$ano = substr("$Data",4,8);
    
-    $data = "$dia/$mes/$ano";
+	    $data = "$dia/$mes/$ano";
 
 
 	  echo '<td id="campos">'.$data.'</td>';
@@ -73,24 +73,17 @@ while($registro = mysqli_fetch_assoc($consulta)){
 }
 		echo '</table>';
 
-
-
-
-
 $sql2 ="SELECT sum(valor) FROM entradasaidas where tipo ='Entrada'"; 
      
       $query = mysqli_query($conexao,$sql2);
    
-      while ($exibir = mysql_fetch_array($query)){
+      while ($exibir = mysqli_fetch_array($query)){
    
       $Totalentrada = $exibir['0'];
 
       $totalentrada =  number_format($Totalentrada, 2, '.', '');
 
-
 }
-
-
 
 ?>
 
@@ -100,15 +93,13 @@ $sql3 ="SELECT sum(valor) FROM entradasaidas where tipo ='Saida'";
      
       $query = mysqli_query($conexao,$sql3);
    
-      while ($exibir = mysql_fetch_array($query)){
+      while ($exibir = mysqli_fetch_array($query)){
    
       $Totalsaida = $exibir['0'];
 
       $totalsaida =  number_format($Totalsaida, 2, '.', '');
 
-
 }
-
 
 
 ?>
