@@ -4,7 +4,7 @@
 		
 		<link type="text/css" rel="stylesheetcss" href="stylesheet.css"/>
 
-	</head>
+</head>
 
 <body>    
 
@@ -24,8 +24,9 @@ $dia = date('d');
 
 
 //Executa script de backup:                               	
-exec("C:\Program Files (x86)\EasyPHP-DevServer-14.1VC9\data\localweb\projects\ordemserv\app\backup.bat");
 
+//Caminho Xampp
+exec("C:/xampp/htdocs/projects/ordemserv/app/backup.bat");
 
 //Local onde gera BKP do banco de dados:
 $caminho_bkp = "C:/Backup/bk$dia.rar";

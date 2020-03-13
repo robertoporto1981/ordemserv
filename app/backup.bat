@@ -24,7 +24,7 @@
 
 if not exist c:\Backup md c:\Backup   
 
-"C:\Program Files (x86)\EasyPHP-DevServer-14.1VC9\data\localweb\projects\ordemserv\app\mysqldump" -u root db01 > c:\backup\%BACKUP_FILE%.sql 
+"C:\xampp\mysql\bin\mysqldump" -u root db01 > c:\backup\%BACKUP_FILE%.sql 
 
 rar a C:\BACKUP\%BACKUP_FILE%.rar  C:\backup\*.sql
 

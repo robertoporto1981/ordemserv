@@ -137,9 +137,9 @@ if($registro['imagem'] == TRUE){
     
     }
     
-    echo '<td id="campos">R$'. $valor .'</td>';
+    echo '<td id="campos">R$'. $valor .'</td>';        
+   
 
-    
     echo '<td id="campos">R$'.number_format($registro["preco_venda"], 2, ',', '').'</td>';
 
     echo '</tr>';
