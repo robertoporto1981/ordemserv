@@ -10,10 +10,7 @@ echo $datainicial;
 
 require_once 'conexao.php';
 
-
-
 $sql = "SELECT * FROM entradasaidas order by codigo asc";
-
 
 $consulta = mysqli_query($conexao,$sql);
 

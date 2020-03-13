@@ -1,6 +1,4 @@
-<?php session_start() ?>
-
-
+<?php session_start();?>
 
 <html lang='pt-BR'>
 	
@@ -82,13 +80,9 @@ while($registro = mysqli_fetch_assoc($consulta)){
                      
     echo '<td id="campos">'.$registro["cod"].'</td>';    
 
-    echo '<td id="campos">'.$registro["descricao"].'</td>';
-                     
-
+    echo '<td id="campos">'.$registro["descricao"].'</td>';                    
          
-    echo '<td id="campos">'.$registro['quantidade'].'</td>'; 
-     
-     
+    echo '<td id="campos">'.$registro['quantidade'].'</td>';  
 
     echo '<td id="campos">'.$registro["unidade"].'</td>';
   
@@ -99,9 +93,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
     echo '</tr>';
 
 }
-
     echo '</table>';
-
 
 
 ?>

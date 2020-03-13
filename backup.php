@@ -53,8 +53,6 @@ mysqli_query($conexao,$sql) or die ("Erro ao gerar SQL!");
 	
 	echo "Nao foi possivel gerar arquivo de backup!";
 }
-	  
-
 	
 mysqli_close($conexao);
 	
