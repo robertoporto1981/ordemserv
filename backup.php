@@ -21,8 +21,6 @@ $data = date('d/m/Y');
 
 $dia = date('d');
 
-
-
 //Executa script de backup:                               	
 
 //Caminho Xampp
