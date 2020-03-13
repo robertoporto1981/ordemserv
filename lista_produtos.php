@@ -130,9 +130,17 @@ if($registro['imagem'] == TRUE){
   
     echo '<td id="campos">'.$registro["unidade"].'</td>';
   
-    echo '<td id="campos">R$'.number_format($registro["preco_compra"], 2, ',', '').'</td>';
+    //Alteração Felipe
+    if(trim($registro["preco_compra"] != "")){
+     
+      $valor = number_format($registro["preco_compra"], 2, ',', '');
+    
+    }
+    
+    echo '<td id="campos">R$'. $valor .'</td>';
 
-  	echo '<td id="campos">R$'.number_format($registro["preco_venda"], 2, ',', '').'</td>';
+    
+    echo '<td id="campos">R$'.number_format($registro["preco_venda"], 2, ',', '').'</td>';
 
     echo '</tr>';
     
