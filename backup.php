@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-	
-	<head>
-
+		<head>
+		
 		<link type="text/css" rel="stylesheetcss" href="stylesheet.css"/>
 
 	</head>
