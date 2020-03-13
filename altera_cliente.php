@@ -1,7 +1,7 @@
 <?php session_start() ?>
 
 <?php
-
+//
 $usuario = $_SESSION['login'];
   
 //Pega as variaveis metodo post
