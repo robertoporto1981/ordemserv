@@ -1,7 +1,6 @@
 <?php session_start() ?>
 
 <?php
-  
 
 $usuario = $_SESSION['login'];
   
