@@ -44,11 +44,11 @@
 <p>
 <label>Descrição:</label>
 
-<input type="text" name="descr" maxlength="60" size="60" required><br><p>
+<input type="text" name="descr" maxlength="60" size="60" autocomplete="off" required><br><p>
 
 <label>Valor R$:</label>
 
-<input type="text" name="valor" maxlength="9" size="9" required><br>
+<input type="text" name="valor" maxlength="9" size="9" autocomplete="off" required><br>
 	      			                                                                        
 <input type="submit" id="btn-salvar" value="Registrar">
 	

@@ -136,7 +136,7 @@ if($produtobalanca == 000){
 
 <form method="GET" action="#">
 
-    <input type="text" name="busca" class="pedido-campos-busca" placeholder="Produto..." maxlength="13" size="13">
+    <input type="text" name="busca" class="pedido-campos-busca" autocomplete="off" placeholder="Produto..." maxlength="13" size="13">
 
     <a href="lista_produtos_pdv.php"><img src="images/lupa.png" alt="Smiley face" width="30" height="30" align="absbottom"></a>
   
