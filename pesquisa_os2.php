@@ -32,7 +32,7 @@ $usuario = $_SESSION['login'];
 
 //conexao com banco
 
-	   require_once 'conexao.php';
+require_once 'conexao.php';
 
 if(empty($cliente)){
 

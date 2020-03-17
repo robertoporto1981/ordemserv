@@ -1,5 +1,5 @@
 
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 
@@ -66,10 +66,7 @@ include 'conexao.php';
 
   $usuario = $_SESSION['login'];
 
-  $data=date('d/m/Y');  
- 
- 
-
+$data=date('d/m/Y');  
 
 $query = false;     
  	 
@@ -167,7 +164,7 @@ if($produtobalanca == 000){
 <html>
 
 
-	<body>
+<body>
 
 <div id=box1>
 

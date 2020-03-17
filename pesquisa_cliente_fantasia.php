@@ -1,4 +1,4 @@
- <?php session_start() ?>
+ <?php session_start(); ?>
 
 <?php include 'testa_login.php'; ?>
 
@@ -150,9 +150,6 @@ echo '</td>';
 }    
 
   echo'</table>';
-}
-  
-
   
    	
 ?>

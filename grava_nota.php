@@ -37,7 +37,7 @@ $sql = "INSERT INTO itensnota VALUES ";
 //$sql .= "(' ',' ','$codigoproduto','$descr','$quantidade', '$preuni', '$total','$data')";
 
 $sql .= "(' ',' ','$codigoproduto','$descr','$quantidade', '$preuni', '$subtotall','$data','')";
-echO $sql;
+
 
 }     
                         
@@ -50,7 +50,7 @@ mysqli_close($conexao);
 
 ?>
 
-<?php session_destroy(); ?>
+<?php// session_destroy(); ?>
 
 
 

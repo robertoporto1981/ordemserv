@@ -56,14 +56,13 @@ $consulta = mysqli_query($conexao,$sql);
 
 			echo '</tr>';
 
-			echo '</thead>';
+			
 
 // Armazena os dados da consulta em um array associativo
 
 while($registro = mysqli_fetch_assoc($consulta)){
 
-			echo '<thead class="thead-light">';
-
+			
 			echo '<tr>';
 
 			echo '<td id="campos"><a href="edita_usuario.php?ID='.$registro["ID"].'"#><img src="images/edit.png"></td>';

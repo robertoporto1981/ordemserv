@@ -1,18 +1,17 @@
-<?php session_start ()?>
+<?php session_start(); ?>
 
 <?php 
 
-		include 'conexao.php';
+include 'conexao.php';
 
-		 $sql2 = "SELECT sum(total) FROM `nota` where numeronota = 0 " ;
+$sql2 = "SELECT sum(total) FROM `nota` where numeronota = 0 " ;
    
-      $query = mysqli_query($conexao,$sql2);
+$query = mysqli_query($conexao,$sql2);
    
-      while ($exibir = mysqli_fetch_array($query)){
+while ($exibir = mysqli_fetch_array($query)){
    
-      $total = $exibir['0'];
+		$total = $exibir['0'];
 }
-
 
 ?>
 

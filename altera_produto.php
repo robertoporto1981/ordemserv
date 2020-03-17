@@ -1,7 +1,11 @@
 <?php session_start(); ?>
 
 <?php
-// 
+
+//Conexao com banco de dados:
+require_once 'conexao.php';
+
+//Session 
 $usuario = $_SESSION['login'];
   
 if(isset($_SESSION['login'])){
@@ -17,7 +21,6 @@ if(isset($_SESSION['login'])){
 $codigo = $_SESSION['codigo'];
 
 $descricao = $_POST['descricao'];
-
 		
 $quantidade = $_POST['quantidade'];
 		
@@ -28,11 +31,6 @@ $preco_venda = $_POST['preco_venda'];
 $nota_compra = $_POST['nota_compra'];
 
 $fornecedor = $_POST['fornecedor'];
-
-//Conexao com banco de dados:
-
- require_once 'conexao.php';
-
   
 $sql = ("UPDATE produto SET descricao = '$descricao', quantidade = '$quantidade',preco_compra = '$preco_compra',   preco_venda = '$preco_venda', nota_compra = '$nota_compra',fornecedor = '$fornecedor' WHERE cod = '$codigo'");
 

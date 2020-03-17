@@ -1,4 +1,4 @@
- <?php session_start() ?>
+ <?php session_start(); ?>
 
  <?php
  
@@ -18,15 +18,11 @@ if(empty($numeroord)){
 
 require_once 'conexao.php';
 
-
-
 // Seleciona o Banco de dados atrav s da conexao acima
-  
-    		
-    $sql = "select * from ordem where numeroord = '$numeroord'";
-
+      		
+$sql = "select * from ordem where numeroord = '$numeroord'";
                                               	     
-    $consulta = mysqli_query($conexao,$sql);
+$consulta = mysqli_query($conexao,$sql);
    
 //Pega dados da consulta e transforma em array
 
@@ -88,7 +84,7 @@ if($status == FINALIZADO) {
    	
 ?>
 
-  <!DOCTYPE html">
+<!DOCTYPE html">
 
 <html lang='pt-BR'>
 

@@ -1,9 +1,9 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php
 //Conexao com banco de dados
 
-		require_once 'conexao.php';
+require_once 'conexao.php';
 	
 //Recebe dados do formulario
 
@@ -39,7 +39,7 @@ mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
 
 mysqli_close($conexao);
       
-	echo"<script language='javascript' type='text/javascript'>alert('Cadastrado com sucesso!');window.location.href='menu.php'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Cadastrado com sucesso!');window.location.href='menu.php'</script>";
 
 ?>
 

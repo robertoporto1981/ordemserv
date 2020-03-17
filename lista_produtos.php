@@ -1,4 +1,4 @@
-<?php   session_start() ?>
+<?php   session_start(); ?>
 
 <?php include 'testa_login.php'; ?>
 
@@ -6,9 +6,7 @@
 	
 	<head>
 
-    <meta charset="utf-8">
-
-    
+    <meta charset="utf-8">    
 
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 

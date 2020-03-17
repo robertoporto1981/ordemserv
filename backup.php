@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 		<head>
@@ -12,6 +14,7 @@
 
 date_default_timezone_set("America/Sao_Paulo");  
 
+$usuario = $_SESSION['login'];
 //Conexao com banco de dados
 
 require_once 'conexao.php';

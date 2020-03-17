@@ -72,7 +72,6 @@ $precoproduto3 = $precoproduto2 / $perce;
 $preco_unit = number_format($precoproduto3, 2, '.', '');
           
 //Conta quantos caracteres tem a variavel codigo:
-
   
 //Se a variavel produtobalanca for = 000 
 

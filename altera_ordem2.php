@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php
      
@@ -77,7 +77,7 @@ if($status == "FINALIZADO"){
  }    
 
 
- //Conecta com o bando de dados:
+//Conecta com o bando de dados:
     
 require_once 'conexao.php';
 	       

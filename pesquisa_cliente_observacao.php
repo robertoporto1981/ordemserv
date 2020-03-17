@@ -1,4 +1,4 @@
- <?php session_start() ?>
+ <?php session_start(); ?>
 
 
 <html lang='pt-BR'>
@@ -145,11 +145,9 @@ while($registro = mysqli_fetch_assoc($consulta)){
 }    
 
   echo'</table>';
-}
   
      	
-?>
-        
+?>   
 	   
      
     <!--<form action="./" id='formulario' method="post">-->  

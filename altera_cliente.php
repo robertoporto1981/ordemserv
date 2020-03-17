@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php
 //
@@ -58,7 +58,7 @@ mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
 	
 mysqli_close($conexao);
 
-		echo"<script language='javascript' type='text/javascript'>alert('Cliente alterado com sucesso!');window.location.href='pesquisa_cliente_cod.php?busca={$codigo}'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Cliente alterado com sucesso!');window.location.href='pesquisa_cliente_cod.php?busca={$codigo}'</script>";
 
 
 ?>

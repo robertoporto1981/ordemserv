@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php require_once 'testa_login.php'; ?>
 
@@ -42,7 +42,7 @@ echo '<font face="verdana"><table border style="width:100%">';
 
 	echo '<tr>';
 
-	echo '<td id="borda"></td>';
+	echo '<td id="borda">#</td>';
 
 	echo '<td id="borda">CLIENTE:</td>';
 
