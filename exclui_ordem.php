@@ -1,9 +1,10 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php
-
+//Session
 $numeroord = $_SESSION['os']; 
-//Conexao
+
+//Conexao com banco de dados
 
 require_once 'conexao.php';
 	           

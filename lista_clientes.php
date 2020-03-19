@@ -119,7 +119,7 @@
 
 <div id="lista-clientes-voltar">
 
-	<form method="POST" action="form_cadastro_cliente.html">
+	<form method="POST" action="menu.php">
 
 		<p align ="left"><input type="submit" id="btn-sair#" value="VOLTAR">
 
@@ -179,7 +179,7 @@ echo '<font face="verdana"><table border style="width:100%">';
 
 			echo '<td id="borda">SITE:</td>';
 
-		 	echo '<td id="borda">WHATSAPP:</td>';
+		 	echo '<td id="borda">WHATSAPP:</td>';             
 
 			echo '</div>';
 
@@ -237,10 +237,8 @@ echo "<td id='campos'><a href='http://api.whatsapp.com/send?1=pt_BR&phone=55".$r
 
 	echo '<td id="campos-naocadastrado">--------------</td>';
 }
-
-
-    
-		echo '</tr>';
+      
+	echo '</tr>';
 		
 }
 

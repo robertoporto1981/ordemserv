@@ -1,5 +1,7 @@
 	
-<?php    
+<?php 
+//Nao apagar esse arquivo, faz parte do exporta clientes.php   
+
     class Conexao {
         private $data = array();
         protected $pdo = null;
@@ -35,7 +37,7 @@
  
         public function conectar() {
             try {
-                $this->pdo = new PDO("mysql:host=localhost;dbname=aula",
+                $this->pdo = new PDO("mysql:host=localhost;dbname=db01",
                                 "root",
                                 "",
                                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

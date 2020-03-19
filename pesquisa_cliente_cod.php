@@ -199,7 +199,7 @@ echo '</td>';
     // ]]>
     }
 </script>
-      <form method="POST" action="form_cadastro_cliente.html">
+      <form method="POST" action="lista_clientes.php">
 
 <p align ="left"> <input type="submit" id="btn-sair" value="Sair">
 

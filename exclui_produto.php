@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php
  
@@ -9,7 +9,7 @@ $usuario = $_SESSION['login'];
                                          
 $codigo = $_SESSION['codigo'];
 
-//Conexao
+//Conexao com banco de dados
 
 require_once 'conexao.php';
                                                                                 

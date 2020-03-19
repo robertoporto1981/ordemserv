@@ -1,5 +1,5 @@
 <?php
-
+//Conexa com banco de dados
 include 'conexao.php';
 
 //Recebo a variavel    

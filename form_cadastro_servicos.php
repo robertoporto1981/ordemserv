@@ -1,7 +1,6 @@
+<?php session_start(); ?>
+
 <?php
-
-   session_start(); 
-
 
  $descricao = $_POST['descricao'];
   
@@ -10,8 +9,6 @@
  $observacoes = $_POST['observacoes'];
   
  $usuario = $_SESSION['login'];
-
- 
    
     
 //Conexao com banco de dados
