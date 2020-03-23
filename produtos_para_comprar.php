@@ -38,7 +38,7 @@ if(isset($_SESSION['login'])){
 }
 
   
-$sql = "SELECT * FROM produto WHERE QUANTIDADE <= 0 order by cod asc";
+$sql = "SELECT * FROM produto WHERE QUANTIDADE <= 0 and QUANTIDADE <> 999999 order by cod asc";
 
    
 
