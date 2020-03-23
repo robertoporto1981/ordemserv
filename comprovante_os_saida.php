@@ -1,11 +1,10 @@
-<?php session_start() ?>      
+<?php session_start(); ?>      
    	
-  <?php
-    
+<?php 
 
 $usuario = $_SESSION['login']; 
 
-	//conexao com banco
+//conexao com banco
 
 require_once 'conexao.php';
 
@@ -21,8 +20,6 @@ require_once 'conexao.php';
 //Faz consulta no banco com a variavel gravada $os
 
 $sql = "select * from ordem where numeroord = '$os'";
-
-
                                               	     
 $consulta = mysqli_query($conexao,$sql);
 	 
@@ -60,10 +57,7 @@ while ($row = mysqli_fetch_array($consulta)) {
 		
 			$mensage = $row[20];
 
-}
-
-
-          
+}          
       
    	
 ?>

@@ -7,6 +7,8 @@
     <meta charset='utf-8'>
 
     <link type="text/css" rel="stylesheet" href="css/estilo.css"/>
+    
+    <link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">
 
 		    <title>Lista</title>
      
@@ -50,23 +52,23 @@ $consulta = mysqli_query($conexao,$sql);
 
  	    echo '<table border style="width:100%">';
 
-      	echo '<tr>';
+      echo '<tr>';
 
-      	echo '<td id="borda"></td>';
+      echo '<td id="borda"></td>';
 
-		echo '<td id="borda">CODIGO:</td>';
+		  echo '<td id="borda">CODIGO:</td>';
 
-		echo '<td id="borda">PRODUTO:</td>';
+		  echo '<td id="borda">PRODUTO:</td>';
 
   		echo '<td id="borda">QUANTIDADE:</td>';
       
-      	echo '<td id="borda">UNIDADE:</td>';
+      echo '<td id="borda">UNIDADE:</td>';
 
   		//echo '<td id="borda">PRECO DE CUSTO:</td>';
 
   		echo '<td id="borda">PRECO DE VENDA:</td>';
 
-      	echo '</tr>';
+      echo '</tr>';
 
 // Armazena os dados da consulta em um array associativo
 

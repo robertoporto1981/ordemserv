@@ -108,7 +108,9 @@ if($produtobalanca == 000){
 
   <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
 
-<link type="text/css" rel="stylesheet" href="css/estilo.css"> 
+  <!--<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">-->
+
+  <link type="text/css" rel="stylesheet" href="css/estilo.css">
    
   <title>PDV</title>
   

@@ -1,17 +1,15 @@
 <?php session_start(); ?>
+
 <?php
 
 //Conexao
 
 require_once 'conexao.php';
 
-
 @header("Content-Type: text/html; charset=utf-8");	
 	//$xml = simplexml_load_file("pagseguro.xml");
 
-	$xml = simplexml_load_file("uploads/pagseguro.xml");
-
-	
+$xml = simplexml_load_file("uploads/pagseguro.xml");	
 
 $sql = 'INSERT INTO entradasaidas VALUES ';
 
@@ -27,7 +25,7 @@ foreach($xml->Table as $Table){
 
 	echo $Table->Valor_Liquido.'<br>';
 
-echo $Table->Data_Transacao.'<br>';
+	echo $Table->Data_Transacao.'<br>';
 
 	echo $Table->Bandeira_Cartao_Credito.'<br>';
 
@@ -57,7 +55,7 @@ echo $Table->Data_Transacao.'<br>';
 
 	$bandeira_cartao = strtoupper($Table->Bandeira_Cartao_Credito);	
        
-$sql.= "('$datatransacao','$tipo','PAG SEGURO','$valor','ROBERTO','$codigotransacao','$bandeira_cartao')";
+	$sql.= "('$datatransacao','$tipo','PAG SEGURO','$valor','ROBERTO','$codigotransacao','$bandeira_cartao')";
 
 }
 

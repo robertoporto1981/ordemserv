@@ -22,15 +22,11 @@ require_once 'conexao.php';
 //Sql
 $sql = "UPDATE usuarios set login = '$login', senha = '$senha' WHERE ID = $id";
 
-
-
 $query = mysqli_query($conexao,$sql);
 
 $array = mysqli_fetch_array($sql);
 
-
 echo"<script language='javascript' type='text/javascript'>alert('Usuario alterado com sucesso!');window.location.href='lista_usuarios.php'</script>";
 
     
-
 ?>

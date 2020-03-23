@@ -17,25 +17,25 @@ if(empty($CODOPER)){
 }
 
     
-  $sql = "UPDATE contasapagar set status ='PAGO' where codoper = $CODOPER";
+$sql = "UPDATE contasapagar set status ='PAGO' where codoper = $CODOPER";
   
   //Pego registro na tabela contasapagar:
 
-  $sql2 = "SELECT * FROM contasapagar WHERE codoper = $CODOPER";
+$sql2 = "SELECT * FROM contasapagar WHERE codoper = $CODOPER";
 
   //echo $sql2;
 
-  $consulta = mysqli_query($conexao,$sql);
+$consulta = mysqli_query($conexao,$sql);
   
 
-  $consulta2 = mysqli_query($conexao,$sql2);
+$consulta2 = mysqli_query($conexao,$sql2);
 
-  while($registro = mysqli_fetch_assoc($consulta2)){
+while($registro = mysqli_fetch_assoc($consulta2)){
 
       
-    $codigo = $registro["codoper"];
+$codigo = $registro["codoper"];
       
-    $descricao = $registro["descr"];
+$descricao = $registro["descr"];
 
     $valor = $registro["valor"];
 

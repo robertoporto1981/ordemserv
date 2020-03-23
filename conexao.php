@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php
 
 $bdServidor = 'localhost';
@@ -6,7 +8,7 @@ $bdUsuario = "root";
 
 $bdSenha = "";
 
-$bdBanco = "db01";
+$_SESSION['banco'] = $bdBanco = "db01";
 
 //Conecta com o banco de dados:
 

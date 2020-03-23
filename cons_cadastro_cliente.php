@@ -15,7 +15,7 @@ mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
 
 mysqli_close($conexao);
 
-	echo"<script language='javascript' type='text/javascript'>alert('Cliente cadastrado com sucesso!');window.location.href='form_cadastro_cliente.html'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Cliente cadastrado com sucesso!');window.location.href='form_cadastro_cliente.html'</script>";
 
 ?>
 

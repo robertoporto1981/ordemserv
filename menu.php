@@ -1,4 +1,4 @@
-<?php  session_start() ?>
+<?php  session_start(); ?>
 
 <?php
 
@@ -7,7 +7,6 @@ include 'conexao.php';
 date_default_timezone_set("America/Sao_Paulo");  
 
 require_once 'testa_login.php';
-
 
 //Data e hora: 
 
@@ -18,6 +17,7 @@ $hora=date('H');
 $minutos=date('i');
    
 $segundos=date('s');   
+
 
 ?>
 
@@ -113,9 +113,7 @@ $segundos=date('s');
                                                                  
 			           <li><a href="lista_clientes.php">Clientes</a></li>
       
-			           <li><a href="lista_produtos.php">Produtos</a></li>
-
-               
+			           <li><a href="lista_produtos.php">Produtos</a></li>               
 
                  <li><a href="produtos_para_comprar.php">Produtos para comprar</a></li>
       
@@ -143,6 +141,8 @@ $segundos=date('s');
 <footer>
 
       <h3 id="saudacao">Olá, <?php echo ucwords($usuario); ?></h3>
+      
+      <?php echo $_SESSION['banco']; ?>
 
           <div id="data">
 
@@ -210,7 +210,6 @@ $mes = date("m");
 
 
 // Seleciona o Banco de dados através da conexão acima
-
       
 $sql = "select * from contasapagar where status = 'pagar'";
       
@@ -242,9 +241,8 @@ $ano = date("Y");
   
 //Mostra contas a receber                                    		
 
-$sql = "SELECT * FROM `contasareceber` WHERE datavenc <= $dia$mes$ano and status = 'RECEBER'";
-
-  
+$sql = "SELECT * FROM `contasareceber` WHERE datavenc = $dia$mes$ano and status = 'RECEBER'";
+ 
 $consulta = mysqli_query($conexao,$sql);
 		
 // Armazena os dados da consulta em um array associativo:
@@ -278,32 +276,22 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
     echo '<hr>';
 
-    echo '<br>';
-
-    
+    echo '<br>';   
 
   //  echo '</div>';
-       
+     
   
     }
 
   }
 
-
-
 echo '</div>';
-
-
-
-
-
 
 
 //Aviso backup:
 
 $dataatual = date('d/m/Y');
-
-                                        
+                                       
 
 $Sql = "SELECT * FROM backup";
   

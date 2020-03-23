@@ -10,34 +10,24 @@
  
  </head>
 
- 		<title>Receber</title>
-
-	 
+ 		<title>Receber</title>	 
   
 <form action="./" id="formulario" method="post">
-
     
     <input type="button" value="Voltar" id="btn" onclick="Acao('menu');">
     
 </form>
 
-
-
 <?php
 	
- 		$usuario = $_SESSION['login'];	
+$usuario = $_SESSION['login'];	
 	
- 		//$busca = $_POST['busca'];
+//$busca = $_POST['busca'];
     
     $busca = "pago";
     
 //Conexao      	
 require_once 'conexao.php';
-
-
-
-
-
 
 if(empty($busca))
 
@@ -81,8 +71,7 @@ $consulta = mysqli_query($conexao,$sql);
 
 while($registro = mysqli_fetch_assoc($consulta)){
     
-    echo"<form action='./' id='formulario' method='post'>";
-  
+    echo"<form action='./' id='formulario' method='post'>"; 
    
 		echo'<tr>';   
 				
@@ -100,7 +89,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 		$datalancamento = "$dia/$mes/$ano";
 
-	echo '<td id="campos">'.$datalancamento.'</td>';
+		echo '<td id="campos">'.$datalancamento.'</td>';
 		
 		//echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
 		$datavenc = $registro["datavenc"];

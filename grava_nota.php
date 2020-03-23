@@ -1,10 +1,8 @@
 <?php session_start(); ?>
 
-<?php
-           
+<?php          
 
-//Recebo valores do pdv.php     
-   
+//Recebo valores do pdv.php   
 
 $codigoproduto = $_SESSION['codproduto'];
 

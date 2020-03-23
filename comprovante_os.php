@@ -1,4 +1,4 @@
-  <?php  session_start() ?>
+  <?php  session_start(); ?>
 
 <?php
    
@@ -8,9 +8,6 @@ $usuario = $_SESSION['login'];
 //conexao com banco
 
 require_once 'conexao.php';
-
-
-
 
 //Pega o ultimo registro gravado no banco e grava na variavel $os
 
@@ -66,10 +63,8 @@ while ($ordem = mysqli_fetch_array($consulta)) {
 		$defeito = $ordem["mensage"];
 		
 		$mensage = $ordem[20];
-}
-   
-          
-      
+}         
+     
    	
 ?>
 <!DOCTYPE html>
