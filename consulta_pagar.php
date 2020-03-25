@@ -20,9 +20,9 @@
 
  	<h1 id="titulo-programas">Relatorio contas a pagar</h1>
 
-<form action="./" id="formulario" method="post">
+<form action="menu.php" id="formulario" method="post">
 
-      <input type="button" value="Voltar" id="btn" onclick="Acao('menu');">
+      <input type="button" value="Voltar" id="btn">
     
 </form>
 

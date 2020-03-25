@@ -18,7 +18,7 @@
 
     <!--<input type="button" value="Altera" onclick="Acao('altera_contas_receber');"> -->
 
-    <input type="button" id="btn" value="Retornar" onclick="Acao('menu');">
+    <input type="button" id="btn" value="Voltar" onclick="Acao('menu');">
     
 
 </form> 					

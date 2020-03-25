@@ -32,7 +32,8 @@ $segundos=date('s');
 
   <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
 	
-  <link type ="text/css" rel="stylesheet" href="css/menu.css">
+  <link type ="text/css" rel="stylesheet" href="css/menu.css">  
+   
   
   <title>Menu</title>
 
