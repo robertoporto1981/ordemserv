@@ -22,6 +22,6 @@ mysqli_query($conexao,$sql) or die ("Erro ao tentar apagar registro");
 
 mysqli_close($conexao);
 
-echo"<script language='javascript' type='text/javascript'>alert('Produto excluido!');window.location.href='pesquisa_produto_cod.php'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Produto excluido!');window.location.href='lista_produtos.php'</script>";
 
-?>
+?> 

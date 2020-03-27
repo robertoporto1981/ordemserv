@@ -43,7 +43,7 @@ while ($contasareceber = mysqli_fetch_array($consulta)){
 
     $total = $contasareceber[8];
 
-
+}
 ?>
 
 

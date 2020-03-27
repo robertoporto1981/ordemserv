@@ -93,7 +93,7 @@ $consulta = mysqli_query($conexao,$sql);
 
 		echo '<tr>';
 
-		echo '<td id="borda">Código:</td>';
+		echo '<td id="borda">CÓDIGO:</td>';
 
 		echo '<td id="borda">DATA:</td>';
 

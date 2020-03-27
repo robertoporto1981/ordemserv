@@ -110,7 +110,7 @@ if($produtobalanca == 000){
 
   <!--<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">-->
 
-  <link type="text/css" rel="stylesheet" href="css/estilo.css">
+  <link type="text/css" rel="stylesheet" href="css/estiloxx.css">
    
   <title>PDV</title>
   

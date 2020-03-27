@@ -225,7 +225,7 @@ while ($exibir = mysqli_fetch_array($query)){
    
     <h4 id="dados-cupom-itens">QTD. TOTAL DE ITENS: <?php echo $totalitens ?> </h4>
        
-     <h4 id="dados-cupom-itens">PORTADOR<?php echo $portador ?> PAGO(R$): <?php echo number_format($pago,2,',','.') ?></h4>
+     <h4 id="dados-cupom-itens">PORTADOR: <?php echo $portador ?> PAGO(R$): <?php echo number_format($pago,2,',','.') ?></h4>
      
      <h4 id="dados-cupom-itens">VALOR TOTAL (R$):<?php echo number_format($total,2,',','.') ?></h4>
      
