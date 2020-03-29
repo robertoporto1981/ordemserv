@@ -22,7 +22,9 @@ require_once 'testa_login.php';
 $nome = strtoupper($_POST['nome']);
 
 $nomefant = strtoupper($_POST['nomefant']);
-	
+
+$rg = $_POST['rg'];
+
 $cpf =  $_POST['cpf'];
 	
 $cnpj = $_POST['cnpj'];
@@ -60,27 +62,21 @@ $datacad = date('d/m/Y');
 
 	     
 
-//Conexao
-
+//Conexao:
 require_once 'conexao.php';
 
+$sql2 = "INSERT INTO clientes VALUES "; 
 
-$sql = "INSERT INTO clientes VALUES "; 
-
-$sql .= "(' ','$nome','$nomefant', '$cpf','$cnpj','$tipo','$datanasc','$cep','$rua', '$numero','$complemento', '$bairro' , '$cidade', '$uf' , '$telefone','$celular','$email','$observ','$usuario','$datacad','$site','')";
-
+$sql2 .= "(' ','$nome','$nomefant','$rg','$cpf','$cnpj','$tipo','$datanasc','$cep','$rua', '$numero','$complemento', '$bairro' , '$cidade', '$uf' , '$telefone','$celular','$email','$observ','$usuario','$datacad','$site','')";
 	  
-mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
+mysqli_query($conexao,$sql2) or die ("Erro ao tentar cadastrar registro");
 
 mysqli_close($conexao);
-      
-
-
 
 echo"<script language='javascript' type='text/javascript'>alert('Cliente cadastrado com sucesso!');window.location.href='form_cadastro_cliente.html'</script>";
 	
 
-	header('Location:pesquisa_cliente.php?busca='.$nome);
+	header('Location:_altera_cliente.php?nome='.$nome);
 
 ?>
 

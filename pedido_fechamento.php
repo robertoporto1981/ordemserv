@@ -169,11 +169,13 @@ $_SESSION['troco'] = $troco;
 
 <select name="porta">
 	
-    <option value="900" selected="900">900 - DINHEIRO</option>
+    <option value="900">900 - DINHEIRO</option>
 
     <option value="901">901 - CREDIARIO</option>				
 
 	<option value="200">200 - CARTAO DE CREDITO</option>
+
+	<option value="201">201 - DEBITO</option>
 
 	<option value="910">910 - MAESTRO</option>
 
@@ -190,6 +192,9 @@ $_SESSION['troco'] = $troco;
 	<option value="991">991 - PAG SEGURO</option>
 
 	<option value="987">987 - DEVOLUCAO</option>
+
+	
+
 
 
 </select>

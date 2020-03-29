@@ -1,4 +1,4 @@
-<?php session_start () ?>
+<?php session_start(); ?>
 
 <?php
 
@@ -15,55 +15,73 @@ $ano = date('Y');
 //Conexao com banco
 require_once 'conexao.php';
 
-
-if($mes == 01){
+if($mes == '01'){
 
 	$mes = "janeiro";
 
-}elseif ($mes == 02){
+}
+
+if ($mes == '02'){
 
 	$mes = "fevereiro";
 
-}elseif($mes == 02){
+}
 
-	$mes = "feveiro";
 
-}elseif($mes == 03){
+if($mes == '03'){
 
 	$mes = "março";
 
-}elseif($mes == 04){
+}
+
+if($mes == '04'){
 
 	$mes = "abril";
 
-}elseif($mes == 05){
+}
+
+if($mes == '05'){
 
 	$mes = "maio";
 
-}elseif($mes == 06){
+}
+
+if($mes == '06'){
 
 	$mes = "junho";
 
-}elseif($mes == 07){
+}
+
+if($mes == '07'){
 
 	$mes = "julho";
 
-}elseif($mes == 08){
+}
+
+if($mes == '08'){
 
 	$mes = "agosto";
 
-}elseif($mes == 09){
+}
+
+if($mes == '09'){
 
 	$mes = "setembro";
-}elseif($mes == 10){
+}
+
+if($mes == '10'){
 
 	$mes = "outubro";
 
-}elseif($mes == 11){
+}
+
+if($mes == '11'){
 
 	$mes = "novembro";
 
-}elseif($mes == 12){
+}
+
+if($mes == '12'){
 
 	$mes = "dezembro";
 }
@@ -75,7 +93,6 @@ if($mes == 01){
 // Seleciona o Banco de dados através da conexão acima
 
 $sql = "SELECT * FROM empresa";
-
 
 $consulta = mysqli_query($conexao,$sql);
 // Armazena os dados da consulta em um array associativo
@@ -105,7 +122,6 @@ while($registro = mysqli_fetch_assoc($consulta)){
 		</head>
 
 <body>
-
 
 
 <div id="recibo">

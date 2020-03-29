@@ -68,7 +68,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
  	echo"<label>Data do cadastro:<input type='text' name ='datacad' maxlength='20' id='formulario' value ='".$registro['datacad']."' size='8'></label>";	
   
- 	 echo"<label>Codigo:<input type='text' name ='cod' maxlength='20' id='formulario' value ='".$registro['cod']."' size='2'></label>";
+ 	 echo"<label>Codigo:<input type='text' name ='cod' maxlength='20' id='formulario' value ='".$registro['cod']."' size='2'></label><br><p>";
  	 
  	 echo "<label>Nome:<input type='text' name ='nome' maxlength='50' id='formulario' value ='".$registro['nome']."' size='50'></label>";
 
@@ -79,26 +79,25 @@ while($registro = mysqli_fetch_assoc($consulta)){
  	 echo "<p>";
    
     echo "<label>Data Nasc*:<input type='date' name ='datanasc' maxlength='50' id='formulario' value ='".$registro['datanasc']."' size='50'></label>";
-   
-  	echo "<label>CPF: <input type='text' name='cpf' maxlength='11' id='formulario' value = '".$registro['cpf']."' size='11'></label>";
+	 
+		echo "<label>RG: <input type='text' name='rg' maxlength='11' id='formulario' value = '".$registro['rg']."' size='12'></label>";
+		
+		echo "<label>CPF: <input type='text' name='cpf' maxlength='11' id='formulario' value = '".$registro['cpf']."' size='11'></label>";
 	
 	echo "<label>CNPJ: <input type='text' name='cnpj' maxlength='14' id='formulario' value ='".$registro['cnpj']."' size='10'></label>";
   
     echo "<label>Tipo de cadastro: <input type='text' name= 'tipo' maxlength='20' id='formulario' value ='".$registro['tipo']."' size='20'></label>";
 
- 	echo "<label>CEP:<input name='cep' type='text' value='".$registro['cep']."' id='formulario' size='8' maxlength='8' /></label>";	
-   
-    echo"<br>";
-   
-    echo"<br>";
-
+ 	echo "<label>CEP:<input name='cep' type='text' value='".$registro['cep']."' id='formulario' size='8' maxlength='8' /></label><br><p>";	
+	
+	 
 	echo "<label>Rua:<input type='text' name='rua' maxlength='30' id='formulario' value ='".$registro['rua']. "' size='40'></label>";
 	
 	echo "<label>Numero:<input type='text' name = 'numero' maxlength='4' id='formulario' value ='".$registro['numero']."' size='4'></label>"; 
     
 	echo "<label>Complemento:<input type='text' name='complemento' maxlength='15' id='formulario' id='formulario' value = '".$registro['complemento']."' size='15'></label>";
 	
-	echo "<label>Bairro:<input type='text' name = 'bairro' maxlength='20'  id='formulario' value = '".$registro['bairro']."' size='20'></label>";
+	echo "<label>Bairro:<input type='text' name = 'bairro' maxlength='20'  id='formulario' value = '".$registro['bairro']."' size='20'></label><br><p>";
 	
 	echo "<label>Cidade:<input type='text' name = 'cidade' maxlength='20' id='formulario' value = '".$registro['cidade']."' size='25'></label>";
 	
@@ -110,11 +109,11 @@ while($registro = mysqli_fetch_assoc($consulta)){
 	
 	echo "<label>Telefone:<input type='text' name ='telefone' maxlength='11' id='formulario' value ='".$registro['telefone']."' size='12'></label><p>";
   
-  	echo "<label>Celular:<input type='text' name ='celular' maxlength='11' id='formulario' value ='".$registro['celular']."' size='11'></label>";
+  	echo "<label>Celular:<input type='text' name ='celular' maxlength='11' id='formulario' value ='".$registro['celular']."' size='11' required></label>";
   
 	echo "<label>Email:<input type='text' name ='email' maxlength='40' id='formulario' value ='".$registro['email']."' size='40'></label>";  
 	
-	echo "<label>Site:<input type='text' name ='site' maxlength='40' id='formulario' value ='".$registro['site']."' size='40'></label>";  
+	echo "<label>Site:<input type='text' name ='site' maxlength='40' id='formulario' value ='".$registro['site']."' size='40'></label><br><p>";  
 
 	echo "<label>Observacao:<input type='text' name ='observ' maxlength='120' id='formulario' value ='".$registro['observ']."' size='120'></label>"; 
    
@@ -142,7 +141,9 @@ echo '</td>';
  	
  	$_SESSION['cep'] = $registro['cep'];
 
- 	$_SESSION['cnpj'] = $registro['cnpj'];
+	 $_SESSION['cnpj'] = $registro['cnpj'];
+	 
+	 $_SESSION['rg'] = $registro['rg'];
  	
  	$_SESSION['cpf'] = $registro['cpf'];
   
@@ -181,7 +182,9 @@ echo '</td>';
 
 				<input type="button" id="btn-reimprimeos" value="Abrir OS" onclick="Acao('form_cadastroos');">
   
-   					<input type="button" id="btn-reimprimeos" value="Recibo" onclick="Acao('recibo');">
+						 <input type="button" id="btn-reimprimeos" value="Recibo" onclick="Acao('recibo');">
+						 
+						 <input type="button" id="btn-reimprimeos" value="contrato" onclick="Acao('contrato');">
 
    					<input type="button" id="btn-reimprimeos" value="Pedido" onclick="Acao('pedido_roberto');">
   

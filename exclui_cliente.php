@@ -2,13 +2,13 @@
 <?php
 
 	 
-$nome = $_POST['nome'];
+echo $nome = $_GET['nome'];
 	           
 //Conexao com banco:
 
 require_once 'conexao.php';
 	       
-  $sql = ("DELETE FROM clientes WHERE nome = '$nome'");
+  ECHO $sql = ("DELETE FROM clientes WHERE nome = '$nome'");
   
   echo"<script language='javascript' type='text/javascript'>alert('Cliente excluido com sucesso!');window.location.href='form_cadastro_cliente.html'</script>";
 	 

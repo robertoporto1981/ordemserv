@@ -191,7 +191,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 			echo '<tr>';
 
-			echo '<td id="campos"><a href="pesquisa_cliente_cod.php?busca='.$registro["cod"].'"#><img src="images/edit.png"></td>';
+			echo '<td id="campos"><a href="_altera_cliente.php?nome='.$registro["nome"].'"#><img src="images/edit.png"></td>';
 
 			echo '<td id="campos">'.$registro["cod"].'</td>';
 

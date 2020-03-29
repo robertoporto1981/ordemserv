@@ -14,6 +14,8 @@ $nomefant = $_POST['nomefant'];
 
 $datanasc = $_POST['datanasc'];
 	
+$rg = $_POST['rg'];
+
 $cpf =  $_POST['cpf'];
 	
 $cnpj = $_POST['cnpj'];
@@ -51,14 +53,14 @@ require_once 'conexao.php';
 
 //Atualiza dos dados na tabela clientes
 	       
-$sql = ("UPDATE clientes SET nome = '$nome',nomefant = '$nomefant', datanasc = '$datanasc', cpf = '$cpf',cnpj = '$cnpj',cep ='$cep',rua = '$rua', numero = '$numero',complemento = '$complemento', bairro = '$bairro' ,cidade = '$cidade',uf = '$uf' ,telefone = '$telefone',celular ='$celular', email ='$email',observ = '$observ' WHERE cod = '$codigo' and usuario = '$usuario'"); 
+$sql = ("UPDATE clientes SET nome = '$nome',nomefant = '$nomefant', datanasc = '$datanasc',rg='$rg', cpf = '$cpf',cnpj = '$cnpj',cep ='$cep',rua = '$rua', numero = '$numero',complemento = '$complemento', bairro = '$bairro' ,cidade = '$cidade',uf = '$uf' ,telefone = '$telefone',celular ='$celular', email ='$email',observ = '$observ' WHERE nome = '$nome' and usuario = '$usuario'"); 
 
 	
 mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
 	
 mysqli_close($conexao);
 
-echo"<script language='javascript' type='text/javascript'>alert('Cliente alterado com sucesso!');window.location.href='pesquisa_cliente_cod.php?busca={$codigo}'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Cliente alterado com sucesso!');window.location.href='_altera_cliente.php?nome={$nome}'</script>";
 
 
 ?>

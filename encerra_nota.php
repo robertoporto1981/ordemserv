@@ -243,7 +243,7 @@ while ($exibir = mysqli_fetch_array($query)){
     
   <hr size="1" style="border:1px dashed black;">   
     
-<h6 id="dados-cupom2">Referente ao cupom de venda 000<?php echo $ultimanota ?></h6>
+<h6 id="dados-cupom2">Referente ao cupom de venda <?php echo $ultimanota ?></h6>
     
 <h5 id="dados-cupom2">OBRIGADO PELA PREFERENCIA. VOLTE SEMPRE.</h5>
     
@@ -265,27 +265,41 @@ while ($exibir = mysqli_fetch_array($query)){
 if($portador == "901") {
     
     $sql5 = "INSERT INTO contasareceber VALUES (' ','$dataemissao',' ','','$cliente','Ref. a ECF N.: $ultimanota',' $total','01','$total','RECEBER','ROBERTO')";
-       
+     
+    $query = mysqli_query($conexao,$sql5);
 }
-
-
-     $query = mysqli_query($conexao,$sql5);
      
      
-
+//Portador 900 - a vista:
 if($portador == "900"){
   
     $sql6 ="INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','A VISTA','VENDA BALCAO')";
-
     
+    $query = mysqli_query($conexao,$sql6);      
 }
+      
+
+//Portador 200 - Cartao crédito:
+if($portador == "200"){
+  
+      $sql9 ="INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','CARTAO DE CREDITO','VENDA BALCAO')";
+      
+      $query = mysqli_query($conexao,$sql9);      
+  }
+       
+//Portador 201 - Cartao débito:
+if($portador == "201"){
+  
+      $sql10 ="INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','DEBITO','VENDA BALCAO')";
+      
+      $query = mysqli_query($conexao,$sql10);      
+  }
 
 
-$query = mysqli_query($conexao,$sql6);  
+
  
 
-//Baixa estoque:
-               
+//Baixa estoque:               
 
 $sql7 = "SELECT * FROM itensnota where numeroitensnota = '$ultimanota' order by codprod asc";
 
