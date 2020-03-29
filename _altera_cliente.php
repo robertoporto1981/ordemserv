@@ -8,13 +8,167 @@ require_once 'conexao.php';
 
 $nome_cliente = $_GET['nome'];
 
-$sql = "select * from clientes where nome = '$nome_cliente'";  
-  	     
-	$consulta = mysqli_query($conexao,$sql);      
+$codigo_cliente = $_GET['codigo'];
+
+$fantasia_cliente = $_GET['nomefant'];
+
+$rg_cliente = $_GET['rg'];
+
+$cpf_cliente = $_GET['cpf'];
+
+$cnpj_cliente = $_GET['cnpj'];
+
+$observacao_cliente = $_GET['observ'];
+
+
+if($nome_cliente == TRUE){
+
+    $sql = "select * from clientes where nome like '%$nome_cliente%'";  
+
+    $consulta_nome_cliente = mysqli_query($conexao,$sql);
+
+    $resultado =  mysqli_num_rows ($consulta_nome_cliente);    
+
+if($resultado > 1){
+
+    header("Location:lista_clientes.php?nome=$nome_cliente");
     
-    while($dados_cliente = mysqli_fetch_array($consulta)){
+}
+if($resultado == 0){
+
+    echo"<script language='javascript' type='text/javascript'>alert('Nenhum registro encontrado!');window.location.href='lista_clientes.php'</script>";
+
+}
+    
+
+}
+
+if($codigo_cliente == TRUE){
+    
+  $sql = "select * from clientes where cod = '$codigo_cliente'";  
+
+}
+
+//Fantasia cliente:
+if($fantasia_cliente == TRUE){
+    
+      $sql = "select * from clientes where nomefant like '%$fantasia_cliente%'";  
+
+      $consulta_fantasia_cliente = mysqli_query($conexao,$sql);
+
+      $resultado =  mysqli_num_rows ($consulta_fantasia_cliente);  
+
+if($resultado == 0){
+
+    echo"<script language='javascript' type='text/javascript'>alert('Nenhum registro encontrado!');window.location.href='lista_clientes.php'</script>";
+
+}
+
+if($resultado > 1){
+
+    header("Location:lista_clientes.php?nomefant=$fantasia_cliente");
+}
+   
+
+}
+//RG Cliente:
+if($rg_cliente == TRUE){
+    
+    $sql = "select * from clientes where rg = '$rg_cliente'"; 
+    
+    $consulta_rg_cliente = mysqli_query($conexao,$sql);
+
+    echo $resultado =  mysqli_num_rows ($consulta_rg_cliente);  
+    
+if($resultado == 0){
+
+    echo"<script language='javascript' type='text/javascript'>alert('Nenhum registro encontrado!');window.location.href='lista_clientes.php'</script>";
+
+}
+
+}
+
+//CPF Cliente:
+if($cpf_cliente == TRUE){
+    
+    $sql = "select * from clientes where cpf = '$cpf_cliente'"; 
+    
+    $consulta_cpf_cliente = mysqli_query($conexao,$sql);
+
+    $resultado =  mysqli_num_rows ($consulta_cpf_cliente);  
+    
+if($resultado == 0){
+
+    echo"<script language='javascript' type='text/javascript'>alert('Nenhum registro encontrado!');window.location.href='lista_clientes.php'</script>";
+
+}
+
+}
+
+//CNPJ CLiente:
+if($cnpj_cliente == TRUE){
+    
+    $sql = "select * from clientes where cnpj = '$cnpj_cliente'"; 
+    
+    $consulta_cnpj_cliente = mysqli_query($conexao,$sql);
+
+    $resultado =  mysqli_num_rows ($consulta_cnpj_cliente);  
+    
+if($resultado == 0){
+
+    echo"<script language='javascript' type='text/javascript'>alert('Nenhum registro encontrado!');window.location.href='lista_clientes.php'</script>";
+
+}
+
+}
+//Observacao cliente:
+if($observacao_cliente == TRUE){
+    
+    //$_SESSION['observacao'] = $observacao_cliente;
+    
+    $Sql = "select * from clientes where observ like ('%$observacao_cliente%')";
+    
+    $consulta_observ = mysqli_query($conexao,$Sql);
+
+   $resultado =  mysqli_num_rows ($consulta_observ);
        
+
+if($resultado > 1){
+ 
     
+    header("Location:lista_clientes.php?observ={$observacao_cliente}");
+
+
+    }
+
+if($resultado == 1){
+
+        $sql = "select * from clientes where observ like ('%$observacao_cliente%')";
+    }
+
+if($resultado == 0){
+    
+    echo"<script language='javascript' type='text/javascript'>alert('Nenhum registro encontrado!');window.location.href='lista_clientes.php'</script>";
+}
+
+}
+
+
+$consulta = mysqli_query($conexao,$sql);         
+
+while($dados_cliente = mysqli_fetch_array($consulta)){
+
+    $_SESSION['nome'] = $dados_cliente['nome'];
+
+    $_SESSION['rg'] = $dados_cliente['rg'];
+
+    $_SESSION['cpf'] = $dados_cliente['cpf'];
+
+    $_SESSION['telefone'] = $dados_cliente['telefone'];
+
+    $_SESSION['celular'] = $dados_cliente['celular'];
+       
+       
 ?>
     
 
@@ -103,15 +257,49 @@ $sql = "select * from clientes where nome = '$nome_cliente'";
 
 </script>
 
+<h1 id="titulo-programas"><center>Cadastro de clientes</center></h1><br>
 
- <form method="POST"  action="altera_cliente.php">
+
+<hr>
+
+<form action="./" id='formulario' method="post">
+
+<!--<input type="button" class="btn btn-success" value="Alterar" onclick="Acao('altera_cliente');">-->
+    
+			<input type="button" class="btn btn-danger" value="Excluir" onclick="Acao('exclui_cliente');">
+
+				<input type="button" class="btn btn-info" value="Abrir OS" onclick="Acao('form_cadastroos');">
+  
+						 <input type="button" class="btn btn-secondary" value="Recibo" onclick="Acao('recibo');">
+						 
+						 <input type="button" class="btn btn-warning" value="Contrato" onclick="Acao('contrato');">
+
+   					<input type="button" class="btn btn-secondary" value="Pedido" onclick="Acao('pedido_roberto');">
+  
+                       <input type="button" class="btn btn-dark" value="Sair" onclick="Acao('menu');">
+
+				<a href="http://api.whatsapp.com/send?1=pt_BR&phone=55<?php echo $cel ?>"><img src='images/whatsapp.png' alt='Smiley face' height="20" width="30" border="0"/></a></a>
+                
+                
+            
+            </form>
+
+<script type="text/javascript">
+    // <![CDATA[
+     function Acao(act){
+       frm = document.getElementById('formulario');
+       frm.action = act + '.php'; 
+       frm.submit();
+    // ]]>
+    }
+</script>
+
+<hr>
+
+<form method="POST"  action="altera_cliente.php">
     
  <div class="container">
-
-<h1 id="titulo-programas">Cadastro de clientes</h1>
-
-    <p><img src="images/cad_clientes.png" alt="Smiley face" height="50" width="50"></p>
-
+    
     <div class="form-group">
     
     <label for="cod">Cód:</label><br>
@@ -138,7 +326,7 @@ $sql = "select * from clientes where nome = '$nome_cliente'";
 
     <label for="fantasia">Nome Fantasia:</label><br>
 
-<input type="text" id="nomefant"  name="nomefant" value="<?php echo $dados_cliente['nomefant']; ?>" maxlength="50" size="60"><br><p>
+<input type="text" id="nomefant"  name="nomefant" value="<?php echo $dados_cliente['nomefant']; ?>" maxlength="50" size="60" autocomplete="off"><br><p>
 
 </div>
 
@@ -280,17 +468,11 @@ $sql = "select * from clientes where nome = '$nome_cliente'";
 <input type="submit" class="btn btn-success" id="formulario"  value="Salvar">
 
 </form>
-<?php $_GET['nome'] = $dados_cliente['nome']?>
-
-<form method="GET" action ="exclui_cliente.php?nome='<?php echo $dados_cliente['nome']; ?>">
 
 
+<?php $_SESSION['cod'] = $dados_cliente['cod']; ?>
 
-<br>
 
-<input type ="submit" class="btn btn-danger" value="Excluir">
-
-</form>
 </div>
 <div class="busca">
 
@@ -307,12 +489,7 @@ $sql = "select * from clientes where nome = '$nome_cliente'";
 
 
 <hr>
-  
-    <form method="POST" action="menu.php">
 
-<p align ="left"> <input type="submit" id="btn-sair" value="Sair">
-
-</form>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

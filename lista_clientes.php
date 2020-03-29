@@ -1,11 +1,12 @@
-<?php session_start(); ?>
+'<?php session_start(); ?>
 
 <html lang='pt-BR'>
 
 <head>
 	  			
 	<link type="text/css" rel="stylesheet" href="stylesheet.css">
-
+	<!--<link rel="stylesheet" href="css/bootstrap.css">-->
+	
 </head>
 		    
 <title>Clientes</title>
@@ -18,13 +19,13 @@
 
 <hr>
 
-<div id="cliente-codigo">
+<div class="cliente-codigo">
 
 	<h4>Codigo:</h4>
 
-		<form method="GET" action="pesquisa_cliente_cod.php">	
+		<form method="GET" action="_altera_cliente.php">	
 	
-	 			<input type="text" name="busca" placeholder="Buscar..." maxlength="8" size="8">
+	 			<input type="text" name="codigo" placeholder="Buscar..." maxlength="8" size="8" autocomplete="off" required>
 		
 		 		  <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
 
@@ -34,10 +35,11 @@
 <div id="nome-clientes">
 
 	<h4>Nome:</h4>
-		<form method="GET" action="pesquisa_cliente.php">
+
+		<form method="GET" action="_altera_cliente.php">
 <!--<input type="text" name = "busca" size="50"><!--<input type="submit" value="Pesquisa">-->
 
- 			<input type="text" name="busca" placeholder="Buscar..." size="50">
+ 			<input type="text" name="nome" placeholder="Buscar..." size="50" autocomplete="off" required>
 
    				<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
 
@@ -48,11 +50,11 @@
 
 <div id="nome-fantasia">
 
-<form method ="POST" action="pesquisa_cliente_fantasia.php">
+<form method ="GET" action="_altera_cliente.php">
 
 <h4>Fantasia:</h4>
 
-    <input type="text" name="fantasia" placeholder="buscar" size="60">
+    <input type="text" name="nomefant" placeholder="buscar" size="60" autocomplete="off" required>
 
     <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
 
@@ -62,32 +64,58 @@
 
 
 </div>
+<div id="rg-clientes">
 
-</form>
+<form method="GET" action="_altera_cliente.php">
+
+	<h4>RG:</h4>
+
+		<input type="text" name="rg" placeholder="buscar" size="13" autocomplete="off" required>
+
+			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
+
+</form>   
 
 <div id="cnpj-clientes">
 
-	<form method="GET" action="pesquisa_cliente_cnpj.php">
+	<form method="GET" action="_altera_cliente.php">
 
 		<h4>CNPJ:</h4>
 
-			<input type="text" name="cnpj" placeholder="buscar" size="13">
+			<input type="text" name="cnpj" placeholder="buscar" size="13" required autocomplete="off">
 
-    			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
+    			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14" >
 
 	</form>    
 
 </div>
 
-<div id="lista-clientes_observacao">
+<br>
 
-<form method="POST" action='pesquisa_cliente_observacao.php'>
+</form>
+
+
+<div id="cpf-clientes">
+
+	<form method="GET" action="_altera_cliente.php">
+
+		<h4>CPF:</h4>
+
+			<input type="text" name="cpf" placeholder="buscar" size="13" required autocomplete="off">
+
+    			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
+
+	</form> 
+
+<div id="lista-clientes_observacaoXX">
+
+<form method="GET" action='_altera_cliente.php'>
 
 	<h4>Observacao:</h4>
 
-    <input type="text" name="observ" placeholder="buscar" size="50">
+    <input type="text" name="observ" placeholder="buscar" size="50" required>
 
-    <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
+    <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14" autocomplet="off">
 
 </form> 
 
@@ -99,7 +127,7 @@
 
 	<form method="POST"  action="form_cadastro_cliente.html">
 
-		<input type="submit" id="btn-salvar#" value="NOVO">
+		<input type="submit" class="btn btn-success" value="NOVO">
 
 	</form>
 
@@ -141,12 +169,50 @@
 //Sessionn 
  $usuario = $_SESSION['login'];
 
+ $observacao_cliente = ($_GET['observ']); 
+
+ $nome_cliente = $_GET['nome'];
+
+ $fantasia_cliente = $_GET['nomefant'];
+
+ //Busca nome cliente:
+ if($nome_cliente == TRUE){
+
+	$sql = "select * from clientes where nome like ('%$nome_cliente%') order by nome asc";
+	
+	$consulta = mysqli_query($conexao,$sql);
+ }
+
+ //Busca observacao cliente:
+ if($observacao_cliente == TRUE){
+
+	$sql = "select * from clientes where observ like ('%$observacao_cliente%') order by nome asc";
+	
+	$consulta = mysqli_query($conexao,$sql);
+	
+	
+}
+
+//Busca observacao cliente:
+ if($fantasia_cliente == TRUE){
+
+	$sql = "select * from clientes where nomefant like ('%$fantasia_cliente%') order by nome asc";
+	
+	$consulta = mysqli_query($conexao,$sql);
+	
+	
+}
+
+
+
+if($observacao_cliente == FALSE AND $nome_cliente == FALSE AND $fantasia_cliente == FALSE ){
 
 $sql = "SELECT * FROM clientes WHERE usuario ='ROBERTO' order by nome asc ";
 
 
 $consulta = mysqli_query($conexao,$sql);
- 
+}
+
 echo '<font face="verdana"><table border style="width:100%">';
 
 			echo '<tr>';
@@ -249,9 +315,8 @@ echo '</table>';
 ?>
 
 
-
 <hr>
 
 </body>
 
-</html>
+</html>'

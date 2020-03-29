@@ -133,10 +133,6 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 <body>
 
-
-
-<div id="recibo">
-
 <hr>
 
 
@@ -157,17 +153,19 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 <h3><b>ASSINO E CONCORDO COM TERMOS EXIGIDOS:</h3></b><br>
 
-ASS:_______________________________________
+<center>CANOAS, <?php echo $dia ?> de <?php echo $mes ?> <?php echo $ano ?></center><br> 
 
-CANOAS, <?php echo $dia ?> de <?php echo $mes ?> <?php echo $ano ?><br> 
+ASS:________________________________________________________________________________________________________________________________________________________<br><br>
 
-LOCAÇÃO PARA DIA:_____________________________________________________________________________________________________________________________________<br>
+NOME: <?php echo $nome ?><br><br>
 
-RUA:________________________________________________________________________________________________________________________________________________________<br>
+LOCAÇÃO PARA DIA:_____________________________________________________________________________________________________________________________________<br><br>
 
-FONE: <?php if($telefone_cliente == 0 OR NULL){ echo $celular_cliente;}if($celular_cliente == 0 OR NULL){ echo $telefone_cliente;} if($celular_cliente AND $telefone_cliente == TRUE){ echo $celular_cliente;} ?><br>
+RUA:________________________________________________________________________________________________________________________________________________________<br><br>
 
-RG: <?php echo $rg ?><br>							CPF: <?php echo $cpf ?><br>
+FONE: <?php if($telefone_cliente == 0 OR NULL){ echo $celular_cliente;}if($celular_cliente == 0 OR NULL){ echo $telefone_cliente;} if($celular_cliente AND $telefone_cliente == TRUE){ echo $celular_cliente;} ?><br><br>
+
+RG: <?php echo $rg ?>&nbsp; &nbsp; &nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						CPF: <?php echo $cpf ?><br>
 
 _____________________________________________________________________________________________________________________________________________________________
 

@@ -2,15 +2,17 @@
 <?php
 
 	 
-echo $nome = $_GET['nome'];
+//$nome = $_GET['nome'];
+
+$codigo_cliente = $_SESSION['cod'];
 	           
 //Conexao com banco:
 
 require_once 'conexao.php';
 	       
-  ECHO $sql = ("DELETE FROM clientes WHERE nome = '$nome'");
+  $sql = ("DELETE FROM clientes WHERE cod = '$codigo_cliente'");
   
-  echo"<script language='javascript' type='text/javascript'>alert('Cliente excluido com sucesso!');window.location.href='form_cadastro_cliente.html'</script>";
+  echo"<script language='javascript' type='text/javascript'>alert('Cliente excluido com sucesso!');window.location.href='lista_clientes.php'</script>";
 	 
 	
 mysqli_query($conexao,$sql) or die ("Erro ao tentar apagar registro");
