@@ -23,7 +23,7 @@ $uf = $_POST['uf'];
 
 $cnpj = $_POST['cnpj'];
 
-$incricao = $_POST['ie'];
+$ie = $_POST['ie'];
 
 $fone = $_POST['telefone'];
 
@@ -31,7 +31,8 @@ $email = $_POST['email'];
 
 //Insere dados no banco de dados		
 
-$sql = "INSERT INTO dados VALUES ('1,1,1,1')";
+
+echo $sql = "INSERT INTO `empresa`(`codigo`, `descricao`, `endereco`, `numero`, `complemento`, `municipio`, `uf`, `cnpj`, `ie`, `telefone`, `email`) VALUES ('$codigo','$descricao','$endereco','$numero','$complemento','$municipio','$uf','$cnpj','$ie','$fone','$email')";
 
 
 

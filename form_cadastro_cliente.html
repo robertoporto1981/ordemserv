@@ -24,6 +24,8 @@
 
 <body>
 
+<div class="container">
+
 <script type="text/javascript" >
 
     function limpa_formulario_cep() {
@@ -87,12 +89,11 @@
 </script>
 
 <h1 id="titulo-programas"><center>Cadastro de clientes</center></h1>
-<hr>
+
  <form method="POST"  action="form_cadastro_cliente.php">
-
-    <div class="container">
-
-     <div class="form-group">
+    <input type="submit" class="btn btn-success btn-sm" id="formulario"  value="Salvar"> <a href="http://127.0.0.1/projects/ordemserv/menu.php" role="button" class="btn btn-dark btn-sm">Sair</a>	     
+<hr>    
+    <div class="form-group">
 
     <label for="nome">Nome *:</label><br>
 
@@ -240,8 +241,6 @@
 	</table>
 
 	<br>
-
-<input type="submit" class="btn btn-success" id="formulario"  value="Salvar">
 
 </form>
 

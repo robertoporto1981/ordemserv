@@ -15,18 +15,15 @@
 
 <title>Usuarios</title>
 
-<h1 id="titulo-programas">Usuários</h1>  
+<h1 id="titulo-programas"><center>Usuários</center></h1>  
 
 	<form method="POST"  action="cadastro.html">
 
-		<input type="submit" class="btn btn-success" value="NOVO">
+<input type="submit" class="btn btn-success btn-sm" value="NOVO">
 
-	</form>
+<a href="http://127.0.0.1/projects/ordemserv/menu.php" class="btn btn-dark btn-sm">VOLTAR</a>
 
-	<form method="POST" action="menu.php">
-
-		<p align ="left"><input type="submit" class="btn btn-dark" value="VOLTAR">
-
+<hr>
 	</form>
 
 <?php

@@ -194,6 +194,7 @@ while($dados_cliente = mysqli_fetch_array($consulta)){
   </head>
 
 <body>
+<div class="container">
 
 <script type="text/javascript" >
 
@@ -259,14 +260,12 @@ while($dados_cliente = mysqli_fetch_array($consulta)){
 
 <h1 id="titulo-programas"><center>Cadastro de clientes</center></h1><br>
 
-
-<hr>
-
 <form action="./" id='formulario' method="post">
 
+
 <!--<input type="button" class="btn btn-success" value="Alterar" onclick="Acao('altera_cliente');">-->
-    
-			<input type="button" class="btn btn-danger" value="Excluir" onclick="Acao('exclui_cliente');">
+            
+            <input type="button" class="btn btn-danger" value="Excluir" onclick="Acao('exclui_cliente');">
 
 				<input type="button" class="btn btn-info" value="Abrir OS" onclick="Acao('form_cadastroos');">
   
@@ -298,7 +297,7 @@ while($dados_cliente = mysqli_fetch_array($consulta)){
 
 <form method="POST"  action="altera_cliente.php">
     
- <div class="container">
+ 
     
     <div class="form-group">
     
