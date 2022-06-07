@@ -8,6 +8,14 @@
 
   	<meta charset="utf-8">
 
+    <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>           
+    
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                 
+    
+        <link type ="text/css" rel="stylesheet" href="css/reset.css">          
+    
+        <link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+        <link type ="text/css" rel="stylesheet" href="css/bootstrap.css">  
   	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
        
   		<title>Contas a pagar</title>
@@ -18,30 +26,59 @@
   
 <body>
   
- 	 <h1 id="titulo-programas">Contas a pagar<p></h1>
+ 	 <h3><center>CONTAS A PAGAR</center></h3>
       
      <form method="POST" action="contas_pagar.php">
-  
-  		<label>Data de Lancamento:</label><input type="date" name='data'  maxlength="10" size="12" required>
+
+        <input type="submit" class="btn btn-success btn-sm" value="Incluir"><hr><p>
+        
+            <div class="form-row">
+              
+              <div class="form-group col-md-2">
+  		        
+              <label>Data de Lancamento:</label>      
+              
+                <input type="date" name='data'  class="form-control" maxlength="10" size="12" required>
   		
-  		    <label>Data do Vencimento:</label><input type="date" name='datavenc' maxlength="10" size="12" required>
+      </div>
+
+        <div class="form-group col-md-2">
+                    
+                <label>Data do Vencimento:</label>
+
+                  <input type="date" name='datavenc' class="form-control" maxlength="10" size="12" required>
+  		  </div>
+
+        <div class="form-group col-md-4">
+       
+             <label>Fornecedor:</label>
+
+                 <input type="text" name="fornecedor" class="form-control" maxlength="40" size="40" autocomplete="off" required>
+  		  </div>
+
+        <div class="form-group col-md-6">
+
+  		          <label>Descrição:</label>
+                    <input type="text" name='descr' class="form-control" maxlength="60" size="60" autocomplete="off" required<br>
+  		  </div>
+
+        <div class="form-group col-md-1">
+            <label>Valor R$:</label>
+                <input type="text" name='valor' class="form-control" maxlength="10" size="12" autocomplete="off" required>
+        </div>        
   		
-  		        <label>Fornecedor:</label><input type="text" name="fornecedor" maxlength="40" size="40" autocomplete="off" required>
-  		
-  		          <label>Descrição:</label><input type="text" name='descr' maxlength="30" size="40" >autocomplete="off" required<br><p>
-  		
-  		            <label>Valor R$:</label><input type="text" name='valor' maxlength="10" size="12" autocomplete="off" required>
-  		
-  		              <label>Parcela Nº:</label><input type="number" name="parcela" maxlength="2" size="2" required>                                                          
+  		  <div class="form-group col-md-1">
+              <label>Parcela Nº:</label>
+                <input type="number" name="parcela" class="form-control" maxlength="2" size="2" required>
+
+                </div>
+        </div><!--Fim do form-row-->                                                          
   	 
 <!--<label>Status:</label>  <input type="radio" name='status' value='pagar'>
               
-               <input type="radio" name='status' value='pago'>pago     -->
- 
-    
+             <input type="radio" name='status' value='pago'>pago     -->
   
-  <input type="submit" id="btn-salvar" value="Registrar">
-  
+   
   </form>
   
   <h2>&nbsp;</h2>
@@ -49,22 +86,23 @@
 <br>
 <hr>
   
-<h2>Consulta</h2>
+<div class="form-row">
+  <label>Consulta</label>&nbsp;&nbsp;&nbsp;
      
 <form method="POST" action="consulta_pagar.php">
   
-  		<input type="radio" name = "busca" value='pagar'>pagar
+  		<input type="radio" name = "busca" value='pagar'>pagar&nbsp;
   
-  			<input type="radio" name="busca" value='pago'>pago
+  			<input type="radio" name="busca" value='pago'>pagos
   				
-  				<input type="submit" id="btn-pesquisar" value="Pesquisar">
+  				<input type="submit" class="btn btn-dark btn-sm" value="Pesquisar">
 </form>
-
-</hr>
+</div>
+<hr>
 
    <form method="POST" action="menu.php">
 
-<p align ="left"> <input type="submit" id="btn-sair" value="Sair">
+<p align ="left"> <input type="submit" class="btn btn-dark btn-sm" value="Sair">
   
   </body>
 

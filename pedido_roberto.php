@@ -1,5 +1,5 @@
 
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,10 @@
 date_default_timezone_set("America/Sao_Paulo");
 
 $usuario = $_SESSION['login'];     
+
+//Session do formulario:
+
+$_SESSION['sinal'] = $sinal = $_POST['sinal'];
 
 include 'testa_login.php';
 
@@ -64,7 +68,7 @@ include 'conexao.php';
 
 <?php
 
-  $usuario = $_SESSION['login'];
+$usuario = $_SESSION['login'];
 
 $data=date('d/m/Y');  
 
@@ -141,7 +145,7 @@ if($produtobalanca == 000){
 }
 
 
-?>
+?>    
 
 <!--formulario-->  
 
@@ -152,15 +156,11 @@ if($produtobalanca == 000){
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
   
   			<link type ="text/css" rel="stylesheet" href="css/reset.css">
-
-	<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet" href="css/pedido.css">
 
 
-
-
-<title>Pedido</title>
+<title>PEDIDO</title>
 
 </head>
 
@@ -168,10 +168,10 @@ if($produtobalanca == 000){
 
 
 <body>
-
+<form method="POST" action="pedido_roberto.php">
 <div id=box1>
 
-	<div id="dados-cliente">
+	<!--<div id="dados-cliente"> -->
 
 
 	<div id="head">
@@ -179,56 +179,82 @@ if($produtobalanca == 000){
 		<label></label>
 			
 			</div>
-		
+<div class="form-row">
+
+    <div class="form-grou col-md-2">
+      
+        <label>Pedido nº</label>
+    <input type="text" autocomplete="off" class="form-control">    
+    </div>
+        
+    
+    <div class="form-group col-md-2">
+    		
 		<label>STATUS:</label>
 
-					<select>
+					<select class="form-control">
 						
 						<option value="orcamento">Orçamento</option>
 
 					<option value="pedido">Pedido</option>
 
 				</select>
+    </div>
+    
+    <div class="form-group col-md-3">
+      
+				<label id="data">Data:</label>
 
-				<label id="data">Emissão:</label>
+			<input type="date" name="data" class="form-control">
+    </div>
+    
+    <div class="form-group col-md-2">
+    
+		<label>Data da entrega:</label>
 
-			<input type="date" name="data">
+		<input type="date" name="data_retirada" class="form-control">
+    </div>    
+    <!--<div class="form-group col-md-2">
+        	<label>Data da devolução:</label>
 
-		<label>Entrega:</label>
+		<input type="date" name="data_retirada" class="form-control">
 
-		<input type="date" name="dataentr">
-
-		<label>Pedido nº</label><br>
-
+		    </div>-->
+    
+</div> <!--Fim do form-row -->
 <!--  <form action="./" id="formulario" method="GET">-->
 			
 
-<label id="dados-cliente">Dados do cliente:</label>
+
 	  
 <div id="formulario">
 
-<table border="1">
+    <div class="form-row">           
+            <table border="1">   
+         
+            <div class="form-group col-md-1">
+         CÓD:<input type="text" value="<?php echo $cod ?>"  name="cod" maxlength="4" size="4" disabled class="form-control">
+            </div>
 
+            <div class="form-group col-md-3">
+        
+           CLIENTE:<input type="text" value="<?php echo $nome ?>"  name ="cliente" maxlength="50" size="60" required class="form-control" disabled>
 
-<td>CÓD:<p><input type="text" value="<?php echo $cod ?>"  name="cod" maxlength="4" size="4"></td>
-
-<td>CLIENTE:<p><input type="text" value="<?php echo $nome ?>"  name ="cliente" maxlength="50" size="60" required></td>
-
-		<td>&nbsp;FANTASIA:&nbsp;<p><input type="text" value="<?php echo $nomefant ?>"  name ="nomefant" maxlength="50" size="60" required></td>
+		<!--<td>&nbsp;FANTASIA:&nbsp;<p><input type="text" value="<?php echo $nomefant ?>"  name ="nomefant" maxlength="50" size="60" required></td>
 
 			<td>&nbsp;CPF/CNPJ:&nbsp;<p><input type="text" value="<?php echo $cpf ?>" name ="cpfcnpj" maxlength="11" size="20"></td>
 
 
-				<td>ENDEREÇO:<p><input type="text" value="<?php echo $endereco ?> <?php echo $numero ?>"  name="ender" maxlength="50" size="50"></td>
-
+				<td>ENDEREÇO:<p><input type="text" value="<?php echo $endereco ?> <?php echo $numero ?>"  name="ender" maxlength="50" size="50"></td>-->
+    </div>
+        
 		</table>
-
-    				
+ 				
     				<table border="1">
 
 						
 
-							<td>RG:<p><input type ="text" name ="rg" maxlength="10" size = "10"></td>
+					<!--		<td>RG:<p><input type ="text" name ="rg" maxlength="10" size = "10"></td>
   		
 								<td>BAIRRO:<p><input type ="text" value ="<?php echo $bairro ?>" name = "bairro" size = "20"></td>
 
@@ -236,14 +262,19 @@ if($produtobalanca == 000){
 
 										<td>UF:<p><input type ="text" value ="<?php echo $uf ?>"  name ="uf" maxlength="2" size = "1"></td>
 
-											<td>CEP:<p><input type ="text" value="<?php echo $cep ?>" name = "cep" maxlength ="8" size = "8"></td>
+											<td>CEP:<p><input type ="text" value="<?php echo $cep ?>" name = "cep" maxlength ="8" size = "8"></td>-->
 		
-
-											<td>TELEFONE:<p><input type = "text" value ="<?php echo $telefone ?>" name = "telef" maxlength="11"  size = "11" required></td>
-
-												<td>TELEFONE2:<p><input type = "text" value="<?php echo $celular ?>" name = "telef2" maxlength="11" size= "11" required><br></td>
-
-														<td>E-MAIL:<p><input type ="text" value="<?php echo $email ?>" name = "email" size = "30"></td><br>
+                                             <div class="form-group col-md-2">
+                                             
+											TELEFONE:<input type = "text" value ="<?php echo $telefone ?>" class="form-control" name = "telef" maxlength="11"  size = "11" required disabled>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-2">
+												CELULAR/WHATSAPP:<input type = "text" value="<?php echo $celular ?>" class="form-control" name = "telef2" maxlength="11" size= "11" required disabled>
+                                            </div>
+                                            <div class="form-group col-md-3">
+													E-MAIL:<input type ="text" value="<?php echo $email ?>" class="form-control" name = "email" size = "30" disabled>
+                                            </div>
 
 															</table>
     														
@@ -252,7 +283,7 @@ if($produtobalanca == 000){
 																	</div>
 
 
-
+</div><!--fim do form-row -->
 																<br>	
 
 											<div id="produtos">
@@ -266,7 +297,7 @@ if($produtobalanca == 000){
     				<a href="lista_produtos_pedido.php"><img src="images/lupa.png" alt="Smiley face" width="30" height="30" align="absbottom"></a>
   
 
-						</form>
+					
 
 							</div>
 
@@ -306,6 +337,13 @@ if($preco_unit == ' '){
 
    $preco_unit = $preco_venda =  number_format($precoproduto3, 2, '.', '');
 }
+
+?>
+
+<?php 
+
+
+
 
 ?>
 
@@ -454,7 +492,7 @@ if($resultado == 0 ){
  
      echo '<div id="lista-produtos">';  
 
-    echo '<table style="display:block;width:auto;max-height:80px;">';  
+    echo '<table style="display:block;width:100%;max-height:80px;">';  
 
     echo '<td>#</td>';   
 
@@ -538,11 +576,24 @@ while($registro = mysqli_fetch_assoc($consulta)){
  }	
 
    echo '</div>';
-
-
+   
 
 ?>  
 
+<?php
+
+ $sql5 = "select * from clientes where cod = $cod";
+ 
+ $query = mysqli_query($conexao,$sql5); 
+   
+    
+while ($exibir = mysqli_fetch_array($query)){
+   
+      $observ = $exibir['observ'];
+}
+
+
+?>
 
 <hr>
 
@@ -552,13 +603,16 @@ while($registro = mysqli_fetch_assoc($consulta)){
 <!--<p align ="left"><input type="submit" id="btn-sair" value="Sair">-->
 
 </form>
+
 <p>
     <div id="observacoes">
 
-      <h6><b>Observacões:</h6>
+      <h6><b>Observ. cliente:</h6>
 
         <textarea cols="60" rows="5" name="observ">
-
+          
+ <?php echo $observ; ?>
+          
           </textarea>  
   
           </div>
@@ -568,7 +622,14 @@ while($registro = mysqli_fetch_assoc($consulta)){
             <label>Total:<div id="total"><?php echo "R$" . $subtotal ?></div></label>
 
     </div>
+ <div class="form-row">
 
+    <div class="form-group col-md-1">
+    
+    <label>Entrada Sinal R$:</label>
+
+        <input type="text" class="form-control" name="sinal" autocomplete="off" maxlenght="3" size="4">
+</div>
 
 
 <script type="text/javascript">
@@ -586,14 +647,10 @@ while($registro = mysqli_fetch_assoc($consulta)){
 <input type="text" name = "os" size="2"><!--<input type="submit" value="Pesquisa">-->
 <!--<input type='image' src="images/lupa.png" width ="15px" height="14">	-->
 
-</h2>
 
-
-
-</form>
 </div>
 
-<div id="forma-pagamento">
+<!--<div id="forma-pagamento">
 
   <h6><b>Forma de pagamento:</b></h6>
 
@@ -609,7 +666,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
   </select>
 
-</div>
+</div>-->
 
 
     <div id="cancela-pedido">
@@ -624,7 +681,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 
 </div>
-
+</form>
 <?php 
 $sql4 = "select sum(quantidade) from itensnota where numeroitensnota = '$ultimanota'";
   
@@ -644,7 +701,7 @@ while ($exibir = mysql_fetch_array($query)){
 </div>
 
 <script src="js/pedido.js"></script>
-
+</form>
 </body>
 
 

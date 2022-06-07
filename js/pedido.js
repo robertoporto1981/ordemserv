@@ -44,7 +44,7 @@ addEventListener("keydown", function(event){
 //Pesquisa produto
 addEventListener("keydown", function(event){
 
-	if(event.keyCode == 121)
+	if(event.keyCode == 112)
 
 		window.location.href="lista_produtos_pdv.php";
 });

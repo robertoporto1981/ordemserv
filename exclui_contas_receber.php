@@ -19,7 +19,7 @@ if (isset($_POST["descr"])){
 	
 	$descr = $_POST["descr"];                             
 
-	}else{
+}else{
 		
 		die("O campo descricao e obrigatorio!");
 }		
@@ -35,7 +35,22 @@ $sql .= "('$data','$valor', '$descr','$status')";
 		
 		
 
-mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
+mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+echo '<div class="error-mysql">';
+
+echo("Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+    
+    echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+die;
+}
 
 mysqli_close($conexao);
   

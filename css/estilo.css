@@ -175,8 +175,6 @@ table {
     border-radius:1px;
 }
 
-
-
 #tabelas-itens{
 	  
 	 font-family:"Lucida Sans Unicode";
@@ -216,7 +214,7 @@ table {
 
 #dados-cupom-itens {
   font-family:"Lucida Sans Unicode";        
-  font-align:left;
+  text-align:left;
   font-size:small;
   font-weight: normal;
 

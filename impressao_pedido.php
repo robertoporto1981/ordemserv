@@ -10,15 +10,17 @@ include'conexao.php';
 	<head>
 		<title>Impressao</title>
 
-<link type="text/css" rel="stylesheet" href="css/impressao.css">	
+<link type="text/css" rel="stylesheet" href="css/impressao_pedido.css">	
 
 </head>
 
 <body>
 
+<div class="box">
+
 	<div id="logo">
 
-		<img src="images/logo.jpg" widht="30px" height="50px">
+		<img src="images/logo.jpg" widht="50px" height="100px">
 
 		<h1 id="cabecalho">PEDIDO</h1> 
 
@@ -102,11 +104,11 @@ include'conexao.php';
 
 	<td>UN</td>
 
-	<td>Vl.Unitario</td>
+	<td>VL.Unitario</td>
 
-	<td>Vl.Desconto</td>
+	<td>VL.Desconto</td>
 
-	<td>Vl.Total</td>
+	<td>VL.Total</td>
 
 
 </table>
@@ -117,7 +119,7 @@ include'conexao.php';
 
 <div id="total-itens"><label>Total de Itens:</label></div>
 
-<div id="vl-pecas"><label>Vl. de Pecas:</label></div>
+<div id="vl-pecas"><label>VL. de Pecas:</label></div>
 
 <div id="total-pedido"><label>Total do Pedido:</label></div>
 
@@ -125,8 +127,7 @@ include'conexao.php';
 
 </div>
 
-</div>
-
+</div><!-- fim do box-->
 </body>
 
 </html>

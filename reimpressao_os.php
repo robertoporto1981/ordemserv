@@ -1,16 +1,19 @@
- <?php session_start(); ?>
+ <?php session_start() ?>
 
  <?php
  
 	  $usuario = $_SESSION['login'];
    
-	  $numeroord = $_SESSION['os'];
+	  //$numeroord = $_SESSION['os'];
+      
+      $numeroord = $_GET['os'];   
+      
 
 //Verifica se a variavel $numeroord esta vazia
 
 if(empty($numeroord)){
 
-	echo"<script language='javascript' type='text/javascript'>alert('Para reimprimir o comprovante e necessario digitar o da os:');window.location.href='consulta_os.html'</script>"; 
+	echo"<script language='javascript' type='text/javascript'>alert('Para reimprimir o comprovante e necessario digitar o numero da OS:');window.location.href='consulta_os.html'</script>"; 
 
 }	
 
@@ -23,54 +26,86 @@ require_once 'conexao.php';
 $sql = "select * from ordem where numeroord = '$numeroord'";
                                               	     
 $consulta = mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+
+echo '<div class="error-mysql">';
+
+echo("Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+    
+echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+
+die;
+
+}
    
 //Pega dados da consulta e transforma em array
 
-while ($row = mysqli_fetch_array($consulta)) {
+while ($dados_os = mysqli_fetch_array($consulta)) {
            
            
-		$numeroord = $row[0];   
-		
-		$dataentr = $row[1];
-		
-		$horacheg = $row[2];
-		
-		$cliente = $row[4];
-		
-		$endereco = $row[5];
-		
-		$bairro = $row[6];
-		
-		$cidade = $row[7];
-		
-		$uf = $row[8];
-		
-		$cep = $row[10];
-		
-		$telefone = $row[12];
+    	$numeroord = $dados_os[0];   
 
-		$telefone2 = $row[13];
-
-		$equipamento = $row["equipamento"];
+       
+//Tratamento data entrada:
+    $Data = $dados_os[1];
+    $dia = substr("$Data", 6, 2);
+    $mes = substr("$Data", 4,2 );
+    $ano = substr("$Data", 0, 4);
+    $dataentr = "$dia/$mes/$ano"; 
+// 
+//Tratamento data saída:
+    $Data = $dados_os[3];
+    $dia = substr("$Data", 6, 2);
+    $mes = substr("$Data", 4,2 );
+    $ano = substr("$Data", 0, 4);
+    $prevsaid = "$dia/$mes/$ano"; 
+// 
 		
-		$modelo = $row["modelo"];
+		$horacheg = $dados_os[2];
 		
-		$marca = $row["marca"];
+		$cliente = $dados_os[4];
 		
-		$acessorios = $row["acessorios"];
-
-		$serie = $row["serial"];
+		$endereco = $dados_os[5];
 		
-		$mensage = $row[20];
+		$bairro = $dados_os[6];
+		
+		$cidade = $dados_os[7];
+		
+		$uf = $dados_os[8];
+		
+		$cep = $dados_os[10];
+		
+		$telefone = $dados_os[12];
 
-		$servexec = $row[9];
+		$telefone2 = $dados_os[13];
 
-		$status = $row["status"];
+		$equipamento = $dados_os["equipamento"];
+		
+		$modelo = $dados_os["modelo"];
+		
+		$marca = $dados_os["marca"];
+		
+		$acessorios = $dados_os["acessorios"];
 
-		$defeito = $row["mensage"];
+		$serie = $dados_os["serial"];
+		
+		$mensage = $dados_os[20];
+
+		$servexec = $dados_os[9];
+
+		$status = $dados_os["status"];
+
+		$defeito = $dados_os["mensage"];
 }
      
-}   
+   
 
 if($status == FINALIZADO) {
 
@@ -84,8 +119,7 @@ if($status == FINALIZADO) {
    	
 ?>
 
-<!DOCTYPE html">
-
+<!DOCTYPE html>
 <html lang='pt-BR'>
 
 	<head>
@@ -109,15 +143,11 @@ if($status == FINALIZADO) {
 
 <div id="cabecalho">   
 
-  	<td><img src="images/logo.jpg" width="100px" height="60px" /></td>
+  	<td><img src="images/logo.jpg" width="100px" height="60px"/></td>
 
-		<td><b>Ordem Nº:</b></td><td><?php echo $numeroord ?></td></td>
-
-
+		<td><b>Ordem Nº:</b></td><td><b><?php echo $numeroord ?></td></b></td>    
 
 	</div>
-
-
 
 	</table>
 
@@ -127,7 +157,36 @@ if($status == FINALIZADO) {
 
 		<td><b>Hora Entrada:</b><input type="text" id="formulario" maxlength="8"  name ="horacheg" value ="<?php echo $horacheg; ?>" size="8"></td>
 
-		<td><b>Previsao Saida:</b><input type="text" id="formulario" maxlength="8" name ="prevsaid" size="8"></td>
+		<td><b><?php if($status === "APROVADO"){
+        
+            echo "Previsao Saída";
+        
+        }
+        
+        if($status === "ABERTO"){
+        
+            echo "Previsão Saída";}
+        
+        if($status === "SEM CONSERTO"){
+        
+            echo "Saída:";
+        }
+        if($status === "FINALIZADO"){
+            echo "Saída:";
+        
+        }
+         if($status === "CANCELADO"){
+         
+            echo "Saida:";
+         
+         
+         }
+         
+         if($status === "NAO APROVADO"){
+          echo "Saída:";}
+          
+          
+          ?></b><input type="text" id="formulario" maxlength="8" name ="prevsaid" value="<?php echo $prevsaid; ?>"size="8"></td>
    
 		<td><b>Cliente:</b><input type="text" value="<?php echo $cliente; ?>" id="formulario" name ="cliente" maxlength="40" size="40"></td>
 
@@ -177,7 +236,7 @@ if($status == FINALIZADO) {
 
 	<br><b>Defeito / Reclamação:<b><td><textarea id="formulario" name="mensage" rows="10" cols="160"  size  = "99">
 
-	<?php echo $defeito ?>
+	<?php echo rtrim($defeito) ?>
 	
 	</textarea>
 
@@ -187,7 +246,7 @@ if($status == FINALIZADO) {
 
 		<br><b>Serviços/Executados:<b><td><textarea id="formulario" name="servexec" rows="10" cols="160" size="99">
 
-	<?php echo $servexec ?>		
+	<?php echo rtrim($servexec) ?>		
 
 		</textarea>
 
@@ -205,9 +264,9 @@ if($status == FINALIZADO) {
   
 <h3>Visto: Eletronica _______________________________________________________________</h3>
 
-<h3>Tecnico Responsavel:<?php echo $usuario ?>__________________________________________________</h3>
+<h3>Tecnico Responsavel: <?php echo ucfirst($usuario) ?>__________________________________________________</h3>
 
-<h3>Visto:<?php echo $nome ?>_____________________________________________________</h3>
+<h3>Visto:<?php echo ucfirst($nome) ?>_____________________________________________________</h3>
 
 	(X)Via do cliente   	( )Via da Empresa		
 

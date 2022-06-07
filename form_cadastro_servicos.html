@@ -1,91 +1,84 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
 <html>
-
-<head>
-
-<meta charset="utf-8">	
-
-<link type="text/css" rel="stylesheet" href="stylesheet.css">
-
-</head>  
-  
- 
-    <title>Cadastro de servicos</title>
-
-<body>
-		
-<h1 id="titulo-programas"> Cadastro de serviços</h1>
-
-<div class="formulario-cadastro">
-
-<form method="POST" action="form_cadastro_servicos.php">
-
-
-<label for="descricao">Descrição:</label>
-
-		<input type="text" id="descricao" name ="descricao" maxlength="50"  size="50" required>
-
-		<label for="preco">Preco:</label>
-
-		<input type="text" id="preco" name="preco" maxlength="7" size="7" required>
-	
-	<label for="obser"> Observações:</label>
-
-	<input type="text" id ="obser" name="observacoes" maxlength="60" size="60"><p><br>
-			
-		
-		
-		<input type="submit" id="btn-salvar" value="salvar">
-
-		<input type="reset" id="btn-limpar" value="limpar">
-		
-
-	</form>
-
-<hr>	
-	
-
-
-</html>
-
-<html>
-
-
-
-</html>
-
-<html>
-
-<form method="POST" action="pesquisa_servico.php">
-
-<div class="busca">
-
-<br>
-
-	
-<h2>Busca servicos</h2>
-
-<!--<input type="text" name = "serv" size="50">-->
-
- <input type="text" name="serv" placeholder="Buscar..." size="50">
-
-<input type='image' src="images/lupa.png" whitdth="14" height="15">
-
+    <head>
+        <meta charset="utf-8">	 
+        <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>    
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>    
+        <link type="text/css" rel="stylesheet" href="css/reset.css">    
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+    </head>            
+    <title>CADASTRO DE SERVIÇOS
+    </title>
+    <body>		 <h3>
+            <center>CADASTRO DE SERVIÇOS
+            </center></h3>	 
+        <br>
+        <div class="formulario-cadastro">
+            
+            <form method="POST" action="form_cadastro_servicos.php">
+                
+                <div class="form-row">	
+                    
+                    <div class="form-group col-md-3">
+                    
+                        <label for="descricao">Descrição:</label>		
+                    
+                        <input type="text" id="descricao" name ="descricao" class="form-control" maxlength="50"  autocomplete="off" size="50" required>
+                    
+                    </div>
+                    
+                    <div class="form-group col-md-1">		
+                    
+                        <label for="preco">Preco:</label>		
+                    
+                        <input type="text" id="preco" name="preco" class="form-control" maxlength="7" size="7" required>
+                    
+                    </div>
+                
+                    <div class="form-group col-md-3">			
+                
+                        <label for="obser"> Observações:</label>
+                        	
+                            <input type="text" id ="obser" name="observacoes" class="form-control" maxlength="60" size="60">    			 
+                    
+                    </div>
+                
+                </div>
+        </div>
+        <!--Fim do form-row-->				 		
+        <input type="submit" class="btn btn-success" value="salvar">
+        		
+        <input type="reset" class="btn btn-danger" value="limpar">		 	
+        
 </form>
-
-
-
-<form method="POST" action="menu.php">
-
-<p align ="left"><input type="submit" id="btn-sair" value="Sair">
-
-</div>
-
-</div>
-
-</form>
-
+        <hr>	 	 
 </html>
-
+<html>
+</html>
+<html>
+    <form method="POST" action="pesquisa_servico.php">
+        <div class="busca">
+            <br>	 
+            <label>Busca serviços
+            </label>
+            <!--<input type="text" name = "serv" size="50">-->
+            <div class="form-row"> 	
+                <div class="form-group col-md-3"> 		
+                    <input type="text" name="serv" class="form-control" placeholder="Buscar..." autocomplete="off" size="50">
+                </div>
+                <div class="form-group col-md-1">	
+                    <input type='image' src="images/lupa.png" width="5" height="5" class="form-control">
+                </div>
+            </div>
+    </form>
+    <hr> 
+    <form method="POST" action="menu.php">          
+        <button onclick="window.close()" class="btn btn-dark">Sair
+        </button>        
+    </form>
+    </div>
+    </div>
+    </form>
+</html>
 </body>

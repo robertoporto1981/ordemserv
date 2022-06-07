@@ -1,26 +1,32 @@
-<?php session_start(); ?>
+<?php session_start() ?>
+<html>
+		<head>
+		
+		<link type="text/css" rel="stylesheetcss" href="stylesheet.css"/>
+             
+        <?php echo $sweet = $_SESSION['sweet_alert'];
+?>  
+        
+</head>
+
+<body>  
 
 <?php
 
-//Etiqueta para impressora ZPL 
-
-//Recebo as variáveis do pesquisa_produto_cod.php
-
+// Etiqueta para impressora ZPL:
+// Recebo as variáveis do pesquisa_produto_cod.php:
 $codigo = $_SESSION['codigo'];
-	
+
 $produto = $_SESSION['descr'];
 
-$valor = number_format($_SESSION['valor'], 2, '.', '');
+$valor = number_format( $_SESSION['valor'], 2, '.', '' );
 
 
-//Arquivo
-$arquivo = fopen("etiq.txt","a");
+// Arquivo:
+$arquivo = fopen( "etiq.txt", "a" );    
 
-
-
-//Gera arquivo
-
-fwrite($arquivo,"^XA
+// Gera arquivo:
+fwrite( $arquivo, "^XA
 ^PRA
 ^LH000,000
 ^LL480^FS
@@ -34,45 +40,63 @@ fwrite($arquivo,"^XA
 ^FO050,420^AUN,10,10^FDA Vista^FS
 ^FO050,475^AUN,10,10^FDR${$valor}^FS
 l
-^XZ ");
+^XZ " );
 
-fclose($arquivo);
+fclose( $arquivo );
 
 
-//Manda o arquivo para impressora de etiqueta
+// Manda o arquivo para impressora de etiqueta
+// Origem do arquivo
+$arquivo = "C:/xampp/htdocs/projects/ordemserv/etiq.txt";
 
-//Origem do arquivo
-$arquivo = "C:/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/projects/ordemserv/etiq.txt";
+// Caminho da impressão
+// Nome da impressora e nome do compartilhamento:
+$caminho_impressora = "//impressora_etiqueta/compartilhamento";
 
-//Caminho da impressão
+ if ( copy( $arquivo, $caminho_impressora ) )
+				
+				 {
+				
+// Java script Sweet alert
+    echo "<script>
+        swal('Etiqueta gerada!')
+            .then((value) => {
+                 window.location.href='pesquisa_produto.php?codigo={$codigo}';
+});
 
-$caminho_impressora = "//192.168.25.75/zd";
+</script>";
+				
+// Deleta arquivo
+unlink( $arquivo );
+				
+				 } 
 
- if (copy($arquivo, $caminho_impressora))
+else
+				
+				 {
+				
+				// Java script Sweet alert:
+				echo "<script>
+swal('Nao foi possivel gerar etiqueta!')
+.then((value) => {
+             window.location.href='pesquisa_produto_cod.php?codigo={$codigo}';
+});
 
- {
-  
-  	echo"<script language='javascript' type='text/javascript'>alert('Etiqueta gerada!');window.location.href='pesquisa_produto_cod.php?codigo={$codigo}'</script>";
+</script>";
+				
+				
+				} 
 
-//Deleta arquivo
-	unlink($arquivo);
 
- }
-
- else
- 
- {
- 
-  echo "Erro ao gerar etiqueta";
- 
- }
 
 
 
 
 ?>
 
+</body>
 
+</html>
 
 
 

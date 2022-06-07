@@ -1,4 +1,4 @@
- <?php session_start(); ?>
+ <?php session_start() ?>
 
  <?php include 'testa_login.php'; ?>
 
@@ -40,9 +40,24 @@ if(empty($busca)){
      		
 $sql = "select * from clientes where nome like ('%$busca%') ORDER BY nome asc";
 	 	     
-	$consulta = mysqli_query($conexao,$sql);
-            
-    $resultado = mysqli_num_rows($consulta);
+$consulta = mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+echo '<div class="error-mysql">';
+
+echo("Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+    
+echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+die;
+}            
+
+$resultado = mysqli_num_rows($consulta);
 
 //echo "$num_rows Rows\n";
           

@@ -1,5 +1,5 @@
 
-    /* min-width */
+/* min-width */
 @media screen and (min-width: 992px) {
            
 }
@@ -11,7 +11,7 @@
  
 /* max device width */
 @media screen and (max-device-width: 480px) {
-           
+                                                                  
 }
 
 /* max device width */
@@ -21,15 +21,13 @@
 
 
 
-
-
 body{
   
-  margin-top:-10px;
-    
+  margin-top:-5px;
+      
   
 } 
- 
+
 .sub-menu {
     margin: 0;
     padding: 0;
@@ -51,6 +49,7 @@ body{
 .sub-menu {
     list-style: none;
     background: #000;
+    border-radius:6px;
 }
 .sub-menu {
     background: #444;
@@ -60,7 +59,7 @@ body{
     text-decoration: none;
     display: block;
     padding: 10px;
-    color: white;
+    color:white;
     font-family: sans-serif;
     font-size: 14px;
     text-transform: uppercase;
@@ -90,6 +89,7 @@ body{
     top: 0;
     left: 100%;
 }
+
 
 #borda-alertas{
 border:2px solid black;
@@ -141,6 +141,7 @@ margin-top:-30pt;
 #mensagem-receber {
   width:auto;
   height:30px;
+  position:static;
   margin-top:-60px;
   text-align:center;
   padding: 2px 2px 2px 300px;
@@ -197,7 +198,7 @@ margin-top:-30pt;
 #avisos-importantes{
 margin-top:-2px;
 position:static;
-background-color:#AF0000;
+background-color:#890000;
 border:2px solid black;
 color:white;
 text-align:center;
@@ -218,7 +219,7 @@ clear:both;
 float:right;
 position:static;
 margin-right:500px;
-margin-top:-120px;
+margin-top:10px;
 width:400px;
 height:auto;
 border:2px solid black;
@@ -236,18 +237,12 @@ text-align:center;
 
 }
 
-#corpo{
-
-
-
-}
 
 #border{
 
 border: 3px solid black;
 
 }
-
 
 
 

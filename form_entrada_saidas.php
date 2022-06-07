@@ -4,10 +4,25 @@
 
 <?php include 'testa_login.php'; ?>
 
+<?php
+// Data:
+
+$data = date('d/m/Y');
+
+$dia = date('d');
+
+$mes = date('m');
+
+$ano = date('Y');
+
+
+?>
+
 <!DOCTYPE html>
 
 <html lang='pt-BR'>
 
+<?php session_start ?>
 <head>
      <meta charset='utf-8'>
 
@@ -31,7 +46,7 @@
 
 			<label>Data:</label>
 
-				<input type="date" name="data" required>
+				<input type="date" value="<?php echo $ano ?>-<?php echo $mes ?>-<?php echo $dia; ?>" name="data"  required>
    
 					<label>Tipo:</label>
 
@@ -52,18 +67,12 @@
 
 <input type="text" name="valor" maxlength="9" size="9" autocomplete="off" required><br>
 	      			                                                                        
-<input type="submit" id="btn-salvar" value="Registrar">
+<input type="submit" id="btn-salvar" value="Incluir">
 	
 </form>
-
-<form method="POST" action="menu.php">
-
-	  	 <input type="submit" value="sair">
-
-</form>
-
+   <button onclick="window.close()" id="btn">Sair</button>
 </div>
-
+   
 </body>
 
 </html>

@@ -1,0 +1,76 @@
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">	 
+        <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>    
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>    
+        <link type="text/css" rel="stylesheet" href="css/reset.css">    
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+    </head>            
+    <title>CADASTRO DE SERVIÇOS
+    </title>
+    
+    <body>		 
+            <h3><center>CONTROLE RECARGAS</center></h3>	 
+        <br>
+        <div class="formulario-cadastro">
+            
+            <form method="POST" action="form_controle_recargas.php">
+                
+                <div class="form-row">	
+                    
+                    <div class="form-group col-md-3">
+                    
+                        <label for="descricao">Descrição:</label>		
+                    
+                        <input type="text" id="descricao" name ="descricao" class="form-control" maxlength="50"  autocomplete="off" size="50" required>
+                    
+                    </div>
+                    
+                    <div class="form-group col-md-1">		
+                    
+                        <label for="marca">Marca:</label>		
+                    
+                        <input type="text" id="preco" name="marca" class="form-control" maxlength="7" size="7" required>
+                    
+                    </div>
+                
+                    <div class="form-group col-md-3">			
+                
+                        <label for="cor">Cor:</label>
+                        	
+                            <input type="text" id ="obser" name="cor" class="form-control" maxlength="60" size="60">    			 
+                    
+                    </div>
+                    
+                     <div class="form-group col-md-3">			
+                
+                        <label for="serie">Nº Série:</label>
+                        	
+                            <input type="text" id ="obser" name="serie" class="form-control" maxlength="60" size="60">    			 
+                    
+                    </div>
+                
+                </div>
+        </div>
+                   <div class="form-group col-md-3">			
+                
+                        <label for="serie">Nº de recargas:</label>
+                        	
+                            <input type="text" id ="obser" name="nrecargas" class="form-control" maxlength="60" size="60">    			 
+                    
+                    </div>
+                
+                </div>
+        </div>
+        <!--Fim do form-row-->
+        				 		
+        <input type="submit" class="btn btn-success" value="salvar">
+        		
+        <input type="reset" class="btn btn-danger" value="limpar">		 	
+        
+</form>
+        <hr>	 	 
+</html>
+<html>
+</html>

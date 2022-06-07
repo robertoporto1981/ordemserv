@@ -60,7 +60,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color:white;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10226,3 +10226,17 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+#box-pai{
+
+background-color:silver;
+position:relative;
+display:inline-block;
+}
+
+#box-filho{
+
+
+
+
+}

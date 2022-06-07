@@ -1,9 +1,17 @@
-<?php require_once 'testa_login.php' ?>
-<!DOCTYPE html>
+<?php session_start ?>
 
-<html>			
+<?php require_once 'testa_login.php'; ?>
+
+<?php
+$google_calendar = $_SESSION['google_calendar'];
+
+
+?>
+
+<!DOCTYPE html>
+<html lang='pt-BR'>			
 	<head>
-		<title>Agenda</title>
+		<title>AGENDA</title>
 
 		    <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
 
@@ -13,19 +21,21 @@
 
 			<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">
                                                                    
-  			<link type="text/css" rel="stylesheet" href="stylesheet.css">
+  			<link type="text/css" rel="stylesheet" href="css/stylesheet.css">
 			  
-			  <link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
 	</head>
 
 <body>
 
-	<h1 id="titulo-programas">Agenda</h1>
-
-<iframe src="https://calendar.google.com/calendar/embed?src=robertojrdj%40gmail.com&ctz=America%2FSao_Paulo" style="border: 0" width="1280" height="600" frameborder="0"  scrolling="no"></iframe>
+	<h3><center>AGENDA</center></h3>
+    
+    <br>
+ 
+<iframe src="https://calendar.google.com/calendar/embed?src=robertojrdj%40gmail.com&ctz=America%2FSao_Paulo" style="border:0" width="1280" height="600" frameborder="0" scrolling="no"></iframe>
 
 <!--https://support.google.com/calendar/answer/41207?hl=pt-BR -->
-
+<p>
 <form action="menu.php">
 
 	<input type="submit" class="btn btn-dark" value="Sair">

@@ -8,85 +8,99 @@ require_once 'testa_login.php';
 
 
 $usuario = $_SESSION['login'];
-  
+
 $os = $_SESSION['os'];
-		
-//conexao com banco de dados:
-		
+
+// conexao com banco de dados:
 require_once 'conexao.php';
 
 
 $sql = "select * from ordem where numeroord like('%$os%') order by numeroord asc";
-	    
-$consulta = mysqli_query($conexao,$sql);
-	 
-$resultado = mysqli_num_rows($consulta);
 
-if($resultado == 0){
-   
-		echo"<script language='javascript' type='text/javascript'>alert('OS nao encontrado!');window.location.href='consulta_os.html';</script>";
-   
-}
-        
-    
-//Dados da tabela   
-     
-while($registro = mysqli_fetch_assoc($consulta)){   
- 
-    $numeroord = $registro["NumeroOrd"];
-    
-    $data = $registro["dataentr"];
-    
-    $hora = $registro["horacheg"];
+$consulta = mysqli_query( $conexao, $sql );
 
-    $cliente = $registro["cliente"];
+if ( mysqli_error( $conexao ) == true ) {
+				
+				echo '<div class="error-mysql">';
+				
+				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+                 
+                 echo '<br>';
+                
+                 echo $sql;
+				
+				 echo '</div>';
+				
+				 mysqli_close( $conexao );
+				
+				 die;
+				} 
 
-    $endereco = $registro["endereco"];
+$resultado = mysqli_num_rows( $consulta );
 
-    //$numero = $registro["numero"];
+if ( $resultado == 0 ) {
+				
+				echo"<script language='javascript' type='text/javascript'>alert('OS nao encontrado!');window.location.href='consulta_os.html';</script>";
+				
+				} 
 
-    $bairro = $registro["bairro"];
 
-    $cidade = $registro["cidade"];
+// Dados da tabela
+while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
+				
+				$numeroord = $registro["NumeroOrd"];
+				
+				 $data = $registro["dataentr"];
+				
+				 $hora = $registro["horacheg"];
+				
+				 $cliente = $registro["cliente"];
+				
+				 $endereco = $registro["endereco"];
+				
+				 // $numero = $registro["numero"];
+				$bairro = $registro["bairro"];
+				
+				 $cidade = $registro["cidade"];
+				
+				 $uf = $registro["uf"];
+				
+				 $cep = $registro["cep"];
+				
+				 $cpfcnpj = $registro["cpfcnpj"];
+				
+				 $rg = $registro["rg"];
+				
+				 $telef = $registro["telef"];
+				
+				 $telef2 = $registro["telef2"];
+				
+				 $marca = $registro["marca"];
+				
+				 $email = $registro["email"];
+				
+				 $equipamento = $registro["equipamento"];
+				
+				 $modelo = $registro["modelo"];
+				
+				 $marca = $registro["marca"];
+				
+				 $serial = $registro["serial"];
+				
+				 $acessorios = $registro["acessorios"];
+				
+				 $detalhes = $registro["detalhes"];
+				
+				 $defeito = $registro["mensage"];
+				
+				 $servexec = $registro["servexec"];
+				
+				 $status = $registro["status"];
+				
+				
+				 } 
 
-    $uf = $registro["uf"];
 
-    $cep = $registro["cep"];
-
-    $cpfcnpj = $registro["cpfcnpj"];
-
-    $rg = $registro["rg"];
-
-    $telef = $registro["telef"];
-
-    $telef2 = $registro["telef2"];
-    
-    $marca = $registro["marca"];
-
-    $email = $registro["email"];
-
-    $equipamento = $registro["equipamento"];
-
-    $modelo = $registro["modelo"];
-
-    $marca = $registro["marca"];
-
-    $serial = $registro["serial"];
-
-    $acessorios = $registro["acessorios"];
-
-    $detalhes = $registro["detalhes"];
-    
-    $defeito = $registro["mensage"];
-
-    $servexec = $registro["servexec"];
-
-    $status = $registro["status"];
-    
- 
- }	   
-
-	
 ?>
   <!DOCTYPE html">
 
@@ -113,13 +127,16 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 	<table border="2">
   
-		<td><b>Data Entrada:</b><input type="text" id="formulario" maxlength="8" name ="dataentr" value =<?php echo $data; ?> size="8"></td>
+		<td><b>Data Entrada:</b><input type="text" id="formulario" maxlength="8" name ="dataentr" value =<?php echo $data;
+?> size="8"></td>
 
-		<td><b>Hora Entrada:</b><input type="text" id="formulario" maxlength="8"  name ="horacheg" value ="<?php echo $hora; ?>" size="8"></td>
+		<td><b>Hora Entrada:</b><input type="text" id="formulario" maxlength="8"  name ="horacheg" value ="<?php echo $hora;
+?>" size="8"></td>
 
 		<td><b>Previsao Saida:</b><input type="text" id="formulario" maxlength="8" name ="prevsaid" size="8"></td>
    
-		<td><b>Cliente:</b><input type="text" value="<?php echo $cliente; ?>" id="formulario" name ="cliente" maxlength="40" size="40"></td>
+		<td><b>Cliente:</b><input type="text" value="<?php echo $cliente;
+?>" id="formulario" name ="cliente" maxlength="40" size="40"></td>
 
 		<td><b>Endereço:</b><input type="text" value="<?php echo $endereco ?> <?php echo $numero ?>" <id="formulario" name = "endereco" maxlength="80" size = "80"></td>
 

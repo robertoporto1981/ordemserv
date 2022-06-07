@@ -265,14 +265,17 @@ display: block;
 
 }
 
-#aniversariante{
-
+#aniversariante{  
 color:red;
 
 }
+.error-mysql{
+border:1px solid red;
 
 
 
+
+}
 
 
 /*Sou um comentário!*/

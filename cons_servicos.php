@@ -14,50 +14,63 @@
 require_once 'testa_login.php';
 
 // Conexão ao banco
-
 require_once 'conexao.php';
 
 
 
 $sql = "SELECT * FROM produto where quantidade >= 1";
 
-$consulta = mysqli_query($conexao,$sql);
+$consulta = mysqli_query( $conexao, $sql );
 
-//echo '<table>';
+if ( mysqli_error( $conexao ) == true ) {
+				echo '<div class="error-mysql">';
+				
+				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+                
+                echo '<br>';
+                
+                 echo $sql;
+				
+				echo '</div>';
+				
+				mysqli_close( $conexao );
+				die;
+				} 
 
+
+// echo '<table>';
 echo '<font face="verdana"><table border style="width:100%">';
 
-		echo '<tr>';
+ echo '<tr>';
 
-		echo '<td>Produto:</td>';
+ echo '<td>Produto:</td>';
 
-		echo '<td>Quantidade em estoque:</td>';
+ echo '<td>Quantidade em estoque:</td>';
 
-		echo '<td>Preco de custo:</td>';
+ echo '<td>Preco de custo:</td>';
 
-		echo '<td>Preco de venda:</td>';
+ echo '<td>Preco de venda:</td>';
 
 echo '</tr>';
 
 // Armazena os dados da consulta em um array associativo
+while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
+				
+				echo '<tr>';
+				
+				 echo '<td>' . $registro["descricao"] . '</td>';
+				
+				 echo '<td>' . $registro["quantidade"] . '</td>';
+				
+				 echo '<td>' . $registro["preco_compra"] . '</td>';
+				
+				 echo '<td>' . $registro["preco_venda"] . '</td>';
+				
+				echo '</tr>';
+				
+				} 
 
-while($registro = mysqli_fetch_assoc($consulta)){
-
-		echo '<tr>';
-
-		echo '<td>'.$registro["descricao"].'</td>';
-
-		echo '<td>'.$registro["quantidade"].'</td>';
-
-		echo '<td>'.$registro["preco_compra"].'</td>';
-
-		echo '<td>'.$registro["preco_venda"].'</td>';
-
-echo '</tr>';
-
-}
-
-	echo '</table>';
+echo '</table>';
 
 
 

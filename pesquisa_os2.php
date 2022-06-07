@@ -1,6 +1,4 @@
-<?php session_start() ?>
-
-          
+<?php session_start() ?>          
 
 <html lang='pt-BR'>
 	
@@ -8,6 +6,7 @@
   
     <meta charset="utf-8">
     
+    <?php echo $sweet = $_SESSION['sweet_alert']; ?>
         
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     
@@ -27,10 +26,9 @@ $usuario = $_SESSION['login'];
 
 //Variavel cliente recebe dados do POST
 
-    $cliente = $_POST['nome'];
-    
+$cliente = $_POST['nome'];    
 
-//conexao com banco
+//conexao com banco:
 
 require_once 'conexao.php';
 
@@ -46,15 +44,32 @@ if(empty($cliente)){
 }
 	
 	
-//Query banco de dados 
+//Query banco de dados: 
 
 
-	$sql = "select * from ordem where cliente like('%$cliente%') order by numeroord asc";
-  
+$sql = "select * from ordem where cliente like('%$cliente%') order by numeroord asc";
 	     
-	   $consulta = mysqli_query($conexao,$sql);
-	 
-       $resultado = mysqli_num_rows($consulta);
+$consulta = mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+
+    echo '<div class="error-mysql">';
+
+    echo("Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+    
+echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+
+die;
+
+}	 
+
+$resultado = mysqli_num_rows($consulta);
 
 if($resultado == 0){
    
@@ -62,7 +77,7 @@ if($resultado == 0){
    
 }
 
-//Mostra tabelas na tela 
+//Mostra tabelas na tela: 
 
 echo '<font face="verdana"><table border style="width:100%">'; 
 
@@ -76,6 +91,8 @@ echo '<tr>';
     echo '<td id="borda">DATA ENTRADA:</td>';
 
     echo '<td id="borda">CLIENTE:</td>';
+    
+    echo '<td id="borda">EQUIPAMENTO:</td>';    
 
     echo '<td id="borda">MARCA:</td>';
 
@@ -87,9 +104,9 @@ echo '</tr>';
 
 	
        
-     echo"<form action='./' id='formulario' method='post'>";          
+    echo"<form action='./' id='formulario' method='post'>";          
     
-//Dados da tabela   
+//Dados da tabela:   
      
 while($registro = mysqli_fetch_assoc($consulta)){   
 
@@ -97,27 +114,19 @@ $_SESSION['os'] = $registro['NumeroOrd'];
 
  echo '<tr>'; 
 
-
      echo '<td id="campos"><a href="edita_os2.php?os='.$registro["NumeroOrd"].'"#><img src="images/edit.png"></td>';
 
-    echo '<td id="campos">'.$registro["NumeroOrd"].'</td>';
+     echo '<td id="campos">'.$registro["NumeroOrd"].'</td>';
     
     //echo '<td id="campos">'.$registro["dataentr"].'</td>'; 
 
-$dataentr = $registro["dataentr"];
+//Data entrada:   
 
-    $dia = substr("$dataentr",0,2);
-
-    $mes = substr("$dataentr",2,2);
-
-    $ano = substr("$dataentr",4,8);
-
-    $dataentrada = "$dia/$mes/$ano";
-
-  echo '<td id="campos">'.$dataentrada.'</td>'; 
-    
+    echo '<td id="campos">'.date('d/m/Y',strtotime($registro["dataentr"])).'</td>';      
    
     echo '<td id="campos">'.$registro["cliente"].'</td>';
+    
+    echo '<td id="campos">'.$registro["equipamento"].'</td>';
     
     echo '<td id="campos">'.$registro["marca"].'</td>';
     
@@ -195,10 +204,6 @@ if($registro['status'] == 'CANCELADO'){
 }
   
   echo '</table>';
-  
-}
-
-
    	
 ?>
 

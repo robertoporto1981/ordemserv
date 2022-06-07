@@ -31,7 +31,7 @@
     $pdo = new Conexao();
     //mandamos nossa query para nosso método dentro de conexao dando um return $stmt->fetchAll(PDO::FETCH_ASSOC);
     $result = $pdo->select("SELECT cod,nome,nomefant,cpf,cnpj,tipo,datanasc,
-        cep,rua,numero,complemento,bairro,cidade,uf,telefone,celular,email,observ,datacad FROM clientes");
+        cep,rua,numero,complemento,bairro,cidade,uf,telefone,celular,email,observ,datacad FROM clientes where status <> 'D'");
     //varremos o array com o foreach para pegar os dados
     foreach($result as $res){
         $dadosXls .= "      <tr>";
@@ -59,7 +59,7 @@
     $dadosXls .= "  </table>";
  
     // Definimos o nome do arquivo que será exportado  
-    $arquivo = "clientes.xls";  
+    $arquivo = "Relatorio_clientes.xls";  
     // Configurações header para forçar o download  
     header('Content-Type: application/vnd.ms-excel');
     header('Content-Disposition: attachment;filename="'.$arquivo.'"');

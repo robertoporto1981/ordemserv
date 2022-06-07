@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start() ?>
 
 <html lang='pt-BR'>
 	
@@ -14,7 +14,7 @@
      
 <header >
      
-       <h1 id="titulo-pedido">PRODUTOS</h1>
+       <h3 id="titulo-pedido">PRODUTOS</h3>
 
 </header>
 <html>
@@ -46,9 +46,24 @@ $usuario = $_SESSION['login'];
 
 //$sql = "SELECT * FROM produto where usuario = '$usuario' order by cod asc";
 
-$sql = "SELECT * FROM produto order by descricao asc";
+$sql = "SELECT * FROM produto where quantidade <> 9999 order by descricao asc";
 
 $consulta = mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+echo '<div class="error-mysql">';
+
+echo("Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+    
+    echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+die;
+}
 
  	    echo '<table border style="width:100%">';
 

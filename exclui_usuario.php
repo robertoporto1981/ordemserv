@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <?php 
 //Session		
@@ -20,6 +20,23 @@ $sql = "DELETE FROM Usuarios WHERE ID = '$id'";
 
 
 $query = mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+	
+	echo '<div class="error-mysql">';
+
+	echo("Erro! <br> " . mysqli_error($conexao));
+    
+    echo '<br>';
+    
+    echo $sql;
+
+	echo '</div>';
+ 
+	mysqli_close($conexao);
+	
+	die;
+}
 
 $array = mysqli_fetch_array($select);
 

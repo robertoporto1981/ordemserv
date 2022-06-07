@@ -206,9 +206,9 @@ color:white;
 }
 
 
-div#lista-produtos{
+#lista-produtos{
   margin-top:5pt;
-  max-width: auto;
+  max-width:100%;
   max-height: auto;
   overflow-y: scroll;
   font-size:small;

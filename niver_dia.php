@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <?php include 'testa_login.php' ?>
  
@@ -10,12 +10,16 @@
  	  <meta charset='utf-8'>	
 
       <link type="text/css" rel="stylesheet" href="stylesheet.css">
+
+      <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+
+      <?php echo $sweet = $_SESSION['sweet_alert']; ?> 
  
  </head>
  
  <title>Aniversariantes</title>
 
-		<h1 id="titulo-programas">Aniversariantes do dia </h1>
+		<h3><center>ANIVERSÁRIANTES DO DIA</center></h3>
 
 <?php
 
@@ -39,37 +43,65 @@ $sql = "SELECT * FROM clientes WHERE MONTH(datanasc) = '$mes' AND DAY(datanasc) 
 
 		$consulta = mysqli_query($conexao,$sql);
 
-     	$resultado = mysqli_num_rows($consulta);
+if(mysqli_error($conexao) == TRUE){
+  
+    echo '<div class="error-mysql">';
+
+    echo("Erro! <br> " . mysqli_error($conexao));
+    
+    echo '<br>';
+    
+    echo $sql;
+
+  echo '</div>';
+ 
+  mysqli_close($conexao);
+
+  die;
+
+}
+
+$resultado = mysqli_num_rows($consulta);
   
 
 if($resultado == 0 ){
     
-	    echo"<script language='javascript' type='text/javascript'>alert('Nenhum aniversariante hoje!');window.location.href='menu.php';</script>";
-    
+//Java script Sweet alert
+
+echo "<script>
+swal('Nenhum aniversáriante hoje!')
+.then((value) => {
+             window.location.href='menu.php';
+});
+
+</script>";
+die;    
 }
 
 // Armazena os dados da consulta em um array associativo
-
-echo '<table border style="width:100%">';
-
-echo '<tr>';
-
-		echo '<td id="borda">CÓD:</td>';
-
-		echo '<td id="borda">CLIENTE:</td>';
-
-		echo '<td id="borda">DATA DE NASCIMENTO:</td>';
-
-		echo '<td id="borda">TELEFONE:</td>';
-
-		echo '<td id="borda">CELULAR:</td>';
-
-		echo '<td id="borda">E-MAIL:</td>';
-
-		echo '<td id="borda">WHATSAPP:</td>';
-
-
-		echo '</tr>';
+ echo '<table class="table table-bordered">
+    
+    <thead class="thead-dark">
+    
+    <tr>
+              
+      <th scope="col">CÓDIGO:</th>
+      
+      <th scope="col">NOME:</th>
+    
+      <th scope="col">DATA NASCIMENTO:</th>
+    
+      <th scope="col">TELEFONE:</th>
+    
+      <th scope="col">CELULAR:</th>
+      
+      <th scope="col">EMAIL:</th>
+      
+      <th scope="col">WHATSAPP:</th>    
+          
+    </tr>
+    
+    </thead>';    
 
 while($registro = mysqli_fetch_assoc($consulta)){
     
@@ -78,17 +110,27 @@ while($registro = mysqli_fetch_assoc($consulta)){
   
   		echo'<tr>';   
   
- 		echo "<td id='campos'><input type='text' name='cod'  maxlength='10' id='formulario' value ='".$registro['cod']."' size='30'></td>";
+      echo '<td>'.$registro['cod'].'</td>';
+ 		
+  	  echo '<td>'.$registro['nome'].'</td>';
+               
+      $Data = $registro["datanasc"];
 
-  		echo "<td id='campos'><input type='text' name='nome'  maxlength='10' id='formulario' value ='".$registro['nome']."' size='30'></td>";
+      $dia = substr("$Data",8,9);
+
+	    $mes = substr("$Data",5,2);
+
+	    $ano = substr("$Data",0,4);
+
+      $data_nasc = "$dia/$mes/$ano";
+
+	    echo '<td>'.$data_nasc.'</td>';
   
-  		echo "<td id='campos'><input type='text' name='datanasc'  maxlength='10' id='formulario' value ='".$registro['datanasc']."' size='12'></td>";
+ 		echo '<td>'.$registro['telefone'].'</td>';
   
- 		echo "<td id='campos'><input type='text' name='telefone'  maxlength='10' id='formulario' value ='".$registro['telefone']."' size='12'></td>";
+  		echo '<td>'.$registro['celular'].'</td>';
   
-  		echo "<td id='campos'><input type='text' name='celular'  maxlength='10' id='formulario' value ='".$registro['celular']."' size='12'></td>";
-  
-		echo "<td id='campos'><input type='text' name='email'  maxlength='10' id='formulario' value ='".$registro['email']."' size='40'></td>";
+		echo '<td>'.$registro['email'].'</td>';
   
   		echo "<td id='campos-whatsapp'><a href='https://api.whatsapp.com/send?phone=55".$registro['celular']."&text=%20Feliz aniversario'><img src='images/whatsapp.png' alt='Smiley face' height='20' width='30' border='0'/></a></a>";
 

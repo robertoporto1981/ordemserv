@@ -1,710 +1,540 @@
-
-/**rgb(204,255,255)rgb(204,255,255)rgb(204,255,255)
-@page { /*padrao da pagina ***/
-
-/*  size: A4 landscape; */
- img:hover { 
-   	   
+/**rgb(204,255,255)rgb(204,255,255)rgb(204,255,255)@page {
+/*padrao da pagina ***/
+	/*  size: A4 landscape;
+*/
+img: hover {
 }
-
 body {
-    
-    font-family:sans-serif,serif;
-    color:black; /*Cor da letra */
-    border-radius:5px;
-    /**border:solid;**/
-    font-size:8pt;
-    margin:5pt;         
-  
-}  
-  
+	font-family: sans-serif, serif;
+	color: black;    
+/*Cor da letra */
+	border-radius: 5px;
+	/**border: solid;
+**/
+	font-size: 8pt;
+	margin: 5pt;
+}
 /* min-width */
 @media screen and (min-width: 992px) {
-           
 }
- 
 /* min-width & max-width */
 @media screen and (min-width: 600px) and (max-width: 900px) {
-           
 }
- 
 /* max device width */
 @media screen and (max-device-width: 480px) {
-           
 }
-
 /* max device width */
 @media screen and (max-device-width: 640px) {
-           
 }
-
-    
-body text{
-
-  color: black;
-
- }
-
- #corpo{
- 
-  width:960px;
-  height: 800px; 
- /**border: 2px solid black;**/
-
+body text {
+	color: black;
 }
-
+#corpo {
+	width: 960px;
+	height: 800px;
+	/**border: 2px solid black;
+**/
+}
 #comprovante {
-  width:auto;
-  height: 730px; 
-  border: 2px solid black;
-  text-align: left;
-  font-weight:bold;	
-
-} 
-
-
+	width: auto;
+	height: 730px;
+	border: 2px solid black;
+	text-align: left;
+	font-weight: bold;
+}
 h1 {
-
-  margin-top:-1px;
-  text-align: center;
-
-}    
-
+	margin-top: -1px;
+	text-align: center;
+}
 .formulario {
-  width:1300px;
-  margin:2pt;
-  padding: 5px 0 0 0;
-  display: block;
-
-
+	width: 1300px;
+	margin: 2pt;
+	padding: 5px 0 0 0;
+	display: block;
 }
 .login {
-  margin-top:80px;
-  text-align: center;
-  width:430px;
-  height:200px;
-  border:solid 3px black;
-  padding: 30px 0 0 0;
-
+	margin-top: 80px;
+	text-align: center;
+	width: 430px;
+	height: 200px;
+	border: solid 3px black;
+	padding: 30px 0 0 0;
 }
-
 .altera-login {
-  clear:both;
-  position:static;
-  float:right;
-  margin-right:600px;
-  margin-top:80px;
-  text-align: center;
-  width:auto;
-  height:auto;
-  border:solid 3px black;
-  padding: 30px 0 0 0;
-
+	clear: both;
+	position: static;
+	float: right;
+	margin-right: 600px;
+	margin-top: 80px;
+	text-align: center;
+	width: auto;
+	height: auto;
+	border: solid 3px black;
+	padding: 30px 0 0 0;
 }
-
-input{
-
- border-radius: 1px;
- 
-  
-
+input {
+	border-radius: 1px;
 }
-
-#cabecalho{
-  width:auto;
-  height: auto;
-  background:blue;
-  border:1pt solid black;
-
+#cabecalho {
+	width: auto;
+	height: auto;
+	background: blue;
+	border: 1pt solid black;
 }
-
 #btn {
-
-  border: 1px solid #000;
-  border-radius: 5px;
-  background:black;
-  color:white;
-  padding: 5px 5px 5px 5px;
-
+	border: 1px solid #000;
+	border-radius: 5px;
+	background: black;
+	color: white;
+	padding: 5px 5px 5px 5px;
 }
-
 #btn-salvar {
-  color:white;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background: green;
-  padding: 5px 5px 5px 5px;
-
+	color: white;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background: green;
+	padding: 5px 5px 5px 5px;
 }
-
 #btn-salvar:hover {
-
 	background-color: #00FF00;
-
 }
-
 #btn-limpar {
-  color:white;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background: #A80000;
-  padding: 5px 5px 5px 5px;
-
-
+	color: white;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background: #A80000;
+	padding: 5px 5px 5px 5px;
 }
-
 #btn-limpar:hover {
-
-	/**background-color:#FF2300;**/
-	background-color:red;
+	/**background-color: #FF2300;
+**/
+	background-color: red;
 }
-
 #btn-sair {
-  margin-top:8pt;
-  color:white;
-  border: 1px solid #000;
-  border-radius: 5px;
-  /**background: #1D3F34;**/
-  background:#000000;
-  padding: 5px 5px 5px 5px;
-
+	margin-top: 8pt;
+	color: white;
+	border: 1px solid #000;
+	border-radius: 5px;
+	/**background: #1D3F34;
+**/
+	background: #000000;
+	padding: 5px 5px 5px 5px;
 }
-
 #btn-sair:hover {
-	background-color:#273734;
-
+	background-color: #273734;
 }
-
 #btn-pesquisar {
-  color:white;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color:black;
-  padding: 5px 5px 5px 5px; 
-
+	color: white;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background-color: black;
+	padding: 5px 5px 5px 5px;
 }
-
 #btn-pesquisar:hover {
-
 	background: silver;
-
 }
-
 #busca {
-
-  margin-top:60px;
-
+	margin-top: 60px;
 }
-
 #btn-reimprimeos {
-
-  color:white;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color:silver;
-  padding: 5px 5px 5px 5px; 
-
+	color: white;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background-color: silver;
+	padding: 5px 5px 5px 5px;
 }
-
 #btn-reimprimeos:hover {
-
-  background: black;
-
+	background: black;
 }
-
-
 td {
-  font-family: sans-serif;
-  text-align: center;
-  border-radius:1px;
-  background:white;
+	font-family: sans-serif;
+	text-align: center;
+	border-radius: 1px;
+	background: white;
 }
-
-#status-aberto { 
-
-  width:2pt;
-  height:2pt;	
-  background-color:white;
-  color:red;
-  font-weight:bold;
+#status-aberto {
+	width: 2pt;
+	height: 2pt;
+	background-color: white;
+	color: red;
+	font-weight: bold;
 }
-
-#status-fechado { 
-
-  background-color:white;
-  color:green;
-  font-weight:bold;
-
+#status-fechado {
+	width: 2pt;
+	height: 2pt;
+	background-color: white;
+	color: green;
+	font-weight: bold;
 }
-
-#status-andamento { 
-
-  background-color: #E4FF00;
-  color: white;
-
+#status-andamento {
+	width: 2pt;
+	height: 2pt;
+	background-color: #E4FF00;
+	color: white;
 }
-
-#status-garantia { 
-
-  background-color: silver;
-  color: black;
- 
+#status-garantia {
+	width: 2pt;
+	height: 2pt;
+	background-color: silver;
+	color: black;
 }
-
-
 #campos {
-  font-family: Verdana;
-  font-size:10px;
-  text-align:center;
-  border-radius: 1px;
-  width:10px;
-  
-
+	 font-family: Verdana;
+	font-size: 10px;
+	text-align: center;
+	border-radius: 1px;
 }
-
-
-#campos-descricao{
-  font-family: Verdana;
-  width:10px;
-  font-size:10px;
-  text-align:left;
-  
-
-
+#campos-descricao {
+	width: 2pt;
+	height: 2pt;
+	font-family: Verdana;
+	font-size: 10px;
+	text-align: left;
 }
-#campos-cliente{
-  width:10px;
-  font-size:10px;
-  text-align:left;
-
-
+#campos-cliente {
+	width: 10px;
+	font-size: 10px;
+	text-align: left;
 }
-
 #campos-selecao {
-  max-width:100pt;
-  border-radius: 1px;
-  color:white;
-
-
+	max-width: 100pt;
+	border-radius: 1px;
+	color: white;
 }
-
-
-
-  #campos-data{
-    width:5px;
-    text-align:center;
-    font-size:10px;
-    
-    }
-
+#campos-data {
+	width: 5px;
+	text-align: center;
+	font-size: 10px;
+}
 #campos-naocadastrado {
-  color:red;
-  
+	color: red;
 }
-
-#campos-parcela{
-  width:.1em;
-  text-align:center;
-  font-size:10px;
-  
- }
-
+#campos-parcela {
+	width: .1em;
+	text-align: center;
+	font-size: 10px;
+}
 #borda {
-	width:auto;
-  background-color:#D1CDCA;
-	color:black;
-  border:transparent;
-  border-radius:1px;
-  font-family:Roboto;
-  font-weight:bold;
-  font-size:10px;
-  text-transform: capitalize;
-
+	width:100px;
+	background-color: #D1CDCA;
+	color: black;
+	border: transparent;
+	border-radius: 1px;
+	font-family: Roboto;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: capitalize;
 }
-
 #borda-codigo {
-  background-color: black;
-  color:white;
-  border-radius:1px;
-  
-
+	background-color: black;
+	color: white;
+	border-radius: 1px;
 }
-
-
 #borda-selecao {
- background-color: black;
-  color:white;
-
+	background-color: black;
+	color: white;
 }
-
-
 #borda-status {
-	background-color:#D1CDCA;
-  color:black;
-  border:transparent;
-  border-radius:1px;
-  font-family:Roboto;
-  font-weight:bold;
-  font-size:10px;
-  text-transform: capitalize;
-  width:1pt;
-
+	background-color: #D1CDCA;
+	color: black;
+	border: transparent;
+	border-radius: 1px;
+	font-family: Roboto;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: capitalize;
+	width: 1pt;
 }
-
 #borda2 {
-
-  text-align: center;
-  font-size: 18px;
-  background-color: black;
-  text-align: left;
-  color:white;
-
+	text-align: center;
+	font-size: 18px;
+	background-color: black;
+	text-align: left;
+	color: white;
 }
-
 }
-#borda-imagem{
-  max-width: 100px;
-background: red;
+#borda-imagem {
+	max-width: 100px;
+	background: red;
 }
-
 #titulo-programas {
-	/**background-color: black; **/
-	
-  background-color:black;
-  color:white;
-  font-size:20px;
-
-
-
+	/**background-color: black;
+**/
+	background-color: black;
+	color: white;
+	font-size: 20px;
 }
-
 label {
-
-  font-family:Arial, Helvetica, sans-serif;
-  color:black;
-  font-size:10pt;
-  font-weight: bolder;
-  
-
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 10pt;
+	font-weight: bolder;
 }
-
-li{
-
-color: white;
-
+li {
+	color: white;
 }
-
-.classe1 { /**opcoes do menu **/
-
-      font-family: serif;
-      color: white;
-      font-size: 40px;      
-      width: 40px;
-      height: 40px;
-      
+.classe1 {
+/**opcoes do menu **/
+	font-family: serif;
+	color: white;
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
 }
-
 .menu {
-  color: black;
-  text-align: center;
-  padding: 40px;
-  font-size: 20px;
-
+	color: black;
+	text-align: center;
+	padding: 40px;
+	font-size: 20px;
 }
-
-.classesection1 { /**opcoes do menu **/
-
-      font-family: serif;
-      color: white;
-      font-size: 40px;      
-      width: 40px;
-      height: 40px;
-      
+.classesection1 {
+/**opcoes do menu **/
+	font-family: serif;
+	color: white;
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
 }
-
- li{
- color: black;
- 
- }
-
-.classenavlist{
-    color: black;
-
+li {
+	color: black;
 }
-
- 
+.classenavlist {
+	color: black;
+}
 /* Menu */
-
 .menu-2 {
-
-  color: blue;
+	color: blue;
 }
-
 #imagem-fundo {
-
-display: block;
-
+	display: block;
 }
-
 .container {
 	max-width: 360px;
 	margin: 0 auto;
 	display: flex;
 	border: 1px solid #ccc;
 }
-
-
-
-#consulta_campo{
-clear:both;
-position:static;
-margin-top:2px;
-
+#consulta_campo {
+	clear: both;
+	position: static;
+	margin-top: 2px;
+}
+#consultaos {
+	margin-top: -20px;
+}
+#consulta_campo2 {
+	clear: both;
+	position: static;
+	float: right;
+	margin-top: -20px;
+	margin-right: 355px;
 }
 
-#consultaos{
-margin-top: -20px;
+
+/*ORDEM DE SERVIÇOS */
+#status-atual{
+width:90pt;
+border: 1px solid black;
+color:white;
+
+background:green;
 
 }
-
-#consulta_campo2{
-clear:both;
-position:static;
-float:right;
-margin-top: -20px;
-margin-right:355px;
-
-}
-
 /*COMPROVANTE REIMPRESSAO ORDEM DE SERVICOS*/
-
 hr {
-
-  background:#0A120F;
-  padding:5px 5px 5px 5px;
-  
-
+	background: #0A120F;
+	padding: 5px 5px 5px 5px;
 }
-
-#corpo-os{
-  width:auto;
-  height:auto;
-  border:6px solid black;
+#corpo-os {
+	width: auto;
+	height: auto;
+	border: 6px solid black;
 }
-
-#titulo-os{
-  text-align:center;
-  font-weight: bold;
-  font-size:20px;
-  width:30px;
-  height:60px;
-  border:1px solid black;
-  
+#titulo-os {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	width: 30px;
+	height: 60px;
+	border: 1px solid black;
 }
-
-#hora{
-  max-width: auto;
-  max-height: auto;
-  clear:both;
-  display:block;
-  float:right;
-  position:static;
-  margin-top:-50px;
-  margin-right:200px;
-  
-
-
+#hora {
+	max-width: auto;
+	max-height: auto;
+	clear: both;
+	display: block;
+	float: right;
+	position: static;
+	margin-top: -50px;
+	margin-right: 200px;
 }
-
-#data{
-  clear:both;
-  max-width: auto;
-  max-height: auto;
-  display:block;
-  position:static;
-  float:right;
-  margin-top:-50px;
-  margin-right:40px;
-  
+#data {
+	clear: both;
+	max-width: auto;
+	max-height: auto;
+	display: block;
+	position: static;
+	float: right;
+	margin-top: -50px;
+	margin-right: 40px;
 }
-
-#ordemnumero{
-clear:both;]
-float:left;
-text-align:center;
-
+#ordemnumero {
+	clear: both;
+	]float: left;
+	text-align: center;
 }
-
-#dados-cliente{
-  clear:both;
-  float:left;
-  margin-top:-40px;
-
+#dados-cliente {
+	clear: both;
+	float: left;
+	margin-top: -40px;
 }
-
-
-#cliente{
-  clear:both;
-  max-width: auto;
-  max-height: auto;
-  float:left;
-  position:static;
-  margin-top:30px;
-  
-  
-
+#cliente {
+	clear: both;
+	max-width: auto;
+	max-height: auto;
+	float: left;
+	position: static;
+	margin-top: 30px;
 }
-
-#endereco{
-  clear:both;
-  max-width: auto;
-  max-height: auto;
-  float:left;
-  position:static;
-  margin-left: 500px;
-  margin-top:-40px;
-     
+#endereco {
+	clear: both;
+	max-width: auto;
+	max-height: auto;
+	float: left;
+	position: static;
+	margin-left: 500px;
+	margin-top: -40px;
 }
-
-#cpf-cnpj{
-  clear:both;
-  max-width: auto;
-  max-height: auto;
-  float:left;
-  position:static;
-  margin-left:280px;
-  margin-top:-40px;
-  
+#cpf-cnpj {
+	clear: both;
+	max-width: auto;
+	max-height: auto;
+	float: left;
+	position: static;
+	margin-left: 280px;
+	margin-top: -40px;
 }
-
-#bairro{
-  clear:both;
-  display:block;
-  max-width: auto;
-  max-height: auto;
-  position:static;
-  float:right;
-  margin-left:-200px;
-  margin-top:-50px;
-  /*padding:10px 600px 200px 200px;*/
-
-
+#bairro {
+	clear: both;
+	display: block;
+	max-width: auto;
+	max-height: auto;
+	position: static;
+	float: right;
+	margin-left: -200px;
+	margin-top: -50px;
+	/*padding: 10px 600px 200px 200px;
+*/
 }
-
-#cidade{
-  display:block;
-  position:static;
-  float:right;
-  margin-right: -80px;
-  margin-top:-200px;
-  padding:10px 600px 200px 200px;
-
-
+#cidade {
+	display: block;
+	position: static;
+	float: right;
+	margin-right: -80px;
+	margin-top: -200px;
+	padding: 10px 600px 200px 200px;
 }
-
-#telefone{
-  clear:both;
-  display:block;
-  position:static;
-  float:right;
-  margin-right: -310px;
-  margin-top:-310px;
-  padding:10px 600px 200px 200px;
+#telefone {
+	clear: both;
+	display: block;
+	position: static;
+	float: right;
+	margin-right: -310px;
+	margin-top: -310px;
+	padding: 10px 600px 200px 200px;
 }
-  
-
-#uf{
-  
-  clear:both;
-  position:static;
-  float:left;
-  margin-top:-200px;
-  margin-left:20px;
-  
+#uf {
+	clear: both;
+	position: static;
+	float: left;
+	margin-top: -200px;
+	margin-left: 20px;
 }
-
-
-#cep{
-  clear:both;
-  position:static;
-  float:right;
-  margin-right:30px;
-  color:red;  
-  background-color:silver;
-
+#cep {
+	clear: both;
+	position: static;
+	float: right;
+	margin-right: 30px;
+	color: red;
+	background-color: silver;
 }
-
-#equipamento{
- clear:both;
- position: static;
- float:left;
- margin-top:30px;
-
+#equipamento {
+	clear: both;
+	position: static;
+	float: left;
+	margin-top: 30px;
 }
-#outros{
-  clear:both;
-  position:static;
-  float:left;
-
+#outros {
+	clear: both;
+	position: static;
+	float: left;
 }
-
-
 /**Relatorio entradas e saidas */
-#liquido{
-  clear:both;
-  float:right;
-  color:red;
+#liquido {
+	clear: both;
+	float: right;
+	color: red;
 }
-
-
 /*Lista cliente */
-
-
 /*Formulario entradas e saidas */
-#entradas-saidas{
-  clear:both;
-  float:left;
-  position:static;
-  margin-top:60px;
-  margin-left:400px;
-  width:430px;
-  height:200px;
-  border:solid 3px black;
-  
- 
-
+#entradas-saidas {
+	clear: both;
+	float: left;
+	position: static;
+	margin-top: 60px;
+	margin-left: 400px;
+	width: 430px;
+	height: 200px;
+	border: solid 3px black;
 }
 
 
-
-table{
-	
-    border-collapse: collapse;
-
-    
-
+table {
+	border-collapse: collapse;
 }
-
-#usuarios{
-  clear:both;
-  position:static;
-  float:left;
-  margin-left: 550px;
-  width:auto;
-  height:auto;
-  border:1px solid black;
+#usuarios {
+	clear: both;
+	position: static;
+	float: left;
+	margin-left: 550px;
+	width: auto;
+	height: auto;
+	border: 1px solid black;
 }
-#btn-usuarios-novo{
-  clear:both;
-  position:static;
-  float:left;
-  margin-top:10px;
+#btn-usuarios-novo {
+	clear: both;
+	position: static;
+	float: left;
+	margin-top: 10px;
 }
+#btn-usuarios-voltar {
+	clear: both;
+	position: static;
+	float: right;
+	margin-top: -48px;
+	margin-right: 110px;
+}
+.box {
+	width: auto;
+	heigth: auto;
+	border: 1px solid black;
+}
+.box-entradas-saidas {
+	border: 1px solid black;
+	width: auto;
+	height: 160px;
+}
+.box-entradas-saidas-mes {
+	border: 2px solid black;
+	width: auto;
+	height: 40px;
 
-#btn-usuarios-voltar{
-  clear:both;
-  position: static;
-  float:right;
-  margin-top:-48px;
-  margin-right:110px;
+.clientes-inativos {
+	margin-top: -40px;
+	float: left;
+	position: static;
+	margin-left: 370px;
+	width: 90px;
+	border: 1pt solid silver;
+	border-radius: 5px;
 }

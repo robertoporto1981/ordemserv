@@ -16,54 +16,67 @@
 
 
 
-<title> Cadastro de Usuários </title>
+<title>CADASTRO DE USUÁRIOS</title>
 
 <body>
 
 	<div class="container">
+<hr>
+	<h1><center>CADASTRO DE USUÁRIOS</center></h1>
+    
+                <form action="./" id='formulario' method="post">                      				 
+                				 
+                <input type="button" class="btn btn-success" value="Salvar" onclick="Acao('cadastro');">                                    
+                <input type="button" class="btn btn-dark" value="Sair" onclick="Acao('menu');">                                                                                                                                                                                
+            
+<script type="text/javascript">
+    // <![CDATA[
+     function Acao(act){
+       frm = document.getElementById('formulario');
+       frm.action = act + '.php'; 
+       frm.submit();
+    // ]]>
+    }
+</script>
 
-	<h1>Cadastro de usuários</h1>
 
 
-<form method="POST" action="cadastro.php"><br>
+    <div class="form-row">  
+	   
+       <div class="form-group col-md-3">
 
-	<div class="form-group">
+            <label for="nome">Nome:</label><br>
 
-<label for="nome">Nome:</label></br>
+                <input type ="text" name="nome" id="nome" class="form-control" maxlength="20" autocomplete="off" required size="20">
+    </div>
 
-<input type ="text" name="nome" id="nome" maxlength="20" autocomplete="off" required size="20">
+        <div class="form-group col-md-4">
+
+            <label for="login">Login:</label><br>
+
+	               <input type="text" name="login" id="login" class="form-control" autocomplete="off" required><br><p>
+
 </div>
 
-<div class="form-group">
+        <div class="form-group col-md-2">
 
-<label for="login">Login:</label><br>
+	       <label for="senha">Senha:</label><br>
+           
+		      <input type="password" name="senha" id="senha" class="form-control" required><br><br>
+</div><!--Fim do form-row -->
+</div>
 
-	<input type="text" name="login" id="login" autocomplete="off" required><br><p>
+<hr>
 
-	</div>
-<div class="form-group">
-
-	<label for="senha">Senha:</label><br>
-
-		<input type="password" name="senha" id="senha" required><br><br>
-
-<input type="submit" class="btn btn-success" value="Cadastrar" id="cadastrar"  name="cadastrar">
-				</div>
+    
 </form>
 
-
-
-<form method="POST" action="menu.php">
-
-<input type="submit" class="btn btn-dark" value="Sair">
-
 </div>
 
-</form>
-</div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

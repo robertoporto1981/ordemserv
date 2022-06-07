@@ -1,18 +1,27 @@
 <?php session_start() ?>
+
 <html lang='pt-BR'>
 	
 <head>
 		 <title>Produtos</title>
   
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">     
+                <?php echo $sweet = $_SESSION['sweet_alert']; ?>
+    
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">     
 
-    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+                <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+            
+                <link rel="stylesheet" href="css/bootstrap.css">     
     
 </head>
   
 <body>
   
-    <h1 id="titulo-programas">Altera Produto</h1><p>
+    <!--<h1><center>PRODUTOS</center></h1><p>-->
+    
+<br>    
+
+<form action="altera_produto.php" id="formulario" method="post">    
 
 <?php
  	
@@ -28,163 +37,265 @@ if(isset($_SESSION['login'])){
 		echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>"; 
 }
 	
-$produto = strtoupper($_GET['produto']);
+//Recebo as variaveis:
+$codigo_produto = $_GET['codigo'];
+
+$descricao_produto = strtoupper($_GET['produto']);
+
+$codigo_barras = $_GET['codbarras'];
+
+$referencia = $_GET['referencia'];
+
+$cor = $_GET['cor'];
+
+$tamanho = $_GET['tamanho'];
+
+$marca = $_GET['marca'];
+
+$grupo = $_GET['grupo'];
+
+$subgrupo = $_GET['subgrupo'];
   	
 //conexao com banco
 
-$link = mysql_connect('localhost','root','');
+require_once 'conexao.php';
 
-// Seleciona o Banco de dados através da conexão acima
+//SQL:   
 
-$conexao = mysql_select_db('aula',$link); if($conexao){
-
-if(empty($produto)){
+//Codigo produto:
+if($codigo_produto == TRUE){
     
-     header("Location:lista_produtos.php");
+    $sql = "select * from produto where cod = '$codigo_produto' order by cod asc";
 }
+//Descricao produto:
+elseif($descricao_produto == TRUE){
     
-   function substitui($produto){
-   
-   $what = array(',','.');
-
-   $by = array('%','%');
-
-   return str_replace($what, $by, $produto);
-     
-} 
-
-$busca = substitui($produto);    
+    $sql = "select * from produto where descricao like ('%$descricao_produto%') order by descricao asc";
     
-    
-$sql = "select * from produto where descricao like ('%$busca%') and quantidade > 0 ORDER BY descricao asc";
+}
+
+//Codigo de barras: 
+if($codigo_barras == TRUE){
+
+    $sql = "select * from produto where codbarras = $codigo_barras";
+
+
+}
+
+//Referência:
+if($referencia == TRUE){
+
+    $sql = "select * from produto where referencia like ('%$referencia%') order by descricao asc";
+}
+
+//Cor:
+if($cor == TRUE){
+
+    $sql = "select * from produto where cor = '$cor' order by descricao asc";
   
-$consulta = mysql_query($sql);
+}
 
-$resultado = mysql_num_rows($consulta);
+//Tamanho:
+if($tamanho == TRUE){
+
+  $sql = "select * from produto where tamanho = '$tamanho' order by descricao asc";
+
+}
+
+//Marca:
+if($marca == TRUE){
+
+  $sql = "select * from produto where marca like ('%$marca%') order by descricao asc";
+}
+
+//Categoria (Grupo):
+if($grupo == TRUE){
+  
+  $sql = "select * from produto where categoria = '$grupo' order by descricao asc";
+
+}
+
+//Sub Categoria (Subgrupo):
+if($subgrupo == TRUE){
+
+    $sql = "select * from produto where subgrupo = '$subgrupo' order by descricao asc";
+
+}
+
+//Categoria e Subcategoria juntos:
+if($categoria == TRUE and $subcategoria == TRUE){
+
+echo $sql = "select * from produto where categoria = '$gruposubgrupo = '$grupo' and subgrupo = '$subgrupo' order by descricao asc";
+
+}     
+  
+$consulta = mysqli_query($conexao,$sql);
+
+$resultado = mysqli_num_rows($consulta);
   
 if($resultado == 0){
-  
-  		echo"<script language='javascript' type='text/javascript'>alert('Produto nao encontrado!');window.location.href='form_cadastro_produto.html';</script>";
-  
+
+   echo "<script>
+swal('Produto nao encontrado!')
+.then((value) => {
+             window.location.href='lista_produtos.php';
+});
+
+</script>";
+
+die;  
+
 }
+        
+
+ echo '<table class="table table-bordered">
     
-    echo '<font face="verdana"><table border style="width:100%">';
-     
+    <thead class="thead-dark">
+    
+    <tr>
+    <th scope="col">#</th>
+    
+      <th scope="col">IMAGEM:</th>
+      
+      <th scope="col">CÓDIGO:</th>
+      
+      <th scope="col">CÓD.BARRAS:</th>
+    
+      <th scope="col">PRODUTO:</th>
+    
+      <th scope="col">REF.:</th>
+    
+      <th scope="col">COR:</th>
+      
+      <th scope="col">TAM.:</th>
+      
+      <th scope="col">QUANT:</th>
+      
+      <th scope="col">UN:</th>
+      
+      <th scope="col">P.CUSTO:</th>
+      
+      <th scope="col">P.VENDA:</th>    
+          
+    </tr>
+    
+    </thead>';
+
+// Armazena os dados da consulta em um array associativo:
+
+while($registro = mysqli_fetch_assoc($consulta)){
+    
     echo '<tr>';
 
-    echo '<td id="borda">#</td>';
-
-    echo '<td id="borda-codigo">CODIGO</td>';
-  
-    echo '<td id="borda">PRODUTO</td>';
-
-    echo '<td id="borda">QUANTIDADE</td>';
-      
-    echo '<td id="borda">UN</td>';
-  
-    echo '<td id="borda">PRECO DE COMPRA</td>';
-  
-    echo '<td id="borda">PRECO DE VENDA</td>';
-  
-    echo '<td id="borda">NOTA DE COMPRA</td>';
-  
-    echo '<td id="borda">FORNECEDOR</td>';
-  
-     echo '</tr>';  
-
-
-    echo '<tr>';  
-  
-// Armazena os dados da consulta em um array associativo
-
-while($registro = mysql_fetch_assoc($consulta)){
+    echo '<td id="campos"><a href="edita_produtos.php?codigo='.$registro["cod"].'"#><img src="images/edit.png"></td>';
     
-
-echo '<td id="campos"><a href="pesquisa_produto.php?produto='.$registro["descricao"].'"#><img src="https://img.icons8.com/ios-glyphs/26/000000/edit.png"></td>';
+if($registro['imagem'] <> "images/produtos/"){
   
-echo'<td id="campos">'.$registro['cod'].'</td>';
+    echo '<td><img src='.$registro["imagem"].' width="80px" height="80px"></td>';  
 
-echo"<td id='campos'><input type='text' name ='descricao' maxlength='40' id='formulario' value ='".$registro['descricao']."' size='40'></td>";
+}else{
 
-//echo"<td id='campos'><input type='text' name ='grupo' maxlength='40' id='formulario' value ='".$registro['grupo']."' size='60'></td>";
-   
-echo"<td id='campos'><input type='text' name ='quantidade' maxlength='2' id='formulario' value ='".$registro['quantidade']."' size='10'></td>";                                  
-
-
-echo"<td id='campos'><input type='text' name ='unidade' maxlength='2' id='formulario' value ='".$registro['unidade']."' size='2'></td>";
-
-echo"<td id='campos'><input type='text' name ='preco_compra' maxlength='6' id='formulario' value ='".$registro['preco_compra']."' size='6'></td>";             
+    echo '<td><img src="images/sem_imagem.png" alt="Smiley face" height="80px" width="80px" border="0" /></a></td>';
+}
+    echo '<td>'.$registro["cod"].'</td>';
     
-echo"<td id='campos'><input type='text' name ='preco_venda' maxlength='6' id='formulario' value ='".$registro['preco_venda']."' size='6'></td>";  
-	
-echo"<td id='campos'><input type='text' name ='nota_compra' maxlength='14' id='formulario' value ='".$registro['nota_compra']."' size='14'></td>";	
-	
-echo"<td id='campos'><input type='text' name ='fornecedor' maxlength='10' id='formulario' value ='".$registro['fornecedor']."' size='10'></td>";	
+    echo '<td>'.$registro["codbarras"].'</td>';
+                             
+    echo '<td>'.$registro["descricao"].'</td>';
     
+    echo '<td>'.$registro["referencia"].'</td>';
+    
+    echo '<td>'.$registro["cor"].'</td>';
+    
+    echo '<td>'.$registro["tamanho"].'</td>';
+    
+    echo '<td>'.$registro["quantidade"].'</td>';
+  
+    echo '<td>'.$registro["unidade"].'</td>';
+  
+//Alteração Felipe
 
-//Sessions
+//if(trim($registro["preco_compra"] != "")){
+
+//$valor = number_format($registro["preco_compra"], 2, ',', '');
+    
+//}
+    
+    //echo '<td id="campos">R$'. $valor .'</td>';        
+   //Fim 
+    echo '<td>R$'.number_format($registro["preco_compra"], 2, ',', '').'</td>';
+    
+    echo '<td>R$'.number_format($registro["preco_venda"], 2, ',', '').'</td>';
+    
+    echo '</tr>';
+    
+}
+    echo '</table>';
+?>   
+
+<?php
+//Sessions 
 
 $_SESSION['codigo'] = $registro['cod']; 
 
-$_SESSION['descr'] = $registro['descricao'];
-
-$_SESSION['quantidade'] = $registro['quantidade'];
-
-$_SESSION['unidade'] = $registro['unidade'];
-
-$_SESSION['preco_compra'] = $registro['preco_compra'];
-
-$_SESSION['valor'] = $registro['preco_venda'];
-
-$_SESSION['nota_compra'] = $registro['nota_compra'];
-
-$_SESSION['fornecedor'] = $registro['fornecedor'];
-
-$_SESSION['imagem_produto'] = $registro['imagem'];
-
+$_SESSION['descr'] = $registro['descricao'];      
   
     
   echo '</tr>';          
  
-}
+
  
  	echo '</table>';
 
-}
 
+ 
   
 ?>
 
-<br>
+
+
+<!--<br>
 
 <p>
 
-<form action="./" id="formulario" method="post">
+<div class="form-row">
 
-   <input type="button" id="btn-salvar" value="Alterar" onclick="Acao('altera_produto');">
-    
-    <input type="button" id="btn-limpar" value="Excluir" onclick="Acao('exclui_produto');">
-   
-    
-</form>
+  <div class="form-group">
 
-<script type="text/javascript">
-    // <![CDATA[
-     function Acao(act){
-       frm = document.getElementById('formulario');
-       frm.action = act + '.php'; 
-       frm.submit();
-    // ]]>
-
-
-</script>  
-
-<form method="POST" action="form_cadastro_produto.html">
-
-<p align ="left"> <input type="submit" value="Sair">
+    <input type="submit" class="btn btn-success" value="Alterar">
 
 </form>
+  
+</div>
 
+<div class="form-group">
+<form method="POST" action="lista_produtos.php">
+
+
+
+<p align ="left"> <input type="submit" class="btn btn-dark"value="Sair">
+
+</form>
+</div>
+
+<div class="form-group">
+<form method="POST" action="exclui_produto.php">
+
+    <input type="submit" class="btn btn-danger" value="Excluir">
+
+  </form>
+</div>
+
+<div class="form-group">
+  
+  <form method="POST" action="etiq.php">
+
+    <input type="submit" class = "btn btn-info" value="Etiqueta">
+
+</form>    
+
+</div>
+</div><!--fim do form-row-->
 </body> 
 
 </html>

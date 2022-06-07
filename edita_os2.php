@@ -3,111 +3,125 @@
 
 <?php
 
-date_default_timezone_set("America/Sao_Paulo");
+date_default_timezone_set( "America/Sao_Paulo" );
 
 require_once 'testa_login.php';
 
+$usuario = $_SESSION['login'];
+$_SESSION['os'] = $os = $_GET['os'];
 
-      $usuario = $_SESSION['login'];
-  
-      //$os = $_SESSION['os'];
+$os = $_GET['os'];
 
-      $os = $_GET['os'];
-
-		
-//conexao com banco de dados:
+// conexao com banco de dados:
 require_once 'conexao.php';
-		
-
 
 $sql = "select * from ordem where numeroord like('%$os%') order by numeroord asc";
-	    
-$consulta = mysqli_query($conexao,$sql);
-	 
-$resultado = mysqli_num_rows($consulta);
 
-if($resultado == 0){
-   
-   echo"<script language='javascript' type='text/javascript'>alert('OS nao encontrado!');window.location.href='consulta_os.html';</script>";
-   
-}
-        
-    
-//Dados da tabela   
-     
-while($registro = mysqli_fetch_assoc($consulta)){   
- 
-    $numeroord = $registro["NumeroOrd"];
-    
-    $data = $registro["dataentr"];
-    
-    $hora = $registro["horacheg"];
+$consulta = mysqli_query( $conexao, $sql );
 
-    $cliente = $registro["cliente"];
+if ( mysqli_error( $conexao ) == true ) {
+				
+				echo '<div class="error-mysql">';
+				
+				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+                 
+                 echo '<br>';
+                
+                 echo $sql;
+				
+				 echo '</div>';
+				
+				 mysqli_close( $conexao );
+				
+				 die;
+				} 
 
-    $endereco = $registro["endereco"];
+$resultado = mysqli_num_rows( $consulta );
 
-    //$numero = $registro["numero"];
+if ( $resultado == 0 ) {
+				
+				echo"<script language='javascript' type='text/javascript'>alert('OS nao encontrado!');window.location.href='consulta_os.html';</script>";
+				
+				} 
 
-    $bairro = $registro["bairro"];
 
-    $cidade = $registro["cidade"];
+// Dados da tabela
+while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
+				
+				$numeroord = $registro["NumeroOrd"];
+				
+				 $data = date('d/m/Y',strtotime($registro["dataentr"]));
+                  $previsao_saida = date('d/m/Y',strtotime($registro["previsaosaida"]));
+                  			
+				 $hora = $registro["horacheg"];
+				
+				 $cliente = $registro["cliente"];
+				
+				 $endereco = $registro["endereco"];
+				
+				 // $numero = $registro["numero"];
+				$bairro = $registro["bairro"];
+				
+				 $cidade = $registro["cidade"];
+				
+				 $uf = $registro["uf"];
+				
+				 $cep = $registro["cep"];
+				
+				 $cpfcnpj = $registro["cpfcnpj"];
+				
+				 $rg = $registro["rg"];
+				
+				 $telef = $registro["telef"];
+				
+				 $telef2 = $registro["telef2"];
+				
+				 $marca = $registro["marca"];
+				
+				 $email = $registro["email"];
+				
+				 $equipamento = $registro["equipamento"];
+				
+				 $modelo = $registro["modelo"];
+				
+				 $marca = $registro["marca"];
+				
+				 $serial = $registro["serial"];
+				
+				 $acessorios = $registro["acessorios"];
+				
+				 $detalhes = $registro["detalhes"];
+				
+				 $defeito = ltrim($registro["mensage"]);
+				
+				 $servexec = ltrim($registro["servexec"]);
+				
+				 $status = $registro["status"];
+				
+				 $anotacaotecnica = $registro["anotatec"];
+				
+				
+				 } 
 
-    $uf = $registro["uf"];
 
-    $cep = $registro["cep"];
-
-    $cpfcnpj = $registro["cpfcnpj"];
-
-    $rg = $registro["rg"];
-
-    $telef = $registro["telef"];
-
-    $telef2 = $registro["telef2"];
-    
-    $marca = $registro["marca"];
-
-    $email = $registro["email"];
-
-    $equipamento = $registro["equipamento"];
-
-    $modelo = $registro["modelo"];
-
-    $marca = $registro["marca"];
-
-    $serial = $registro["serial"];
-
-    $acessorios = $registro["acessorios"];
-
-    $detalhes = $registro["detalhes"];
-    
-    $defeito = $registro["mensage"];
-
-    $servexec = $registro["servexec"];
-
-    $status = $registro["status"];
-    
- 
- }	   
-
-	
 ?>
   <!DOCTYPE html">
 
 <html lang='pt-BR'>
 
-	<head>
-  
+	<head> 
 
-<meta charset="utf-8">
-
-<link type="text/css" rel="stylesheet" href="stylesheet.css">
-
-<title>ORDEM DE SERVIÇOS</title>
+		<meta charset="utf-8">            
+                       
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">       
+       
+				<title>ORDEM DE SERVIÇOS</title>
 		
 </head>
 
 
+<html>
+    <body>
 
 <h1 id="titulo-programas">ORDEM DE SERVIÇOS</h1>
 			
@@ -119,8 +133,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
   	<td><img src="images/logo.jpg" width="100px" height="60px" /></td>
 
-	<td><b>Ordem Nº:</b></td><td><?php echo $numeroord ?></td></td>
-
+	<td><b>Ordem Nº:</b></td><td><?php echo $numeroord ?></td></td>         
 
 	</div>
 
@@ -128,15 +141,47 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 	</table>
 
-	<table border="2">
-  
-		<td><b>Data Entrada:</b><input type="text" id="formulario" maxlength="8" name ="dataentr" value =<?php echo $data; ?> size="8"></td>
+	<table border="2" width="100%">
+		
+		<td><b>Data Entrada:</b><input type="text" id="formulario" maxlength="8" name ="dataentr" value =<?php echo $data;
+?> size="8"></td>
 
-		<td><b>Hora Entrada:</b><input type="text" id="formulario" maxlength="8"  name ="horacheg" value ="<?php echo $hora; ?>" size="8"></td>
+		<td><b>Hora Entrada:</b><input type="text" id="formulario" maxlength="8"  name ="horacheg" value ="<?php echo $hora;
+?>" size="8"></td>
 
-		<td><b>Previsao Saida:</b><input type="text" id="formulario" maxlength="8" name ="prevsaid" size="8"></td>
+			<td><b><?php if($status === "APROVADO"){
+        
+            echo "Previsao Saída:";
+        
+        }
+        
+        if($status === "ABERTO" or $status === "AGUARDANDO PECAS"){
+        
+            echo "Previsão Saída";}
+        
+        if($status === "SEM CONSERTO"){
+        
+            echo "Saída:";
+        }
+        if($status === "FINALIZADO"){
+            echo "Saída:";
+        
+        }
+         if($status === "CANCELADO"){
+         
+            echo "Saida:";
+         
+         
+         }
+         
+         if($status === "NAO APROVADO"){
+          echo "Saída:";}
+          
+          
+          ?></b><input type="text" id="formulario" maxlength="8" name ="prevsaid" value="<?php echo $prevsaid; ?>"size="8"></td>
    
-		<td><b>Cliente:</b><input type="text" value="<?php echo $cliente; ?>" id="formulario" name ="cliente" maxlength="40" size="40"></td>
+		<td><b>Cliente:</b><input type="text" value="<?php echo $cliente;
+?>" id="formulario" name ="cliente" maxlength="40" size="40"></td>
 
 		<td><b>Endereço:</b><input type="text" value="<?php echo $endereco ?> <?php echo $numero ?>" <id="formulario" name = "endereco" maxlength="80" size = "80"></td>
 
@@ -184,9 +229,10 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 	<br><b>Defeito / Reclamação:<b><td><textarea id="formulario" name="mensage" rows="10" cols="160"  size  = "99">
 
-	<?php echo $defeito ?>
+	<?php echo trim($defeito); ?>	
 	
-	</textarea>
+    </textarea>
+    
 
 	</table>
 
@@ -194,14 +240,26 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 		<br><b>Serviços/Executados:<b><td><textarea id="formulario" name="servexec" rows="10" cols="160" size="99">
 
-	<?php echo $servexec ?>		
+	<?php echo trim($servexec);  ?>		
 
 		</textarea>
 
 			</table>
 
 		</td>
-
+        
+   <table border="1">
+   
+        <br><b>Anotações técnicas:<b><td><textarea id="formulario" name="anotatec" rows="10" cols="160" size="99">
+        
+    <?php  echo trim($anotacaotecnica); ?>
+   
+    </textarea>
+   </table>
+        
+        
+  <h3>Status atual:<div id="status-atual"><?php echo $status ?></div></h3>
+  
 	<select name="status">
     
     <option value="ABERTO">Reabrir OS</option>
@@ -225,15 +283,15 @@ while($registro = mysqli_fetch_assoc($consulta)){
     <option value="SEM CONSERTO">Sem conserto</option>
 
     <option value="CANCELADO">Cancelado</option>
-
     
+        
 </select> 
 
     <input type="submit" id="btn-salvar" value="Salvar">
     
-
+  
 </form>
-
+    
       <form method="POST" action="menu.php">
 
 <p align ="left"> <input type="submit" id="btn-sair" value="Sair">

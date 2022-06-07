@@ -1,86 +1,88 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
-<?php 
+<?php
 
 include 'conexao.php';
 
-//Busca clientes:
+// Busca clientes:
+// $cliente = $_GET['busca'] = $_SESSION['cliente'];
+ $usuario = $_SESSION['login'];
 
-//$cliente = $_GET['busca'] = $_SESSION['cliente'];
+ 
+// Recebo a variável do cons_clientes metodo GET:
+ 
+ 
+ $buscacliente = $_GET['busca'];
 
-	$usuario = $_SESSION['login'];
 
-	$buscacliente = $_GET['busca'];
-	
-	$_SESSION['cliente'] = $buscacliente;
+// Crio uma session:
+ $_SESSION['cliente'] = $buscacliente;
 
-	$cliente = $_SESSION['cliente'];
+ $cliente = $_SESSION['cliente'];
+ 
+// Desconto:
+ $percentual = $_SESSION['percentual'];
 
-//Desconto:
+ $desconto = $_POST['desconto'];
 
-	$percentual = $_SESSION['percentual'];   
-	
-	$desconto = $_GET['desconto'];
-	
-	$percentual_desconto = $_GET['perce_desc'];
+ $percentual_desconto = $_POST['perce_desc'];
 
-	$perce = $percentual_desconto /100.00;
+ $perce = $percentual_desconto / 100.00;
 
-//$resultado_perce = $perce * $total;
-	
-	
-//SQL:   
-$sql2 = "SELECT sum(total) FROM `itensnota` where numeroitensnota = 0 " ;
-   
-$query = mysqli_query($conexao,$sql2);
-   
-while ($exibir = mysqli_fetch_array($query)){
-   
-    	 $tot = $exibir['0'];
+// $resultado_perce = $perce * $total;
 
-    	 $total_produto = $tot - $desconto - $percentual;        	
-	     
-	     $total = number_format($total_produto, 2, '.', '');
-	     
-}
+// SQL:
+ $sql2 = "SELECT sum(total) FROM `itensnota` where numeroitensnota = 0 " ;
+
+ $query = mysqli_query( $conexao, $sql2 );
+
+while ( $exibir = mysqli_fetch_array( $query ) ) {
+				
+				$tot = $exibir['0'];
+				
+				 $total_produto = $tot - $desconto - $percentual;
+				
+				 $total = number_format( $total_produto, 2, '.', '' );
+				
+				} 
 
 
 ?>
 
- <?php        
-      
-    $pagamento = filter_input(INPUT_POST, 'pag');    
-                      
-    $troco = $pagamento - $total;
-     
-if($troco <= 0){
-
-	$troco = ' ';
-
-}else{
-
-	$troco = $pagamento - $total;
-
-}
-           
-if($pagamento == null) {
+ <?php
 
 
-	$pago = ' ';
+ $pagamento = filter_input( INPUT_POST, 'pag' );
 
-}else{
+ $troco = $pagamento - $total;
 
-		$pago = $pagamento;
-}
+if ( $troco <= 0 ) {
+				
+				$troco = ' ';
+				
+				} else {
+				
+				$troco = $pagamento - $total;
+				
+				} 
 
-//Verifico se valor do pagamento é menor que o total
-if($pagamento == true and $pagamento < $total){
+if ( $pagamento == null ) {
+				
+				
+				$pago = '';
+				
+				} else {
+				
+				$pago = $pagamento;
+				} 
 
-	
-	echo"<script language='javascript' type='text/javascript'>alert('Valor do pagamento menor que o total!');window.location.href='pedido_fechamento.php#';</script>";
-}
+// Verifico se valor do pagamento é menor que o total:
+if ( $pagamento == true and $pagamento < $total ) {
+				
+				echo"<script language='javascript' type='text/javascript'>alert('Valor do pagamento menor que o total do cupom!');window.location.href='pedido_fechamento.php#';</script>";
+				} 
 
-$_SESSION['troco'] = $troco;
+ $_SESSION['troco'] = $troco;
 
 
 ?>
@@ -95,7 +97,7 @@ $_SESSION['troco'] = $troco;
 
 	<meta charset="utf-8">
 
-	<link type="text/css" rel="stylesheet" href="css/estilo.css">
+	<link type="text/css" rel="stylesheet" href="css/pdv.css">
 
   		<script src="js/pdv.js"></script>
 	
@@ -107,41 +109,48 @@ $_SESSION['troco'] = $troco;
 
 <body>
 
-	<h1 id="titulo-pedido-fechamento">FECHAMENTO</h1>
-
-<form method="GET" action="#">
+<form method="POST" action="#">
 
 	<h1 id="titulo">Cliente:</h1>
 	
 
-<input type ="text" name="cliente" maxlength="40" size="40" value="<?php echo $buscacliente ?>"><a href="cons_clientes.php">  <img src="images/lupa.png" alt="Smiley face" width="25" height="20" align="absbottom"></a><?php echo $cliente ?>
+<input type ="text" name="cliente" maxlength="40" size="40" value="<?php //echo $buscacliente ?>"><a href="cons_clientes.php">  <img src="images/lupa.png" alt="Smiley face" width="25" height="20" align="absbottom"></a><?php echo $cliente ?>
 
 </form>
 
 
-<h1 id="titulo-pedido-total">Total</h1>
-
-	<form method="POST" action="#">
-
+<h1 id="titulo-pedido-total">Total</h1>    
 	
-	<h3 id="titulo">Pagamento:</h3> <input type="text"  id="fechamento-campos-pagamento" name="pag" size="8">
+<form method="POST" action="#">
+	
+	<h3 id="titulo">Pagamento:</h3> <input type="text"  id="fechamento-campos-pagamento" name="pag" size="8" autocomplete="off">
 
 </form>
 		
 		
-<h3 id="titulo">Pago:</h3><input type ="text"  id="fechamento-campos" name="pago" size="8" maxlength="9" value="<?php if($pago > 0){ echo "R$".number_format($pago, 2, ',', '.') ;} ?>">
+<h3 id="titulo">Pago:</h3><input type ="text"  id="fechamento-campos" name="pago" size="8" maxlength="9" value="<?php if ( $pago > 0 ) {
+				echo "R$" . number_format( $pago, 2, ',', '.' ) ;
+} 
+?>">
 
-<h3 id="titulo">Troco:</h3><input type="text" id="fechamento-campos" name="troco" size="8" value="<?php if($troco > 0){echo "R$".number_format($troco, 2, ',', '.');} ?>">
+<h3 id="titulo">Troco:</h3><input type="text" id="fechamento-campos" name="troco" size="8" value="<?php if ( $troco > 0 ) {
+				echo "R$" . number_format( $troco, 2, ',', '.' );
+} 
+?>">
 
-<h3 id="titulo">Total:</h3><input type="text"   id="total" name="total" size="12" value="<?php echo "R$". number_format($total,2,',','.') ?>">
+<h3 id="titulo">Total:</h3><input type="text"   id="total" name="total" size="12" value="<?php echo "R$" . number_format( $total, 2, ',', '.' ) ?>">
 
-<form method="GET" action="#">
+<form method="POST" action="#">
 
 <div id="desconto">
 	
 	<h3 id="titulo">Desconto:</h3>
 
-	<input type="text"  id="fechamento-campos-pagamento" name="desconto" size="8" value='<?php if($desconto == TRUE){echo  "R$" . number_format($desconto, 2, ',', ''); } ?>'>
+	<input type="text"  id="fechamento-campos-pagamento" name="desconto" size="8" autocomplete="off" value='<?php if ( $desconto == true ) {
+				echo "R$" . number_format( $desconto, 2, ',', '' );
+} 
+
+?>'>
 
 </form>
 
@@ -149,19 +158,23 @@ $_SESSION['troco'] = $troco;
 
 
 
-<form method="GET" action="#">
+<form method="POST" action="#">
 
 	<div id="percentual-desconto">
 	
 		<h3 id="titulo">%</h3>
 
-		<input type="text"  id="fechamento-campos-pagamento" name="perce_desc" size="8" value='<?php if($percentual_desconto == TRUE){echo  $percentual_desconto; } ?>'>
+		<input type="text"  id="fechamento-campos-pagamento" name="perce_desc" size="8" autocomplete="off" value='<?php if ( $percentual_desconto == true ) {
+				echo $percentual_desconto;
+}
+ 
+?>'>
 
 </form>
 
 </div>
 
-<form method="POST" action="encerra_nota.php">
+<form target="_blank"method="POST" action="encerra_nota.php">
 	
     <div id="portador">
 
@@ -169,13 +182,13 @@ $_SESSION['troco'] = $troco;
 
 <select name="porta">
 	
+    <option value="200">200 - CARTAO DE CREDITO</option>
+    
+    <option value="201">201 - DEBITO</option>
+    
     <option value="900">900 - DINHEIRO</option>
 
-    <option value="901">901 - CREDIARIO</option>				
-
-	<option value="200">200 - CARTAO DE CREDITO</option>
-
-	<option value="201">201 - DEBITO</option>
+    <option value="901">901 - CREDIARIO</option>	
 
 	<option value="910">910 - MAESTRO</option>
 
@@ -189,20 +202,17 @@ $_SESSION['troco'] = $troco;
 
 	<option value="916">916 - HIPERCARD</option>
 
-	<option value="991">991 - PAG SEGURO</option>
-
+	<option value="991">991 - PAG SEGURO</option>    
+    
 	<option value="987">987 - DEVOLUCAO</option>
-
-	
-
-
+    
+    <option value="1000">1000 - PIX</option> 
+    
+    <option value="900" selected>900 DINHEIRO</option>
 
 </select>
 
-
-
-</div>
-
+</div>   
 
 	<input type="submit" id="btn-encerra" name="encerra" value="(F8)Encerra">
    
@@ -217,27 +227,25 @@ $_SESSION['troco'] = $troco;
 
 </html>
 
-<?php 
-        
-      
-  $_SESSION['totall'] = $total;
-  
-  $_SESSION['pago'] = $pago;
+<?php
 
-  $_SESSION['desconto'] = $desconto + $percentual;
-  
-  $_SESSION['perce_desc'] = $percentual_desconto;
-	
-  $_SESSION['percentual'] = $resultado_perce = $perce * $total;
-  
-   
 
-  //$_SESSION['percentual'] = $perce * $total;
- 
+ $_SESSION['totall'] = $total;
   
-//ARRUMAR! depois que dou desconto, faço pagamento o programa soma o total da compra sem o desconto. 
-  //o desconto esta se perdendo.
+ $_SESSION['pago'] = $pago;
 
+ $_SESSION['desconto'] = $desconto + $percentual;
+
+ $_SESSION['perce_desc'] = $percentual_desconto;
+
+ $_SESSION['percentual'] = $resultado_perce = $perce * $total;
+
+
+
+ // $_SESSION['percentual'] = $perce * $total;
+
+// ARRUMAR! depois que dou desconto, faço pagamento o programa soma o total da compra sem o desconto. 
+// o desconto esta se perdendo.
 
 
 

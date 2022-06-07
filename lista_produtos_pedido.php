@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <html lang='pt-BR'>
 	
@@ -12,7 +12,7 @@
      
 <header >
      
-       <h1 id="titulo-pedido">PRODUTOS</h1>
+       <h3 id="titulo-pedido">PRODUTOS</h3>
 
 </header>
 
@@ -33,7 +33,24 @@ $sql = "SELECT * FROM produto order by descricao asc";
 
 $consulta = mysqli_query($conexao,$sql);
 
-		echo '<table border style="width:100%">';
+if(mysqli_error($conexao) == TRUE){
+  
+  echo '<div class="error-mysql">';
+
+  echo("Erro! <br> " . mysqli_error($conexao));
+  
+  echo '<br>';
+    
+    echo $sql;
+
+  echo '</div>';
+ 
+  mysqli_close($conexao);
+  
+  die;
+}
+
+echo '<table border style="width:100%">';
 
       	echo '<tr>';
 

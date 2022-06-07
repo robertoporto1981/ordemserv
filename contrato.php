@@ -1,4 +1,4 @@
-<?php session_start () ?>
+<?php session_start() ?>
 
 <?php
 
@@ -105,6 +105,22 @@ if($mes == 12){
 $sql = "SELECT * FROM empresa";
 
 $consulta = mysqli_query($conexao,$sql);
+if(mysqli_error($conexao) == TRUE){
+echo '<div class="error-mysql">';
+
+echo("Mysql query Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+                
+echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+die;
+}
+
+
 // Armazena os dados da consulta em um array associativo
 
 while($registro = mysqli_fetch_assoc($consulta)){
@@ -120,16 +136,18 @@ while($registro = mysqli_fetch_assoc($consulta)){
 }
 
 ?>
-
+<!DOCTYPE html>
 <html lang='pt-BR'>
 
 <head>
 
-<meta charset='utf-8'>
+		<meta charset='utf-8'>
 
 		<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-
-		</head>
+		
+		<link rel="stylesheet" href="css/bootstrap.css">
+		
+	</head>
 
 <body>
 <div class="container">
@@ -139,23 +157,23 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 <p style="text-align:center;">CNPJ: <?php echo $cnpj ?>
 
-	<h5>Por gentileza solícitamos que seja <b>DEVOLVIDO</b> as roupas, calçados e acessórios locados
-	no <b>PRIMEIRO DIA ÚTIL APÓS O EVENTO</b>, não atendendo cliente pagará uma multa de 10% 
-	ao dia sobre o valor da locação, <b>POIS O MESMO PODE ESTAR LOCADO NA SEMANA SEGUINTE
-	NECESSITANDO SER LAVADO E AJUSTADO PARA O PRÓXIMO CLIENTE</b>. O cliente <b>RESPONSABILIZA-SE</b>
-	pelas roupas, calçados, acessórios, pacotes, cabides e sacolas <b>QUANDO</b> locados <b>ESTANDO
-	CIENTE QUE TERÁ QUE INDENIZAR OS DANOS CAUSADOS OU PERCAS</b>. Em caso de <b>DESISTÊNCIA</b> o cliente 
-	<b>PERDERÁ O SINAL PAGO</b>. Agradecemos por sua compreensão.<h5><br>
+	<h5>Por gentileza solícitamos que seja <strong>DEVOLVIDO</strong> as roupas, calçados e acessórios locados
+	no <strong>PRIMEIRO DIA ÚTIL APÓS O EVENTO</strong>, não atendendo cliente pagará uma multa de 10% 
+	ao dia sobre o valor da locação, <strong>POIS O MESMO PODE ESTAR LOCADO NA SEMANA SEGUINTE
+	NECESSITANDO SER LAVADO E AJUSTADO PARA O PRÓXIMO CLIENTE</strong>. O cliente <strong>RESPONSABILIZA-SE</strong>
+	pelas roupas, calçados, acessórios, pacotes, cabides e sacolas <strong>QUANDO</strong> locados <strong>ESTANDO
+	CIENTE QUE TERÁ QUE INDENIZAR OS DANOS CAUSADOS OU PERCAS</strong>. Em caso de <strong>DESISTÊNCIA</strong> o cliente 
+	<strong>PERDERÁ O SINAL PAGO</strong>. Agradecemos por sua compreensão.<h5><br>
 
-<p><b>EM CASO DE EXECESSO DE SUJEIRA SERÁ COBRADO TAXA DE LAVANDERIA</b>*
+<p><strong>EM CASO DE EXECESSO DE SUJEIRA SERÁ COBRADO TAXA DE LAVANDERIA</strong>*
 
-<h4><b>ASSINO E CONCORDO COM TERMOS EXIGIDOS:</h4></b><br>
+<h4><strong>ASSINO E CONCORDO COM TERMOS EXIGIDOS:</h4></strong><br>
 
 <center>CANOAS, <?php echo $dia ?> de <?php echo $mes ?> <?php echo $ano ?></center><br> 
 
 ASS:_______________________________________<br><br>
 
-NOME: <?php echo $nome ?><br><br>
+NOME:<?php echo $nome ?><br><br>
 
 LOCAÇÃO PARA DIA: ___/___/_____ <br><br>
 

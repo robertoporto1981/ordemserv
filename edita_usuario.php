@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <?php
 require_once 'testa_login.php';
@@ -19,20 +19,40 @@ $sql = "SELECT * FROM usuarios where id = $id";
 
 $consulta = mysqli_query($conexao,$sql);
 
+if(mysqli_error($conexao) == TRUE){
+	
+	echo '<div class="error-mysql">';
+	
+	echo("Erro! <br> " . mysqli_error($conexao));
+    
+    echo '<br>';
+                
+                 echo $sql;
+    
+    echo '<br>';
+                
+                 echo $sql;
+
+	echo '</div>';
+ 
+	mysqli_close($conexao);
+	
+	die;
+}
+
 // Armazena os dados da consulta em um array associativo
 
-while($registro = mysqli_fetch_assoc($consulta)){
-
+while($registro = mysqli_fetch_assoc($consulta)){   
       
-      
-//Session
+//Sessions:
 $$ID = $registro['ID'];
 
 $_SESSION['id'] = $registro['ID'];
 
 $nome = $registro["nome"];
 
-$login = $registro['login'];      
+$login = $registro['login'];  
+
 }
 
 ?>
@@ -54,7 +74,7 @@ $login = $registro['login'];
 <form method="POST" action="altera_usuario.php"><p>
 
 
-<label>ID:</label><?php echo $$ID ?><br><p>
+<label>ID:</label><?php echo substr($$ID,7,6) ?><br><p>
 
 		
 <label>Nome:</label><?php echo $nome ?>

@@ -1,4 +1,14 @@
-﻿<?php session_start(); ?>
+﻿<?php session_start() ?>
+
+<html>
+
+	<head>
+
+		<?php echo $sweet = $_SESSION['sweet_alert']; ?>  
+
+</head>
+
+<body>
 
 <?php
 
@@ -34,18 +44,41 @@ $usuario = "ROBERTO";
 //SQL
 $sql = "INSERT INTO entradasaidas VALUES";
   
-$sql .= "('','$data','$tipo','$descricao','$valor','$usuario','','','')";
+$sql .= "('','$data','$tipo','$descricao','$valor','$usuario','','','','')";
 
             
-                        
-echo"<script language='javascript' type='text/javascript'>window.location.href='form_entrada_saidas.php'</script>";
+echo "<script>
+swal('INCLUIDO!')
+.then((value) => {
+             window.location.href='form_entrada_saidas.php';
+});
 
-mysqli_query($conexao,$sql) or die("Erro ao tentar cadastrar registro");
+</script>";                        
+
+
+mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+
+	echo '<div class="error-mysql">';
+
+	echo("Erro! <br> " . mysqli_error($conexao));
+    
+    echo '<br>';
+    
+    echo $sql;
+
+	echo '</div>';
+ 
+	mysqli_close($conexao);
+
+	die;
+}
  
 mysqli_close($conexao);
 
-
-
-
-
 ?>
+
+</body>
+
+</html>

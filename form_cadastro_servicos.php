@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <?php
 
@@ -20,7 +20,22 @@ $sql = "INSERT INTO servicos VALUES ";
   
 $sql .= "('','$descricao', '$preco','$observacoes','$usuario')"; 
 
-mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
+mysqli_query($conexao,$sql);
+
+if(mysqli_error($conexao) == TRUE){
+echo '<div class="error-mysql">';
+
+echo("Erro! <br> " . mysqli_error($conexao));
+
+echo '<br>';
+    
+echo $sql;
+
+echo '</div>';
+ 
+mysqli_close($conexao);
+die;
+}
 
 mysqli_close($conexao);
 

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <?php
 
@@ -8,8 +8,19 @@ $bdUsuario = "root";
 
 $bdSenha = "";
 
-$_SESSION['banco'] = $bdBanco = "db02";
+// Session n�mero do banco:
+$_SESSION['banco'] = $bdBanco = "db01";
 
-//Conecta com o banco de dados:
+// Conecta com o banco de dados:
+$conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco ); //or die(mysqli_error());
 
-$conexao = mysqli_connect($bdServidor,$bdUsuario,$bdSenha,$bdBanco) or die(mysqli_error());
+
+if ( mysqli_connect_errno() ) {
+				
+				echo "Falha para conectar no MySQL: " . mysqli_connect_error();
+				
+				die;
+				
+} 
+
+?>

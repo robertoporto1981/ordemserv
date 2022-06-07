@@ -1,12 +1,10 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 
 <?php
-//Conexao com banco de dados
-
+// Conexao com banco de dados
 require_once 'conexao.php';
-	
-//Recebe dados do formulario
 
+// Recebe dados do formulario
 $codigo = $_POST['codigo'];
 
 $descricao = $_POST['descricao'];
@@ -29,17 +27,30 @@ $fone = $_POST['telefone'];
 
 $email = $_POST['email'];
 
-//Insere dados no banco de dados		
-
+// Insere dados no banco de dados
 
 echo $sql = "INSERT INTO `empresa`(`codigo`, `descricao`, `endereco`, `numero`, `complemento`, `municipio`, `uf`, `cnpj`, `ie`, `telefone`, `email`) VALUES ('$codigo','$descricao','$endereco','$numero','$complemento','$municipio','$uf','$cnpj','$ie','$fone','$email')";
 
 
 
-mysqli_query($conexao,$sql) or die ("Erro ao tentar cadastrar registro");
+mysqli_query( $conexao, $sql );
+if ( mysqli_error( $conexao ) == true ) {
+				echo '<div class="error-mysql">';
+				
+				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+                
+                echo '<br>';
+    
+                echo $sql;
+				
+				echo '</div>';
+				
+				mysqli_close( $conexao );
+				die;
+				} 
 
-mysqli_close($conexao);
-      
+mysqli_close( $conexao );
+
 echo"<script language='javascript' type='text/javascript'>alert('Cadastrado com sucesso!');window.location.href='menu.php'</script>";
 
 ?>
