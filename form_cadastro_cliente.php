@@ -67,7 +67,7 @@ require_once 'conexao.php';
 
 $sql2 = "INSERT INTO clientes VALUES "; 
 
-$sql2 .= "(' ','$nome','$nomefant','$rg','$cpf','$cnpj','$tipo','$datanasc','$cep','$rua', '$numero','$complemento', '$bairro' , '$cidade', '$uf' , '$telefone','$celular','$email','$observ','$usuario','$datacad','$site','')";
+echo $sql2 .= "(' ','$nome','$nomefant','$rg','$cpf','$cnpj','$tipo','$datanasc','$cep','$rua', '$numero','$complemento', '$bairro' , '$cidade', '$uf' , '$telefone','$celular','$email','$observ','$usuario','$datacad','$site','')";
 	  
 mysqli_query($conexao,$sql2) or die ("Erro ao tentar cadastrar registro");
 

@@ -26,6 +26,8 @@ $cep = $_SESSION['cep'];
 
 $cpf =	$_SESSION['cpf'];
 
+$rg = $_SESSION['rg'];
+
 $telefone = $_SESSION['telefone'];
 
 $celular = $_SESSION['celular'];
@@ -109,7 +111,7 @@ if(isset($_SESSION['login'])){
 
 		<td>CPF/CNPJ:<input type ="text" value ="<?php echo $cpf ?>" id="formulario" name ="cpfcnpj" maxlength ="11" size = "20"></td>
 
-		<td>RG:<input type ="text" id="formulario" name ="rg" maxlength="10 size = "10"></td><p>
+		<td>RG:<input type ="text" value="<?php echo $rg ?>" id="formulario" name ="rg" maxlength="10 size = "10"></td><p>
 
 		<td>Telefone:<input type = "text" value ="<?php echo $telefone ?>" id="formulario" name = "telef" maxlength="11"  size = "11" required></td>
 

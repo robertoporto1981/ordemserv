@@ -157,6 +157,9 @@ if($produtobalanca == 000){
 
 <link type="text/css" rel="stylesheet" href="css/pedido.css">
 
+
+
+
 <title>Pedido</title>
 
 </head>

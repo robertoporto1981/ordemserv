@@ -28,7 +28,7 @@ if not exist c:\Backup md c:\Backup
 
 rar a C:\BACKUP\%BACKUP_FILE%.rar  C:\backup\*.sql
 
-copy C:\BACKUP\%BACKUP_FILE%.rar f:\roberto\bkp\
+copy C:\BACKUP\%BACKUP_FILE%.rar D:\BACKUP\
 
 del C:\backup\*.sql
 

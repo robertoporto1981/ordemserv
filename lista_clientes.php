@@ -3,111 +3,111 @@
 <html lang='pt-BR'>
 
 <head>
-	  			
-	<link type="text/css" rel="stylesheet" href="stylesheet.css">
-	<!--<link rel="stylesheet" href="css/bootstrap.css">-->
+
+<link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
+
+<link type ="text/css" rel="stylesheet" href="css/reset.css">	  			
+<link type="text/css" rel="stylesheet" href="stylesheet.css"> 
+	<link rel="stylesheet" href="css/bootstrap.css"> 
 	
 </head>
 		    
 <title>Clientes</title>
 
+<body>
+<div id="container">
+
 <h1 id="titulo-programas">Clientes</h1>  
 
-<div class="busca">
+<!--Inicio -->
+<div class="form-group row">
+  <div class="col-xs-2">    
 
-<br>
+  <h4>Codigo:</h4>
 
-<hr>
+<form method="GET" action="_altera_cliente.php">	
 
-<div class="cliente-codigo">
-
-	<h4>Codigo:</h4>
-
-		<form method="GET" action="_altera_cliente.php">	
-	
-	 			<input type="text" name="codigo" placeholder="Buscar..." maxlength="8" size="8" autocomplete="off" required>
-		
-		 		  <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
-
-	</form>
-</div>
-
-<div id="nome-clientes">
-
-	<h4>Nome:</h4>
-
-		<form method="GET" action="_altera_cliente.php">
-<!--<input type="text" name = "busca" size="50"><!--<input type="submit" value="Pesquisa">-->
-
- 			<input type="text" name="nome" placeholder="Buscar..." size="50" autocomplete="off" required>
-
-   				<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
-
-	</form>
-
-</div>
+ <input type="text" name="codigo" placeholder="Buscar..." maxlength="8" size="8" autocomplete="off">
+	   <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-<div id="nome-fantasia">
+</form>
+  </div>
 
-<form method ="GET" action="_altera_cliente.php">
-
-<h4>Fantasia:</h4>
-
-    <input type="text" name="nomefant" placeholder="buscar" size="60" autocomplete="off" required>
-
-    <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
-
-</form>    
-
-</div>
-
-
-</div>
-<div id="rg-clientes">
+	<div class="col-xs-3">
+  
+  <h4>Nome:</h4>
 
 <form method="GET" action="_altera_cliente.php">
+<!--<input type="text" name = "busca" size="50"><!--<input type="submit" value="Pesquisa">-->
 
-	<h4>RG:</h4>
+	 <input type="text" name="nome" placeholder="Buscar..." size="30" autocomplete="off">
+   <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-		<input type="text" name="rg" placeholder="buscar" size="13" autocomplete="off" required>
-
-			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
-
-</form>   
-
-<div id="cnpj-clientes">
-
-	<form method="GET" action="_altera_cliente.php">
-
-		<h4>CNPJ:</h4>
-
-			<input type="text" name="cnpj" placeholder="buscar" size="13" required autocomplete="off">
-
-    			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14" >
-
-	</form>    
-
-</div>
-
-<br>
 
 </form>
 
+  </div>
+  <div class="col-xs-4">
+  <form method ="GET" action="_altera_cliente.php">
 
-<div id="cpf-clientes">
+<h4>Fantasia:</h4>
 
+    <input type="text" name="nomefant" placeholder="buscar" size="60" autocomplete="off">
+
+    <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
+
+</form> 
+
+
+  </div>
+</div> 
+
+
+  <div class="form-group row">
+  <div class="col-xs-2">
+  <form method="GET" action="_altera_cliente.php">
+
+<h4>CNPJ:</h4>
+
+	<input type="text" name="cnpj" placeholder="buscar" size="13" autocomplete="off">
+
+		<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</form>
+
+  </div>
+  <div class="col-xs-3">
+    
 	<form method="GET" action="_altera_cliente.php">
 
-		<h4>CPF:</h4>
+<h4>CPF:</h4>
 
-			<input type="text" name="cpf" placeholder="buscar" size="13" required autocomplete="off">
+	<input type="text" name="cpf" placeholder="buscar" size="13" autocomplete="off">
 
-    			<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">
+		<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-	</form> 
+</form> 
 
-<div id="lista-clientes_observacaoXX">
+
+
+  </div>
+  <div class="col-xs-4">
+     
+<form method="GET" action="_altera_cliente.php">
+
+<h4>RG:</h4>
+
+	<input type="text" name="rg" placeholder="buscar" size="13" autocomplete="off" required>
+
+		<INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</form>
+  </div>   
+  
+
+
+</form>
 
 <form method="GET" action='_altera_cliente.php'>
 
@@ -118,48 +118,42 @@
     <INPUT TYPE='image' SRC='images/lupa.png' width="15" height="14" autocomplet="off">
 
 </form> 
-
 </div>
-
 <hr>
 
-<div id="novo-cliente">
+<!-- botoes -->
 
-	<form method="POST"  action="form_cadastro_cliente.html">
+<div class="form-group row">
+  <div class="col-xs-2">
+    
+  <form method="POST"  action="form_cadastro_cliente.html">
 
-		<input type="submit" class="btn btn-success" value="NOVO">
+<input type="submit" class="btn btn-success btn-sm" value="NOVO">
+&nbsp;
+</form>
 
-	</form>
+  </div>
+  <div class="col-xs-3">
+  <form method="POST"  action="exporta_clientes_xls.php">
 
-</div>
- 
+<input type="submit" class="btn btn-secondary btn-sm" value="EXCEL">
+&nbsp;
+</form>
+  </div>
+  <div class="col-xs-4">
+  <form method="POST" action="menu.php">
 
-<div id="excel">
+<p align ="left"><input type="submit" class="btn btn-dark btn-sm" value="VOLTAR">
 
-	<form method="POST"  action="exporta_clientes_xls.php">
-
-
-		<input type="submit" id="btn-exportar" value="EXCEL">
-
-	</form>
-
-</div>
-
-<div id="lista-clientes-voltar">
-
-	<form method="POST" action="menu.php">
-
-		<p align ="left"><input type="submit" id="btn-sair#" value="VOLTAR">
-
-	</form>
+</form>
+  </div>
+</div> 
 
 </div>	
+<!-- <a title='Imprimir conteúdo' href='javascript:window.print()'><img src="images/imprimir.jpg" alt="Smiley face" height="20" width="30" border="0" /></a>-->
 
-<div id="lista-clientes-imprimir">
- 
- 	<a title='Imprimir conteúdo' href='javascript:window.print()'><img src="images/imprimir.jpg" alt="Smiley face" height="20" width="30" border="0" /></a>
+<!-- -->
 
-</div>
 <?php
 
 // Conexão ao banco
@@ -213,8 +207,7 @@ $sql = "SELECT * FROM clientes WHERE usuario ='ROBERTO' order by nome asc ";
 $consulta = mysqli_query($conexao,$sql);
 }
 
-echo '<font face="verdana"><table border style="width:100%">';
-
+echo '<table border style="width:100%">';
 			echo '<tr>';
 
 			echo '<td id="borda"></td>';
@@ -243,7 +236,7 @@ echo '<font face="verdana"><table border style="width:100%">';
 
 			echo '<td id="borda">E-MAIL:</td>';
 
-			echo '<td id="borda">SITE:</td>';
+			//echo '<td id="borda">SITE:</td>';
 
 		 	echo '<td id="borda">WHATSAPP:</td>';             
 
@@ -291,7 +284,7 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 	}
 	
-		echo '<td id="campos">'.$registro["site"].'</td>';
+		//echo '<td id="campos">'.$registro["site"].'</td>';
         
     	//echo "<td id='campos-whatsapp'><a href='http://api.whatsapp.com/send?1=pt_BR&phone=55".$registro['celular']."'><img src='images/whatsapp.png' alt='Smiley face' height='20' width='30' border='0'/></a></a>";
 

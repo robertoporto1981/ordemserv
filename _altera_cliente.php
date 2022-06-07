@@ -331,7 +331,7 @@ while($dados_cliente = mysqli_fetch_array($consulta)){
 
 <div class="form-group">
 
-    <label for="rg">RG:</label>
+    <label for="rg">RG:</label><br>
 
 <input type="text" id="rg" name="rg" value="<?php echo $dados_cliente['rg']; ?>" maxlength="10" size="10" autocomplete="off">
 
@@ -379,7 +379,7 @@ while($dados_cliente = mysqli_fetch_array($consulta)){
 
       <!--<p>&nbsp;</p>-->
 <div class="form-group">
-      <label for="cep">CEP:</label>
+      <label for="cep">CEP:</label><br>
 
     <input type="text" name="cep"  id="cep" size="8" value="<?php echo $dados_cliente['cep']; ?>" maxlength="8" onBlur="pesquisacep(this.value);" />  
 
@@ -469,7 +469,33 @@ while($dados_cliente = mysqli_fetch_array($consulta)){
 </form>
 
 
-<?php $_SESSION['cod'] = $dados_cliente['cod']; ?>
+<?php
+//Sessions
+$_SESSION['cod'] = $dados_cliente['cod']; 
+
+$_SESSION['cpf'] = $dados_cliente['cpf'];
+
+$_SESSION['cnpj'] = $dados_cliente['cnpj']; 
+
+$_SESSION['rg'] = $dados_cliente['rg']; 
+
+$_SESSION['rua'] = $dados_cliente['rua'];
+
+$_SESSION['numero'] = $dados_cliente['numero'];
+
+$_SESSION['bairro'] = $dados_cliente['bairro'];
+
+$_SESSION['cidade'] = $dados_cliente['cidade'];
+
+$_SESSION['uf'] = $dados_cliente['uf']; 
+
+$_SESSION['cep'] = $dados_cliente['cep'];
+
+$_SESSION['email'] = $dados_cliente['email'];
+
+
+
+?>
 
 
 </div>

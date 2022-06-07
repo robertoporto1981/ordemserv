@@ -8,7 +8,7 @@ $bdUsuario = "root";
 
 $bdSenha = "";
 
-$_SESSION['banco'] = $bdBanco = "db01";
+$_SESSION['banco'] = $bdBanco = "db02";
 
 //Conecta com o banco de dados:
 

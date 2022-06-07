@@ -27,7 +27,7 @@ $dia = date('d');
 //Executa script de backup:                               	
 
 //Caminho Xampp
-exec("C:/xampp/htdocs/projects/ordemserv/app/backup.bat");
+ exec("C:/xampp/htdocs/projects/ordemserv/app/backup.bat");
 
 //Local onde gera BKP do banco de dados:
 $caminho_bkp = "C:/Backup/bk$dia.rar";

@@ -9,6 +9,13 @@
       <meta charset='utf-8'>
     
           <link type="text/css" rel="stylesheet" href="stylesheet.css">
+          <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<link type ="text/css" rel="stylesheet" href="css/reset.css">	  			
+<link type="text/css" rel="stylesheet" href="stylesheet.css"> 
+	<link rel="stylesheet" href="css/bootstrap.css"> 
 		  
             <title>Ordem de servi�os</title>
 
@@ -46,13 +53,13 @@
     
 </select>     
 	            
-    <input type="button" id="btn-salvar" value="Alterar" onclick="Acao('fecha_os');">
+    <input type="button" class="btn btn-success btn-sm" value="Alterar" onclick="Acao('fecha_os');">
     
-    		<input type="button" id="btn-limpar" value="Excluir" onclick="Acao('exclui_ordem');">
+    		<input type="button" class="btn btn-danger btn-sm" value="Excluir" onclick="Acao('exclui_ordem');">
     
-    			<input type="button" id="btn-reimprimeos" value="Reimpressao OS" onclick="Acao('reimpressao_os');">
+    			<input type="button" class="btn btn-secondary btn-sm" value="Reimpressao OS" onclick="Acao('reimpressao_os');">
 
-    				<input type="button" id="btn-reimprimeos" value="Edita OS" onclick="Acao('edita_os');">
+    				<input type="button" class="btn btn-warning btn-sm" value="Edita OS" onclick="Acao('edita_os');">
 
     
 </form>
@@ -72,7 +79,7 @@
 
 
 
-<input type="button" id="btn-sair" onclick="window.close()" value="Sair" />
+<input type="button" class="btn btn-dark btn-sm" onclick="window.close()" value="Sair" />
 
 
 <a href="javascript:void()" onclick="window.close()">

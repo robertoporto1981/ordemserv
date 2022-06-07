@@ -542,14 +542,14 @@ pre code {
 }
 
 .container {
-  width: 100%;
+  width:100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px) {
+  margin-right:auto;
+  margin-left:auto;
+  
+} 
+  @media (min-width: 576px) {
   .container {
     max-width: 540px;
   }
@@ -2176,8 +2176,10 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 1rem;
-}
+  margin-bottom: 0.5rem;
+  margin:15px;
+  
+ }
 
 .form-text {
   display: block;
@@ -2191,6 +2193,7 @@ textarea.form-control {
   flex-wrap: wrap;
   margin-right: -5px;
   margin-left: -5px;
+  
 }
 
 .form-row > .col,
@@ -10186,6 +10189,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   body {
     min-width: 992px !important;
+    
   }
   .container {
     min-width: 992px !important;

@@ -13,7 +13,9 @@
 
 	<title>Entrada/Saidas</title>
 
-  		<link type="text/css" rel="stylesheet" href="stylesheet.css"> 
+		  <link type="text/css" rel="stylesheet" href="stylesheet.css"> 
+		  
+		<!--  <link rel="stylesheet" href="css/bootstrap.css"> -->
 
 </head>
 

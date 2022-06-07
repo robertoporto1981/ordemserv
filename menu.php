@@ -141,10 +141,14 @@ $segundos=date('s');
      
 <footer>
 
-      <h3 id="saudacao">Olá, <?php echo ucwords($usuario); ?></h3>
-      
-      <?php echo $_SESSION['banco']; ?>
+     <h3 id="saudacao">Olá, <?php echo ucwords($usuario); ?></h3>
 
+      <!-- Mostra em qual banco de dados esta -->
+ <?php if($usuario == "ROBERTO" or $usuario == "ADMIN" or $usuario == "MASTER") {
+        
+        echo $_SESSION['banco']; 
+}
+?>
           <div id="data">
 
           <label><?php echo date('d/m/Y') ?></label>            

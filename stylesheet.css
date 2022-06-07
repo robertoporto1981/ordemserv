@@ -660,78 +660,6 @@ text-align:center;
 /*Lista cliente */
 
 
-#cliente-codigo{
-  clear:both;
-  position:static;
-
-}
-
-#nome-clientes{
-  clear:both;
-  position: static;
-  float:left;
-  margin-top: -75px;
-  margin-left:100px;
-}
-
-#nome-fantasia{
-  clear:both;
-  position: static;
-  float:left;
-  margin-top: -75px;
-  margin-left:450px;
-}
-
-#cnpj-clientes{
-  clear:both;
-  position: static;
-  float:left;
-  margin-top: -75px;
-  margin-left:860px;
-  
-}
-
-#lista-clientes_observacao{
-  clear:both;
-  float:right;
-  position:static;
-  margin-top:-75px;
-
-}
-
-#novo-cliente{
-  clear:both;
-  position:static;
-  float:left;
-  margin-top:5px;
-}
-
-#excel{
-  clear:both;
-  position:static;
-  float:left;
-  margin-top:-30px;
-  margin-left:60px;
-}
-#lista-clientes-voltar{
-  clear:both;
-  position:static;
-  float:left;
-  margin-top:-40px;
-  margin-left:150px;
-}
-
-#lista-clientes-imprimir{
-  clear:both;
-  position:static;
-  float:left;
-  margin-top:-30px;
-  margin-left:120px;
- 
-
-
-}
-
 /*Formulario entradas e saidas */
 #entradas-saidas{
   clear:both;
@@ -751,7 +679,9 @@ text-align:center;
 
 table{
 	
-	  border-collapse: collapse;
+    border-collapse: collapse;
+
+    
 
 }
 
