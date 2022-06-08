@@ -10,11 +10,10 @@
  <head>
  		
  		<meta chartset="uft-8">
-
-	 		 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                
-        <link type ="text/css" rel="stylesheet" href="css/reset.css">               
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+			 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                
+        	<link type ="text/css" rel="stylesheet" href="css/reset.css">               
+        	<link rel="stylesheet" href="css/bootstrap.css">
+	        <link type="text/css" rel="stylesheet" href="stylesheet.css">
  
  </head>
  
@@ -39,8 +38,8 @@
 
 if ( $busca == pago ) {
 				
-				echo"<script language='javascript' type='text/javascript'>;window.location.href='relatorio_pagos.php';</script>";
-				} 
+	echo"<script language='javascript' type='text/javascript'>;window.location.href='relatorio_pagos.php';</script>";
+} 
 
 
 
@@ -48,12 +47,10 @@ if ( $busca == pago ) {
 require_once 'conexao.php';
 
 
-if ( empty( $busca ) )
+if ( empty( $busca ) ){
 				
-				 {
-				
-				echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='contas_pagar.html';</script>";
-				} 
+	echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='contas_pagar.html';</script>";
+} 
 
 $sql = "select * from contasapagar where status = ('$busca') order by codoper asc";
 
@@ -94,81 +91,80 @@ echo '<table class="table table-bordered">
  // echo"<h1 id='borda'>Relatorio contas a pagar</h1>";
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo"<form action='./' id='formulario' method='post'>";
+		echo"<form action='./' id='formulario' method='post'>";
 				
-				 echo'<tr>';
+		echo'<tr>';
 				
-				 echo '<td><a href="baixa_pagar.php?codoper=' . $registro["codoper"] . '"#><img src="images/receber.png"></td>';
+		echo '<td><a href="baixa_pagar.php?codoper=' . $registro["codoper"] . '"#><img src="images/receber.png"></td>';
 				
-				 echo '<td><a href="exclui_baixa_pagar.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
+		echo '<td><a href="exclui_baixa_pagar.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"ï¿½&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
 				
-				 echo '<td>' . $registro["codoper"] . '</td>';
+		echo '<td>' . $registro["codoper"] . '</td>';
 				
-				 // echo '<td id="campos">'.$registro["data"].'</td>';
-				$Data = $registro["data"];						 
+	// echo '<td id="campos">'.$registro["data"].'</td>';
+		$Data = $registro["data"];						 
 				
-				 $data = date('d/m/Y',strtotime($Data));
+		$data = date('d/m/Y',strtotime($Data));
 				
-				 echo '<td>' . $data . '</td>';
+		echo '<td>' . $data . '</td>';			
 				
+		$Datavenc = $registro["datavenc"];				 
 				
-				 $Datavenc = $registro["datavenc"];				 
+		$datavencimento = date('d/m/Y',strtotime($Datavenc));
 				
-				 $datavencimento = date('d/m/Y',strtotime($Datavenc));
+		echo '<td>' . $datavencimento . '</td>';				
 				
-				 echo '<td>' . $datavencimento . '</td>';
+		echo '<td>' . $registro["fornecedor"] . '</td>';
 				
+		echo '<td>' . $registro["descr"] . '</td>';
 				
-				 echo '<td>' . $registro["fornecedor"] . '</td>';
+		echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
 				
-				 echo '<td>' . $registro["descr"] . '</td>';
+		echo '<td>' . $registro['parcela'] . '</td>';
 				
-				 echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
-				
-				 echo '<td>' . $registro['parcela'] . '</td>';
-				
-				if ( $registro['status'] == 'pagar' ) {
+	if ( $registro['status'] == 'pagar' ) {
 								
-								echo '<td>' . strtoupper( $registro["status"] ) . '</td>';
+		echo '<td>' . strtoupper( $registro["status"] ) . '</td>';
 								
-								 } else {
+		} else {
 								
-								echo '<td>' . strtoupper( $registro["status"] ) . '</td>';
+			echo '<td>' . strtoupper( $registro["status"] ) . '</td>';
 								
 								} 
-				echo'</tr>';
-				
-				} 
+				echo'</tr>';				
+	} 
 
 echo'</table>';
-
-
 
 $sql2 = "SELECT sum(valor) FROM `contasapagar` where status = 'PAGAR'";
 
 $query = mysqli_query( $conexao, $sql2 );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql2;
+    echo $sql2;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+die;
+
+} 
 
 
 while ( $exibir = mysqli_fetch_array( $query ) ) {
 				
-				$total = $exibir['0'];
-				// echo $exibir['0'];
-				} 
+	$total = $exibir['0'];
+
+	// echo $exibir['0'];
+
+} 
 
 ?>
 <h1 id ="borda2">Total a pagar R$: <?php echo number_format( $total, 2, ',', '.' );

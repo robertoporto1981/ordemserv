@@ -11,21 +11,20 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
-                 
-                 echo '<br>';
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
+               
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				die;
-				
-				} 
+	die;
+} 
 
 
 echo '<table>';
