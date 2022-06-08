@@ -1,7 +1,6 @@
  <?php session_start() ?>
 
- <?php require_once 'testa_login.php';
-?>
+ <?php require_once 'testa_login.php'; ?>
  
  <html lang='pt-BR'>
  
