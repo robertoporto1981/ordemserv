@@ -220,7 +220,7 @@ while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
         
 <?php
 
-// Mostra ordens de serviços em aberto:
+// Mostra total ordens de serviços em aberto:
 $sql = "SELECT * FROM ORDEM WHERE status in('ABERTO','APROVADO','ORCAMENTO','EM ANDAMENTO','AGUARDANDO APROVACAO','AGUARDANDO PECAS','GARANTIA')";
 
 $consulta = mysqli_query( $conexao, $sql );
@@ -266,7 +266,7 @@ $dia = date( "d" );
 $mes = date( "m" );
 
 
-// Seleciona o Banco de dados através da conexão acima
+// Seleciona o Banco de dados através da conexão acima:
 
 $sql = "select * from contasapagar where status = 'pagar'";
 

@@ -2,7 +2,7 @@
 
 require_once 'testa_login.php';
 
-// Conexão ao banco
+// Conexão ao banco:
 require_once 'conexao.php';
 
 $sql = "SELECT nome,endereco,bairro FROM clientes";
@@ -42,13 +42,13 @@ echo '<tr>';
 // Armazena os dados da consulta em um array associativo
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo '<tr>';
+	echo '<tr>';
 				
-				 echo '<td>' . $registro["nome"] . '</td>';
+	echo '<td>' . $registro["nome"] . '</td>';
 				
-				 echo '<td>' . $registro["endereco"] . '</td>';
+	echo '<td>' . $registro["endereco"] . '</td>';
 				
-				 echo '<td>' . $registro["bairro"] . '</td>';
+	echo '<td>' . $registro["bairro"] . '</td>';
 				
 				 echo '</tr>';
 				

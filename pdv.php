@@ -2,7 +2,7 @@
 
 <?php
 // Sessions
-print $usuario = $_SESSION['login'];
+//print $usuario = $_SESSION['login'];
 
 $cliente = $_SESSION['cliente'];
 
@@ -23,62 +23,57 @@ $precoproduto3 = false;
 
 if ( array_key_exists( "busca", $_GET ) ) {
 				
-				$codigo = $_GET["busca"];
+	$codigo = $_GET["busca"];
 				
 				
-				// Delaro que a variavel barras é igual a codigo:
-				$barras = $codigo;
+// Delaro que a variavel barras é igual a codigo:
+	$barras = $codigo;
 				
-				// Variaravel percentual:
-				$perce = 100;
+// Variaravel percentual:
+	$perce = 100;
 				
-				// Conto a variavel:
-				$leitura = strlen( $barras );
+// Conto a variavel:
+	$leitura = strlen( $barras );
 				
-				// Pego codigo do produto e corto.(Codigo do produto ate 3 digitos):
-				$codigoproduto = substr( $barras, 0, 3 );
+// Pego codigo do produto e corto.(Codigo do produto ate 3 digitos):
+	$codigoproduto = substr( $barras, 0, 3 );
 				
-				// Quantidade produto: (Tenho que arrumar):
-				$quantidadeproduto = substr( $barras, 0 );
+// Quantidade produto: (Tenho que arrumar):
+	$quantidadeproduto = substr( $barras, 0 );			
 				
+// Produto balanca:
+	$produtobalanca = substr( $barras, 5, 2 );				
 				
-				// Produto balanca:
-				$produtobalanca = substr( $barras, 5, 2 );
+// Pego variavel precoproduto e corto:
+	$precoproduto = substr( $barras, 8, 4 );
 				
+// Substituo os zeros:
+	$precoproduto2 = str_replace( 0, 0, $precoproduto );
 				
-				// Pego variavel precoproduto e corto:
-				$precoproduto = substr( $barras, 8, 4 );
+// Calculo o valor do produto:
+	$precoproduto3 = $precoproduto2 / $perce;
 				
-				// Substituo os zeros:
-				$precoproduto2 = str_replace( 0, 0, $precoproduto );
+// Resultado:
+	$preco_unit = number_format( $precoproduto3, 2, '.', '' );
 				
-				// Calculo o valor do produto:
-				$precoproduto3 = $precoproduto2 / $perce;
-				
-				// Resultado:
-				$preco_unit = number_format( $precoproduto3, 2, '.', '' );
-				
-				// Conta quantos caracteres tem a variavel codigo:
-				// Se a variavel produtobalanca for = 000:
-				if ( $produtobalanca == 000 ) {
-								
-								$query = mysqli_query( $conexao, "SELECT cod,descricao,quantidade,preco_venda,unidade FROM produto where cod = '$codigoproduto'" );
-								
-								
-								} elseif ( $resultado == 13 ) {
-								
-								$query = mysqli_query( $conexao, "SELECT cod,codbarras, descricao,quantidade,preco_venda,unidade FROM produto where codbarras = '$codigo'" );
-								
-								
-								} else {
-								
-								$query = mysqli_query( $conexao, "SELECT cod,codbarras, descricao,quantidade,preco_venda,unidade FROM produto where codbarras = '$codigo'" );
-								 } 
-				
-				} 
+// Conta quantos caracteres tem a variavel codigo:
+// Se a variavel produtobalanca for = 000:
 
-
-
+if ( $produtobalanca == 000 ) {
+								
+	$query = mysqli_query( $conexao, "SELECT cod,descricao,quantidade,preco_venda,unidade FROM produto where cod = '$codigoproduto'" );								
+			
+} elseif ( $resultado == 13 ) {
+								
+	$query = mysqli_query( $conexao, "SELECT cod,codbarras, descricao,quantidade,preco_venda,unidade FROM produto where codbarras = '$codigo'" );
+								
+} else {
+								
+	$query = mysqli_query( $conexao, "SELECT cod,codbarras, descricao,quantidade,preco_venda,unidade FROM produto where codbarras = '$codigo'" );
+ 
+  } 
+				
+} 
 ?> 
 
 <!DOCTYPE>
@@ -89,15 +84,15 @@ if ( array_key_exists( "busca", $_GET ) ) {
    
   <meta charset='utf-8'>
 
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
-  <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
+  	<link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
 
-  <!--<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">-->
+  	<!--<link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css">-->
 
-  <link type="text/css" rel="stylesheet" href="css/pdv.css">
+  	<link type="text/css" rel="stylesheet" href="css/pdv.css">
    
-  <title>PDV</title>
+  	<title>PDV</title>
   
   </head>
   
@@ -136,58 +131,58 @@ if ( array_key_exists( "busca", $_GET ) ) {
 // Descricao do produto:
 if ( $query ) {
 				
-				while ( $prod = mysqli_fetch_array( $query ) )
+	while ( $prod = mysqli_fetch_array( $query ) )
 				
-				 {
-								echo '<div id="descricao">';
+	 {
+		echo '<div id="descricao">';
 								
-								 echo $prod['descricao'];
+		echo $prod['descricao'];
 								
-								 echo '</div>';
+		echo '</div>';
 								
-								$_SESSION['descricao'] = $prod['descricao'];
+		$_SESSION['descricao'] = $prod['descricao'];
 								
 								
-								// $_SESSION['preco_venda'] = $prod['preco_venda'];
+// $_SESSION['preco_venda'] = $prod['preco_venda'];
 								
-								 $preco_unit = $prod['preco_venda'];
+		$preco_unit = $prod['preco_venda'];
 								
-								 $codigoproduto = $prod['cod'];
+		$codigoproduto = $prod['cod'];
 								
-								 $_SESSION['codproduto'] = $codigoproduto;
+		$_SESSION['codproduto'] = $codigoproduto;
 								
-								// Estoque do produto:
-								 $_SESSION['quantidade'] = $prod['quantidade'];
-								
-								} 
+// Estoque do produto:
+		$_SESSION['quantidade'] = $prod['quantidade'];
+							
+	} 
 				
-				} 
+} 
 
 
 
 // Retorno da busca produto nao cadastrado:
 if ( !empty( $query ) ) {
 				
-				$retorno_produto = mysqli_num_rows( $query );
+	$retorno_produto = mysqli_num_rows( $query );
 				
-				if ( $retorno_produto == 0 ) {
+		if ( $retorno_produto == 0 ) {
 								
-								echo '<div id="descricao-nao-cadastrado">';
+			echo '<div id="descricao-nao-cadastrado">';
 								
-								 echo "PRODUTO NAO CADASTRADO!";
+			echo "PRODUTO NAO CADASTRADO!";
 								
-								 echo '</div>';
+			echo '</div>';
 								
-								} 
+} 
 				
 				} 
 
 // Preço unitário:
 if ( $preco_unit == 0 ) {
 				
-				$preco_unit = $preco_venda = number_format( $precoproduto3, 2, '.', '' );
+	$preco_unit = $preco_venda = number_format( $precoproduto3, 2, '.', '' );
 				
-				 } 
+} 
 
 
 
@@ -232,15 +227,15 @@ if ( $preco_unit == 0 ) {
 
 if ( isset( $preco_unit ) ) {
 				
-				echo '<div id=valor-unit>';
+	echo '<div id=valor-unit>';
 				
-				 echo "R$" . number_format( $preco_unit, 2, ',', '.' );
+	echo "R$" . number_format( $preco_unit, 2, ',', '.' );
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 $_SESSION['preco_unit'] = $preco_unit;
+	 $_SESSION['preco_unit'] = $preco_unit;
 				
-				} 
+} 
 
 
 ?>
@@ -261,24 +256,23 @@ if ( isset( $preco_unit ) ) {
 
 while ( $exibir = mysqli_fetch_array( $query ) ) {
 				
-				$subtot = $exibir['0'];
+	$subtot = $exibir['0'];
 				
-				} 
+} 
 
 echo '<div id="subtotal">';
 
 // echo $subtotal = number_format($subtot, 2, ',', '.');
 // teste
-if ( $subtot == TRUE ) {
+if ( $subtot == TRUE ) {				
 				
+	echo $subtotal = number_format( $subtot, 2, ',', '.' );
 				
-				echo $subtotal = number_format( $subtot, 2, ',', '.' );
+} else {
 				
-				} else {
+	echo $subtotal = number_format( $precoproduto3, 2, ',', '.' );
 				
-				echo $subtotal = number_format( $precoproduto3, 2, ',', '.' );
-				
-				} 
+} 
 
 echo '</div>';
 
@@ -336,74 +330,72 @@ $resultado = mysqli_num_rows( $consulta );
 
 if ( $resultado == 0 ) {
 				
-				echo '<div class="esper">';
+	echo '<div class="esper">';
 				
-				 // echo $livre = "Esperando venda";
-				echo $livre = "CAIXA LIVRE";
+// echo $livre = "Esperando venda";
+	echo $livre = "CAIXA LIVRE";		
 				
+	echo '</div>';
 				
-				 echo '</div>';
-				
-				 } else {
-				
-				
-				echo '<div id="lista-produtos">';
-				
-				// echo '<table style="display:block;width:auto;max-height:auto;">';
-				 echo '<table>';
+} else {
 				
 				
-				 echo '<td id="tabelas-coluna">#</td>';
+	echo '<div id="lista-produtos">';
 				
-				 echo '<td>Item</td>';
+// echo '<table style="display:block;width:auto;max-height:auto;">';
+	echo '<table>';				
 				
-				 echo '<td>Codigo:</td>';
+	echo '<td id="tabelas-coluna">#</td>';
 				
-				 echo '<td id="tabelas-coluna">Produto:</td>';
+	echo '<td>Item</td>';
 				
-				 echo '<td id="tabelas-coluna">Qtd:</td>';
+	echo '<td>Codigo:</td>';
 				
-				 // echo '<td id="tabelas-coluna">UN:</td>';
-				echo '<td id="tabelas-coluna">Vlr.unit</td>';
+	echo '<td id="tabelas-coluna">Produto:</td>';
 				
-				 echo '<td id="tabelas-coluna">Total:</td>';
+	echo '<td id="tabelas-coluna">Qtd:</td>';
+				
+// echo '<td id="tabelas-coluna">UN:</td>';
+	echo '<td id="tabelas-coluna">Vlr.unit</td>';
+				
+	echo '<td id="tabelas-coluna">Total:</td>';				
+				
+	echo '</tr>';
 				
 				
-				 echo '</tr>';
-				
-				
-				// Armazena os dados da consulta em um array associativo
-				while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
+// Armazena os dados da consulta em um array associativo
+while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 								
-								echo '<tr>';
+		echo '<tr>';
 								
-								 echo '<td id="campos"><a href="exclui_item.php?item=' . $registro["codprod"] . '"#><img src="images/lixeira.png" width="15px" height="15px"></td>';
+		echo '<td id="campos"><a href="exclui_item.php?item=' . $registro["codprod"] . '"#><img src="images/lixeira.png" width="15px" height="15px"></td>';
 								
-								 echo '<td>';
+		echo '<td>';
 								
-								 echo $item ++;
-								echo'<br>';
+		echo $item ++;
+		
+		echo'<br>';
 								
-								 echo '</td>';
+		echo '</td>';
 								
-								 echo '<td>' . $registro["codprod"] . '</td>';
+		echo '<td>' . $registro["codprod"] . '</td>';
 								
-								 echo '<td id="tabelas-itens">' . $registro["descr"] . '</td>';
+		echo '<td id="tabelas-itens">' . $registro["descr"] . '</td>';
 								
-								 echo '<td id="tabelas-quantidade">' . $registro['quantidade'] . '</td>';
+		echo '<td id="tabelas-quantidade">' . $registro['quantidade'] . '</td>';
 								
-								 // echo '<td id="tabelas-quantidade">'.$registro['un'].'</td>';
-								echo '<td id="tabelas-itens">R$' . number_format( $registro["preuni"], 2, ',', '' ) . '</td>';
+// echo '<td id="tabelas-quantidade">'.$registro['un'].'</td>';
+		echo '<td id="tabelas-itens">R$' . number_format( $registro["preuni"], 2, ',', '' ) . '</td>';
 								
-								 echo '<td id="tabelas-itens">R$' . number_format( $registro["total"], 2, ',', '' ) . '</td>';
+		echo '<td id="tabelas-itens">R$' . number_format( $registro["total"], 2, ',', '' ) . '</td>';
 								
 								
-								 echo '</tr>';
-								} 
+		echo '</tr>';
+} 
 				
-				echo '</table>';
+		echo '</table>';
 				
-				 } 
+} 
 
 
 ?>  
