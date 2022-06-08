@@ -5,7 +5,6 @@ require_once 'testa_login.php';
 // Conexão ao banco
 require_once 'conexao.php';
 
-
 $sql = "SELECT nome,endereco,bairro FROM clientes";
 
 $consulta = mysqli_query( $conexao, $sql );
