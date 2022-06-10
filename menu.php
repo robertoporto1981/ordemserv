@@ -175,7 +175,7 @@ while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 			            <li><a target="_blank" href="niver_dia.php">Aniversariante do dia</a></li>	
       
                   </ul>
-   		     <!--<li><a href="#">VENDAS</a>
+   		     <li><a href="#">VENDAS</a>
       
 			          <ul class="sub-menu">
       
@@ -183,7 +183,7 @@ while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 
 			          <li><a target="_blank" href="pdv.php">Frente de caixa</a></li>
        
-                </ul>-->
+                </ul>
                       
     <li><a href="sair.php">Sair</a></li>
 
@@ -277,11 +277,11 @@ $contas_a_pagar = mysqli_num_rows ( $consulta );
 
 if ( $contas_a_pagar > 1 ) {
 				
-				echo "<h4 id='mensagem-pagar'>$contas_a_pagar contas a pagar!</h4>";
+		echo "<h4 id='mensagem-pagar'>$contas_a_pagar contas a pagar!</h4>";
 				
                
                                         
-				 } 
+} 
 
 
 ?>
@@ -310,12 +310,12 @@ $linhas3 = mysqli_num_rows ( $consulta );
 
 if ( $linhas3 > 0 ) {
 				
-				echo "<div id='campo-contas-receber'>";
+		echo "<div id='campo-contas-receber'>";
 				
-				 echo "<h3 id='alerta2'>Cliente(s) com parcelas vencidas!</h3>";
+		echo "<h3 id='alerta2'>Cliente(s) com parcelas vencidas!</h3>";
 				
 				 // echo "<h3 id='alerta2'>Cliente(s) com vencimento hoje:</h3>";
-				while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
+		  while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 								
 								echo "CLIENTE:" . "&nbsp" . $registro['nome'] . "&nbsp";
 								
