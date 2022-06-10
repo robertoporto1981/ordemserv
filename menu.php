@@ -277,8 +277,7 @@ $contas_a_pagar = mysqli_num_rows ( $consulta );
 
 if ( $contas_a_pagar > 1 ) {
 				
-		echo "<h4 id='mensagem-pagar'>$contas_a_pagar contas a pagar!</h4>";
-				
+		echo "<h4 id='mensagem-pagar'>$contas_a_pagar contas a pagar!</h4>";			
                
                                         
 } 
@@ -317,11 +316,11 @@ if ( $linhas3 > 0 ) {
 				 // echo "<h3 id='alerta2'>Cliente(s) com vencimento hoje:</h3>";
 		  while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 								
-								echo "CLIENTE:" . "&nbsp" . $registro['nome'] . "&nbsp";
+						echo "CLIENTE:" . "&nbsp" . $registro['nome'] . "&nbsp";
 								
-								 echo "-";
+						echo "-";
 								
-								 echo '&nbsp';
+						echo '&nbsp';
 								
 								 echo "R$" . "&nbsp" . number_format( $registro['valor'], 2, ',', '.' );
 								
