@@ -50,9 +50,9 @@ while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
 	echo '<td>' . $registro["bairro"] . '</td>';
 				
-				 echo '</tr>';
+	echo '</tr>';
 				
-				} 
+} 
 
 echo '</table>';
 

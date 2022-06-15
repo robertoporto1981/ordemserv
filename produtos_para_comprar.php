@@ -37,13 +37,17 @@ $usuario = $_SESSION['login'];
 
 if ( isset( $_SESSION['login'] ) ) {
 				
-				$usuario = $_SESSION['login'];
+		
+  $usuario = $_SESSION['login'];
 				
-				 } else {
+
+} else {
 				
-				echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
+	
+  echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
 				
-				} 
+	
+} 
 
 // 9999 produtos desativados
 $sql = "SELECT * FROM produto WHERE QUANTIDADE <= 0 and QUANTIDADE <> 9999 order by cod asc";
@@ -53,19 +57,27 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+		
+  echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	
+  echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '<br>';
+	
+  echo '<br>';
 				
-				 echo $sql;
+	
+  echo $sql;
 				
-				echo '</div>';
+	
+  echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	
+  mysqli_close( $conexao );
+	
+  die;
+
+} 
 
 // Tabelas:
 echo '<table class="table table-bordered">
@@ -97,26 +109,34 @@ echo '<table class="table table-bordered">
     </thead>';
 
 // Armazena os dados da consulta em um array associativo
-while ( $registro = mysqli_fetch_assoc( $consulta ) ) {                                    
-    			 
+while ( $registro = mysqli_fetch_assoc( $consulta ) ) {                                        			 
                 	 				 
-                 echo '<tr>';                                   
+      
+  echo '<tr>';                                   
                                  
-                 echo '<td id="campos"><input type="checkbox" id="produto" name="produto[]" value='.str_replace(' ','%',$registro["descricao"]).'>';
+  
+  echo '<td id="campos"><input type="checkbox" id="produto" name="produto[]" value='.str_replace(' ','%',$registro["descricao"]).'>';
                                                    
-                 echo '<td id="campos"><a href="pesquisa_produto.php?codigo=' . $registro["cod"] . '"#><img src="images/edit.png"></td>';
+  
+  echo '<td id="campos"><a href="pesquisa_produto.php?codigo=' . $registro["cod"] . '"#><img src="images/edit.png"></td>';
                 				
-				 echo '<td id="campos">' . $registro["cod"] . '</td>';
+	
+  echo '<td id="campos">' . $registro["cod"] . '</td>';
 				
-				 echo '<td id="campos-descricao">' . $registro["descricao"] . '</td>';
+	
+  echo '<td id="campos-descricao">' . $registro["descricao"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["quantidade"] . '</td>';       
+	
+  echo '<td id="campos">' . $registro["quantidade"] . '</td>';       
                                                                     			                                
-				 echo '<td id="campos">' . $registro["unidade"] . '</td>';
+	
+  echo '<td id="campos">' . $registro["unidade"] . '</td>';
 				
-				 echo '<td id="campos">R$' . number_format( $registro["preco_compra"], 2, ',', '' ) . '</td>';
+	
+  echo '<td id="campos">R$' . number_format( $registro["preco_compra"], 2, ',', '' ) . '</td>';
 				
-				 echo '<td id="campos">R$' . number_format( $registro["preco_venda"], 2, ',', '' ) . '</td>';
+	
+  echo '<td id="campos">R$' . number_format( $registro["preco_venda"], 2, ',', '' ) . '</td>';
 				
 				
 // Consulto a quantidade total vendido de cada produto no laço:

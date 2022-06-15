@@ -43,24 +43,23 @@ $busca = $_POST['busca'];
 
 if ( $busca == "pago" ) {
 				
-				header( "Location:consulta_pagos.php" );
+	header( "Location:consulta_pagos.php" );
 				
-				} else {
+} else {
 				
-				$busca = "receber";
+	$busca = "receber";
 				
-				} 
+} 
 
 // Conexao
 require_once 'conexao.php';
 
 
 
-if ( empty( $busca ) )
-				
-				 {
-				echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='form_cadastro_produto.html';</script>";
-				} 
+if ( empty( $busca ) ){
+	
+    echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='form_cadastro_produto.html';</script>";
+} 
 
 
 $sql = "select * from contasareceber where status = ('$busca') order by codoper desc";
@@ -69,19 +68,21 @@ $sql = "select * from contasareceber where status = ('$busca') order by codoper 
 $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+    echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+    die;
+} 
 
 
 // Armazena os dados da consulta em um array associativo
@@ -121,69 +122,70 @@ echo '<table class="table table-bordered">
 
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo"<form action='./' id='formulario' method='post'>";
+	echo"<form action='./' id='formulario' method='post'>";
 				
-				 echo'<tr>';
+	echo'<tr>';
 				
-				 // echo '<td id="campos"><a href="baixa_receber.php?codoper='.$registro["codoper"].'"#><img src="https://img.icons8.com/material/24/000000/request-money.png"></td>';
-				echo '<td><a href="baixa_receber.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/receber.png"></td>';
+	// echo '<td id="campos"><a href="baixa_receber.php?codoper='.$registro["codoper"].'"#><img src="https://img.icons8.com/material/24/000000/request-money.png"></td>';
+	
+    echo '<td><a href="baixa_receber.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/receber.png"></td>';
+		
+	echo '<td><a href="exclui_baixa_receber.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
 				
+	echo '<td>' . $registro["codoper"] . '</td>';
 				
-				 echo '<td><a href="exclui_baixa_receber.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
+	// echo '<td id="campos">'.$registro["data"].'</td>';
+	
+    $datalanc = $registro["data"];
+		
+	$dia = substr( "$datalanc", 0, 2 );
 				
-				 echo '<td>' . $registro["codoper"] . '</td>';
+	$mes = substr( "$datalanc", 2, 2 );
 				
-				 // echo '<td id="campos">'.$registro["data"].'</td>';
-				$datalanc = $registro["data"];
+	$ano = substr( "$datalanc", 4, 8 );
 				
-				 $dia = substr( "$datalanc", 0, 2 );
+	$datalancamento = "$dia/$mes/$ano";
 				
-				 $mes = substr( "$datalanc", 2, 2 );
+	echo '<td>' . $datalancamento . '</td>';
 				
-				 $ano = substr( "$datalanc", 4, 8 );
+	// echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
+	
+    $datavenc = $registro["datavenc"];
+			
+	$dia = substr( "$datavenc", 0, 2 );
 				
-				 $datalancamento = "$dia/$mes/$ano";
+	$mes = substr( "$datavenc", 2, 2 );
 				
-				 echo '<td>' . $datalancamento . '</td>';
+	$ano = substr( "$datavenc", 4, 8 );
 				
-				 // echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
-				$datavenc = $registro["datavenc"];
+	$datavencimento = "$dia/$mes/$ano";
 				
-				 $dia = substr( "$datavenc", 0, 2 );
+	echo '<td>' . $datavencimento . '</td>';				
 				
-				 $mes = substr( "$datavenc", 2, 2 );
+	// echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
+	
+    echo '<td>' . $cliente = $registro["nome"] . '</td>';
 				
-				 $ano = substr( "$datavenc", 4, 8 );
+	echo '<td>' . $registro["descr"] . '</td>';
 				
-				 $datavencimento = "$dia/$mes/$ano";
+	echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
 				
-				 echo '<td>' . $datavencimento . '</td>';
+	echo '<td>' . "R$" . number_format( $registro["total"], 2, ',', '.' ) . '</td>';
 				
-				
-				 // echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
-				echo '<td>' . $cliente = $registro["nome"] . '</td>';
-				
-				 echo '<td>' . $registro["descr"] . '</td>';
-				
-				 echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
-				
-				 echo '<td>' . "R$" . number_format( $registro["total"], 2, ',', '.' ) . '</td>';
-				
-				 echo '<td>' . $registro['parcela'] . '</td>';
+	echo '<td>' . $registro['parcela'] . '</td>';
 				
 
 
 $nome = "RJ INFORMATICA";
+
 $email = "roberto.porto@outlook.com";
+
 $mensagem = "Caro $cliente vc esta com a parcela $datavencimento atrasada.";
 								
-								 } 
+} 
 
 				
-				echo'</tr>';
-				
-
-
+echo'</tr>';
 
 $mail = new PHPMailer(true);
 try {
@@ -230,25 +232,27 @@ $sql2 = "SELECT sum(valor) FROM `contasareceber` where status = 'RECEBER'";
 $query = mysqli_query( $conexao, $sql2 );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+    echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql2;
+    echo $sql2;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+    die;
+} 
 
 while ( $exibir = mysqli_fetch_array( $query ) ) {
+	
+    $total = $exibir['0'];
 				
-				$total = $exibir['0'];
-				
-				} 
+} 
 
 
 

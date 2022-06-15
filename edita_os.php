@@ -21,84 +21,118 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    
+	echo '<br>';
                 
-                 echo $sql;
+    
+	echo $sql;
 				
-				 echo '</div>';
+	
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	
+	mysqli_close( $conexao );
 				
-				 die;
-				} 
+	
+	die;
+	
+} 
 
 $resultado = mysqli_num_rows( $consulta );
 
 if ( $resultado == 0 ) {
 				
-				echo"<script language='javascript' type='text/javascript'>alert('OS nao encontrado!');window.location.href='consulta_os.html';</script>";
+	
+	echo"<script language='javascript' type='text/javascript'>alert('OS nao encontrado!');window.location.href='consulta_os.html';</script>";
 				
-				} 
+	
+} 
 
 
 // Dados da tabela
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				$numeroord = $registro["NumeroOrd"];
+	
+	$numeroord = $registro["NumeroOrd"];
 				
-				 $data = $registro["dataentr"];
+	
+	$data = $registro["dataentr"];
 				
-				 $hora = $registro["horacheg"];
+	
+	$hora = $registro["horacheg"];
 				
-				 $cliente = $registro["cliente"];
+	
+	$cliente = $registro["cliente"];
 				
-				 $endereco = $registro["endereco"];
+	
+	$endereco = $registro["endereco"];
 				
-				 // $numero = $registro["numero"];
-				$bairro = $registro["bairro"];
+	
+	// $numero = $registro["numero"];
 				
-				 $cidade = $registro["cidade"];
+	$bairro = $registro["bairro"];
+	
 				
-				 $uf = $registro["uf"];
+	
+	$cidade = $registro["cidade"];
 				
-				 $cep = $registro["cep"];
+	
+	$uf = $registro["uf"];
 				
-				 $cpfcnpj = $registro["cpfcnpj"];
+	
+	$cep = $registro["cep"];
 				
-				 $rg = $registro["rg"];
+	
+	$cpfcnpj = $registro["cpfcnpj"];
 				
-				 $telef = $registro["telef"];
+	
+	$rg = $registro["rg"];
 				
-				 $telef2 = $registro["telef2"];
+	
+	$telef = $registro["telef"];
 				
-				 $marca = $registro["marca"];
+	
+	$telef2 = $registro["telef2"];
 				
-				 $email = $registro["email"];
+	
+	$marca = $registro["marca"];
 				
-				 $equipamento = $registro["equipamento"];
+	
+	$email = $registro["email"];
 				
-				 $modelo = $registro["modelo"];
+	
+	$equipamento = $registro["equipamento"];
 				
-				 $marca = $registro["marca"];
+	
+	$modelo = $registro["modelo"];
 				
-				 $serial = $registro["serial"];
+	
+	$marca = $registro["marca"];
 				
-				 $acessorios = $registro["acessorios"];
+	
+	$serial = $registro["serial"];
 				
-				 $detalhes = $registro["detalhes"];
+	 $acessorios = $registro["acessorios"];
 				
-				 $defeito = $registro["mensage"];
+	
+	$detalhes = $registro["detalhes"];
 				
-				 $servexec = $registro["servexec"];
+	$defeito = $registro["mensage"];
 				
-				 $status = $registro["status"];
+	
+	$servexec = $registro["servexec"];
+				
+	
+	$status = $registro["status"];
 				
 				
-				 } 
+	
+} 
 
 
 ?>

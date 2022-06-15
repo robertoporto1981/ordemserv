@@ -25,9 +25,9 @@ $CODOPER = $_GET['codoper'];
 
 if ( empty( $CODOPER ) ) {
 				
-				echo"<script language='javascript' type='text/javascript'>alert('Digite o numero do titulo!');window.location.href='baixa_pagar.html'</script>";
+	echo"<script language='javascript' type='text/javascript'>alert('Digite o numero do titulo!');window.location.href='baixa_pagar.html'</script>";
 				
-				} 
+} 
 
 
 $sql = "UPDATE contasapagar set status ='PAGO' where codoper = $CODOPER";
@@ -40,52 +40,52 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				die;
+	die;
 				
-				} 
+} 
 
 
 $consulta2 = mysqli_query( $conexao, $sql2 );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql2;
+    echo $sql2;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+	die;
+} 
 
-while ( $registro = mysqli_fetch_assoc( $consulta2 ) ) {
+while ( $registro = mysqli_fetch_assoc( $consulta2 ) ) {				
 				
+		$codigo = $registro["codoper"];
 				
-				$codigo = $registro["codoper"];
+		$descricao = $registro["descr"];
 				
-				$descricao = $registro["descr"];
+		$valor = $registro["valor"];
 				
-				 $valor = $registro["valor"];
-				
-				 $usuario = $registro["usuario"];
-				} 
+		$usuario = $registro["usuario"];
+} 
 
 
 // Insiro dados na tabela entradasaidas:
@@ -95,55 +95,59 @@ $sql3 = "INSERT into entradasaidas VALUES('','$data','SAIDA','$descricao','$valo
 mysqli_query( $conexao, $sql ) or die( "Erro ao tentar cadastrar registro" );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql3;
+    echo $sql3;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+	die;
+} 
 
 mysqli_query( $conexao, $sql2 ) or die( "Erro ao tentar cadastrar registro" );
 
  if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+	die;
+} 
+
 mysqli_query( $conexao, $sql3 ) or die( "Erro ao tentar cadastrar registro" );
 
  if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				echo '</div>';
+	echo '</div>';				
 				
-				
-				die;
-				} 
+	die;
+} 
 mysqli_close( $conexao );
 
 // Java script Sweet Alert
 echo "<script>
-swal('Titulo Baixado!')
-.then((value) => {
-             window.location.href='contas_pagar.html';
-});
+		swal('Titulo Baixado!')
+		.then((value) => {
+        window.location.href='contas_pagar.html';
+	});
 
-</script>";
+	</script>";
 
 ?>
 

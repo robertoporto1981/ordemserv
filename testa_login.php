@@ -23,18 +23,19 @@ $css = '<link type="text/css" rel="stylesheet" href="css/stylesheet.css">';
 $_SESSION['css'] = $css;
 
 
-// Session usuário:
+// Session usuï¿½rio:
 
 $usuario = ucfirst( $_SESSION['login'] );
-if ( isset( $_SESSION['login'] ) ) {
+if ( isset( $_SESSION['login'] ) ) {				
+	
+	$usuario = $_SESSION['login'];
 				
-				$usuario = $_SESSION['login'];
+	
+} else {				
+	
+	echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";	
 				
-				 } else {
-				
-				echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
-				
-				
-				 } 
+	
+} 
 
 ?>

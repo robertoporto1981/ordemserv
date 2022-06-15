@@ -21,9 +21,9 @@
 
 	<form method="POST"  action="cadastro.html">
 
-<input type="submit" class="btn btn-success btn-sm" value="NOVO">
+		<input type="submit" class="btn btn-success btn-sm" value="NOVO">
 
-<a href="menu.php" class="btn btn-dark btn-sm">VOLTAR</a>
+		<a href="menu.php" class="btn btn-dark btn-sm">VOLTAR</a>
 
 
 	</form>
@@ -58,22 +58,21 @@ if(mysqli_error($conexao) == TRUE){
     
  echo '<table class="table table-bordered">
     
-    <thead class="thead-dark">
+    		<thead class="thead-dark">
     
-    <tr>
+    			<tr>
               
-      <th scope="col">#</th>
+      				<th scope="col">#</th>
       
-      <th scope="col">CÓDIGO:</th>
+      				<th scope="col">CÓDIGO:</th>
       
-      <th scope="col">NOME:</th>
+			        <th scope="col">NOME:</th>
     
-      <th scope="col">LOGIN:</th>  
+      				<th scope="col">LOGIN:</th>            
           
-          
-    </tr>
+    			</tr>
     
-    </thead>';   
+    	</thead>';   
 			
 
 // Armazena os dados da consulta em um array associativo:

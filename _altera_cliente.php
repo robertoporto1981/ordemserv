@@ -27,193 +27,200 @@ $observacao_cliente = strtoupper( $_GET['observ'] );
 $clientes_tipo = $_GET['desativado'];
 
 if ( $nome_cliente == true ) {
-				$sql = "select * from clientes where nome like '%$nome_cliente%' and status <> 'D'";
+	
+    $sql = "select * from clientes where nome like '%$nome_cliente%' and status <> 'D'";
 				
-				 $consulta_nome_cliente = mysqli_query( $conexao, $sql );
+	$consulta_nome_cliente = mysqli_query( $conexao, $sql );
 				
-				 $resultado = mysqli_num_rows ( $consulta_nome_cliente );
+	$resultado = mysqli_num_rows ( $consulta_nome_cliente );
 				
-				 if ( $resultado > 1 ) {
-								header( "Location:lista_clientes.php?nome=$nome_cliente" );
+if ( $resultado > 1 ) {
+	    
+    header( "Location:lista_clientes.php?nome=$nome_cliente" );
 								
 								 } 
 				
-				if ( $resultado == 0 ) {
-								echo "<script>
+if ( $resultado == 0 ) {
+
+      echo "<script>
         swal('Nenhum registro encotrado!')
             .then((value) => {
              window.location.href='lista_clientes.php';
-});
-</script>";
+            });
+    </script>";
 								 } 
 				
 				} 
 if ( $codigo_cliente == true and $clientes_tipo == "D" ) {
 				
-				$sql = "select * from clientes where cod = '$codigo_cliente' and status = 'D'";
+	$sql = "select * from clientes where cod = '$codigo_cliente' and status = 'D'";
 				
-				 $consulta_tipo_cliente = mysqli_query( $conexao, $sql );
+	$consulta_tipo_cliente = mysqli_query( $conexao, $sql );
 				
-				 $resultado = mysqli_num_rows( $consulta_tipo_cliente );
-				 } 
+	$resultado = mysqli_num_rows( $consulta_tipo_cliente );
+} 
 
 if ( $codigo_cliente == true and $clientes_tipo != "D" ) {
 				
-				$sql = "select * from clientes where cod = '$codigo_cliente' and status <> 'D'";
+	$sql = "select * from clientes where cod = '$codigo_cliente' and status <> 'D'";
 				
-				 $consulta_codigo_cliente = mysqli_query( $conexao, $sql );
+	$consulta_codigo_cliente = mysqli_query( $conexao, $sql );
 				
-				 $resultado = mysqli_num_rows( $consulta_codigo_cliente );
+	$resultado = mysqli_num_rows( $consulta_codigo_cliente );
 				
-				 if ( $resultado == 0 ) {
-								echo "<script>
+if ( $resultado == 0 ) {
+
+    echo "<script>
         swal('Nenhum registro encotrado!')
             .then((value) => {
              window.location.href='lista_clientes.php';
-});
-</script>";
+        });
+    </script>";
 								
-								 } 
+} 
 				
-				} 
-                
-
-					
-	                
+}                 
 
 // Fantasia cliente:
 if ( $fantasia_cliente == true ) {
 				
-				$sql = "select * from clientes where nomefant like '%$fantasia_cliente%' and status <> 'D'";
+	$sql = "select * from clientes where nomefant like '%$fantasia_cliente%' and status <> 'D'";
 				
-				 $consulta_fantasia_cliente = mysqli_query( $conexao, $sql );
+	$consulta_fantasia_cliente = mysqli_query( $conexao, $sql );
 				
-				 $resultado = mysqli_num_rows ( $consulta_fantasia_cliente );
+	$resultado = mysqli_num_rows ( $consulta_fantasia_cliente );
 				
-				 if ( $resultado == 0 ) {
-								echo "<script>
-        swal('Nenhum registro encotrado!')
+if ( $resultado == 0 ) {
+	
+    echo "<script>
+            swal('Nenhum registro encotrado!')
             .then((value) => {
              window.location.href='lista_clientes.php';
-});
-</script>";
-								 } 
+            });
+        </script>";
+} 
 				
-				if ( $resultado > 1 ) {
+if ( $resultado > 1 ) {
 								
-								header( "Location:lista_clientes.php?nomefant=$fantasia_cliente" );
-								 } 
+	header( "Location:lista_clientes.php?nomefant=$fantasia_cliente" );
+
+    } 
 				
-				} 
+} 
 // RG Cliente:
 if ( $rg_cliente == true ) {
+			
+	$sql = "select * from clientes where rg = '$rg_cliente' and status <> 'D'";
 				
-				$sql = "select * from clientes where rg = '$rg_cliente' and status <> 'D'";
+	$consulta_rg_cliente = mysqli_query( $conexao, $sql );
 				
-				 $consulta_rg_cliente = mysqli_query( $conexao, $sql );
+	$resultado = mysqli_num_rows ( $consulta_rg_cliente );
 				
-				 $resultado = mysqli_num_rows ( $consulta_rg_cliente );
-				
-				 if ( $resultado == 0 ) {
-								echo "<script>
+if ( $resultado == 0 ) {
+	echo "<script>
         swal('Nenhum registro encotrado!')
             .then((value) => {
              window.location.href='lista_clientes.php';
-});
-</script>";
-								 } 
-				} 
+            
+            });
+        
+        </script>";
+    } 
+} 
 // CPF Cliente:
 if ( $cpf_cliente == true ) {
 				
-				$sql = "select * from clientes where cpf = '$cpf_cliente' and status <> 'D'";
+    $sql = "select * from clientes where cpf = '$cpf_cliente' and status <> 'D'";
 				
-				 $consulta_cpf_cliente = mysqli_query( $conexao, $sql );
+	$consulta_cpf_cliente = mysqli_query( $conexao, $sql );
 				
-				 $resultado = mysqli_num_rows ( $consulta_cpf_cliente );
+	$resultado = mysqli_num_rows ( $consulta_cpf_cliente );
 				
-				 if ( $resultado == 0 ) {
-								echo "<script>
+if ( $resultado == 0 ) {
+	echo "<script>
         swal('Nenhum registro encotrado!')
             .then((value) => {
              window.location.href='lista_clientes.php';
-});
-</script>";
-								 } 
-				} 
+        });
+        
+        </script>";
+    } 
+} 
 // CNPJ CLiente:
 if ( $cnpj_cliente == true ) {
 				
-				$sql = "select * from clientes where cnpj = '$cnpj_cliente' and status <> 'D'";
+	$sql = "select * from clientes where cnpj = '$cnpj_cliente' and status <> 'D'";
 				
-				 $consulta_cnpj_cliente = mysqli_query( $conexao, $sql );
+	$consulta_cnpj_cliente = mysqli_query( $conexao, $sql );
 				
-				 $resultado = mysqli_num_rows ( $consulta_cnpj_cliente );
+	$resultado = mysqli_num_rows ( $consulta_cnpj_cliente );
 				
-				 if ( $resultado == 0 ) {
-								echo "<script>
-        swal('Nenhum registro encotrado!')
-            .then((value) => {
-             window.location.href='lista_clientes.php';
-});
-</script>";
-								 } 
-				} 
+if ( $resultado == 0 ) {
+	    echo "<script>
+                swal('Nenhum registro encotrado!')
+                .then((value) => {
+                window.location.href='lista_clientes.php';
+                });
+            </script>";
+    } 
+} 
 // Observacao cliente:
 if ( $observacao_cliente == true ) {
 				
-				$Sql = "select * from clientes where observ like ('%$observacao_cliente%') and status <> 'D'";
+	$Sql = "select * from clientes where observ like ('%$observacao_cliente%') and status <> 'D'";
 				
-				 $consulta_observ = mysqli_query( $conexao, $Sql );
+	$consulta_observ = mysqli_query( $conexao, $Sql );
 				
-				 $resultado = mysqli_num_rows ( $consulta_observ );
+	$resultado = mysqli_num_rows ( $consulta_observ );
 				
-				 if ( $resultado > 1 ) {
+if ( $resultado > 1 ) {
 								
-								
-								header( "Location:lista_clientes.php?observ={$observacao_cliente}" );
-								 } 
+    header( "Location:lista_clientes.php?observ={$observacao_cliente}" );
+} 
 				
-				if ( $resultado == 1 ) {
-								
-								$sql = "select * from clientes where observ like ('%$observacao_cliente%') and status <> 'D'";
-								 } 
+if ( $resultado == 1 ) {
+    
+	$sql = "select * from clientes where observ like ('%$observacao_cliente%') and status <> 'D'";
+} 
 				
-				if ( $resultado == 0 ) {
+if ( $resultado == 0 ) {
 								
-								echo "<script>
+	echo "<script>
         swal('Nenhum registro encotrado!')
             .then((value) => {
              window.location.href='lista_clientes.php';
-});
-</script>";
-								 } 
-				} 
+            });
+        </script>";
+} 
+} 
 
 $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+    echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
-				 die;
-				 } 
+	mysqli_close( $conexao );
+
+    die;
+
+} 
+
 while ( $dados_cliente = mysqli_fetch_array( $consulta ) ) {
 				
-				$_SESSION['nome'] = $dados_cliente['nome'];
+    	$_SESSION['nome'] = $dados_cliente['nome'];
 				
-				 $_SESSION['rg'] = $dados_cliente['rg'];
+		$_SESSION['rg'] = $dados_cliente['rg'];
 				
-				 $_SESSION['cpf'] = $dados_cliente['cpf'];
+		$_SESSION['cpf'] = $dados_cliente['cpf'];
 				
-				 $_SESSION['telefone'] = $dados_cliente['telefone'];
+		$_SESSION['telefone'] = $dados_cliente['telefone'];
 				
-				 $_SESSION['celular'] = $dados_cliente['celular'];			
+		$_SESSION['celular'] = $dados_cliente['celular'];			
 				 
 
 // Mostra contas a vencer no dia:
@@ -489,19 +496,20 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
-				 die;
-				 } 
+	mysqli_close( $conexao );
+	
+    die;
+} 
 
 while ( $dados = mysqli_fetch_array( $consulta ) ) {
 				
-				$total_em_aberto = $dados['total'];				
+		$total_em_aberto = $dados['total'];				
 				 
 }  
  

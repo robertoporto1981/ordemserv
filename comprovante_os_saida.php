@@ -22,55 +22,55 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
-				} 
+	die;
+} 
 
 $resultado = mysqli_num_rows( $consulta );
 
 // Pega os dados retornados da query e transforma em array
 while ( $row = mysqli_fetch_array( $consulta ) ) {
 				
-				$numeroord = $row[0];
+	$numeroord = $row[0];
 				
-				 $dataentr = $row[1];
+	$dataentr = $row[1];
 				
-				 $horacheg = $row[2];
+	$horacheg = $row[2];
 				
-				 $nome = $row[4];
+	$nome = $row[4];
 				
-				 $endereco = $row[5];
+	$endereco = $row[5];
 				
-				 $bairro = $row[6];
+	$bairro = $row[6];
 				
-				 $cidade = $row[7];
+	$cidade = $row[7];
 				
-				 $uf = $row[8];
+	$uf = $row[8];
 				
-				 $cep = $row[9];
+	$cep = $row[9];
 				
-				 $telef = $row[12];
+	$telef = $row[12];
+			
+	$modelo = $row[15];
 				
-				 $modelo = $row[15];
+	$marca = $row[16];
 				
-				 $marca = $row[16];
+	$acessorios = $row[18];
 				
-				 $acessorios = $row[18];
+	$mensage = $row[20];
 				
-				 $mensage = $row[20];
-				
-				} 
+} 
 
 
 ?>

@@ -19,7 +19,6 @@ echo '<tr>';
 
 echo '<td>NOME:</td>';
 
-
 echo '<td>CPF:</td>';
 
 echo '<td>CNPJ:</td>';
@@ -27,7 +26,6 @@ echo '<td>CNPJ:</td>';
 echo '<td>ENDERECO:</td>';
 
 echo '<td>N.:</td>';
-
 
 echo '<td>COMPLEMENTO:</td>';
 
@@ -40,9 +38,7 @@ echo '<td>ESTADO:</td>';
 echo '<td>TELEFONE:</td>';
 
 
-
-// Armazena os dados da consulta em um array associativo
-
+// Armazena os dados da consulta em um array associativo:
 
 echo '<tr>';
 
@@ -67,7 +63,6 @@ echo '<td>' . $registro["estado"] . '</td>';
 echo '<td>' . $registro["telefone"] . '</td>';
 
 echo '</tr>';
-
 
 echo '</table>';
 

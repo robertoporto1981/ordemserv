@@ -21,7 +21,6 @@ require_once 'time_zone.php';
 
 $usuario = $_SESSION['login'];
 
-
 $CODOPER = $_GET['codoper'];
 
 $_SESSION['codoper'] = $CODOPER;
@@ -66,42 +65,41 @@ $sql2 = "SELECT * FROM contasareceber WHERE codoper = '$CODOPER'";
 
  if ( mysqli_error( $conexao ) == true ) {
 				
-		echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-		echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
                  
-        echo '<br>';
+    echo '<br>';
                 
-        echo $sql2;
+    echo $sql2;
 				
-		echo '</div>';
+	echo '</div>';
 				
-		mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-		die;
+	die;
 } 
 
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-		$codigo = $registro["codoper"];
+	$codigo = $registro["codoper"];
+			
+	$Data = $registro["datapag"];
 				
-				 $Data = $registro["datapag"];
+	$descricao = $registro["descr"];
 				
-				 $descricao = $registro["descr"];
-				
-				 $valor = $registro["valor"];
+	$valor = $registro["valor"];
 				
 // Ajusto formato de data para Y-m-d:
-				 $dia = substr( "$Data", 0, 2 );
+$dia = substr( "$Data", 0, 2 );
 				
-				 $mes = substr( "$Data", 2, 2 );
+$mes = substr( "$Data", 2, 2 );
 				
-				 $ano = substr( "$Data", 4, 7 );
+$ano = substr( "$Data", 4, 7 );
 				
-				 $datapag = "$ano$mes$dia";
+$datapag = "$ano$mes$dia";
 				
-				} 
-
+} 
 
 // Insiro dados na tabela entradasadias:
 $sql3 = "INSERT into entradasaidas VALUES('','$datapag','ENTRADA','$descricao','$valor','$usuario','','','',$codigo)";
@@ -110,20 +108,20 @@ mysqli_query( $conexao, $sql3 );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    echo '<br>';
                 
-                 echo $sql3;
+    echo $sql3;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
-				} 
+	die;
+} 
 
 mysqli_close( $conexao );
 

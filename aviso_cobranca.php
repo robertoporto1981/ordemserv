@@ -34,7 +34,7 @@ use PHPMailer\PHPMailer\SMTP;
     
 
 </form> 
-</form><!--Função javascript-->
+</form><!--Funcao javascript-->
 <script type="text/javascript">
     // <![CDATA[
      function Acao(act){
@@ -51,10 +51,8 @@ $data_atual = date( 'Ymd' );
 
 $usuario = $_SESSION['login'];
 
-
 // Conexao
 require_once 'conexao.php';
-
 
 // $sql = "select * from contasareceber where status = 'receber' order by codoper asc";
 echo $sql = "SELECT contasareceber.codcliente, contasareceber.nome,contasareceber.datavenc,contasareceber.codoper,clientes.email, contasareceber.status FROM contasareceber INNER JOIN clientes ON contasareceber.codcliente = clientes.cod WHERE contasareceber.status = 'RECEBER' 
@@ -64,105 +62,124 @@ AND contasareceber.datavenc < '$data_atual'";
 $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '<br>';
+	echo '<br>';
 				
-				 echo $sql;
+	echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
-				 die;
-				 } 
+	mysqli_close( $conexao );
+
+	die;
+	
+} 
 
 
 // Armazena os dados da consulta em um array associativo
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				$registro["descr"];
+		$registro["descr"];
 				
-				 $registro["codoper"];
+		$registro["codoper"];
 				
-				 $datalanc = $registro["data"];
+		$datalanc = $registro["data"];
 				
-				 $datalancamento = date( 'd/m/Y', strtotime( $datalanc ) );
+		$datalancamento = date( 'd/m/Y', strtotime( $datalanc ) );
 				
-				 $datavenc = $registro["datavenc"];
+		$datavenc = $registro["datavenc"];
 				
-				 $datavencimento = date( 'd/m/Y', strtotime( $datavenc ) );
+		$datavencimento = date( 'd/m/Y', strtotime( $datavenc ) );
 				
-				 echo $registro["nome"];
+		echo $registro["nome"];
 				
-				 $registro["descr"];
+		$registro["descr"];
 				
-				 $registro["valor"];
+		$registro["valor"];
 				
-				 $registro["total"];
+		$registro["total"];
 				
-				 echo $registro["parcela"];
+		echo $registro["parcela"];
+			
+		echo $registro["email"];				
+               
+		echo "<br>";
 				
-				 echo $registro["email"];
+		Mandaemail( $registro["nome"], $registro["email"], $datavencimento, $registro["parcela"], $registro["codoper"], $valor_parcela );				
 				
-                
-				 echo "<br>";
-				
-				 Mandaemail( $registro["nome"], $registro["email"], $datavencimento, $registro["parcela"], $registro["codoper"], $valor_parcela );
-				
-				
-				 } 
+} 
 
 // Envia o Email:
 Function MandaEmail( $nome, $email, $datavencimento, $parcela, $titulo, $valor_parcela )
 
 {
 				
-				 $mensagem = "<strong>Prezado(a) Sr(a)</strong> $nome,<br><br>
+$mensagem = "<strong>Prezado(a) Sr(a)</strong> $nome,<br><br>
 
-Consta em nossos registros que o pagamento referente a $parcela <strong>parcela</strong> do <strong>documento nº: </strong><strong>$titulo</strong>, com vencimento no <strong>dia $datavencimento</strong>, ainda encontra-se em aberto.<br>
+Consta em nossos registros que o pagamento referente a $parcela <strong>parcela</strong> do <strong>documento nï¿½: </strong><strong>$titulo</strong>, com vencimento no <strong>dia $datavencimento</strong>, ainda encontra-se em aberto.<br>
 
-Dessa forma, fazemos uso do presente para cientifica-lo(a) do débito pendente e solicitar sua mais breve regularizacão.<br>
+Dessa forma, fazemos uso do presente para cientifica-lo(a) do dï¿½bito pendente e solicitar sua mais breve regularizacï¿½o.<br>
 
 Caso o pagamento ja tenha sido efetuado, por favor desconsidere.<p><strong>Whatsapp:</strong><br>(51)98660-0428";
 				
-				 $mail = new PHPMailer( true );
-				 try {
+$mail = new PHPMailer( true );
+try {
 								
-								// Server settings
-								$mail -> SMTPDebug = false;
-								 $mail -> isSMTP();
-								 $mail -> Host = 'smtp.outlook.office365.com';
-								 $mail -> SMTPAuth = true;
-								 $mail -> Username = 'roberto.porto@outlook.com';
-								 $mail -> Password = '200176210@aB';
-								 $mail -> SMTPSecure = 'tls';
-								 $mail -> Port = 587;
+// Server settings
+$mail -> SMTPDebug = false;
+	
+$mail -> isSMTP();
+	
+$mail -> Host = 'smtp.outlook.office365.com';
+	
+$mail -> SMTPAuth = true;
+	
+$mail -> Username = 'roberto.porto@outlook.com';
+	
+$mail -> Password = '200176210@aB';
+	
+$mail -> SMTPSecure = 'tls';
+	
+$mail -> Port = 587;
 								
-								 // Recipients
-								$mail -> setFrom( 'roberto.porto@outlook.com', 'Aviso de cobranca' );
-								 $mail -> addAddress( $email, $email );
+// Recipients:
+	
+$mail -> setFrom( 'roberto.porto@outlook.com', 'Aviso de cobranca' );
+
+$mail -> addAddress( $email, $email );
+							
+$mail -> Subject = $email;
+
+$mail -> msgHTML( "<html>{$mensagem}</html>" );
+
+$mail -> AltBody = "{$email}\nmensagem: {$mensagem}";
 								
-								 $mail -> Subject = $email;
-								 $mail -> msgHTML( "<html>{$mensagem}</html>" );
-								 $mail -> AltBody = "{$email}\nmensagem: {$mensagem}";
-								
-								 if ( $mail -> send() ) {
-												$_SESSION["success"] = "Mensagem enviada com sucesso";
-												 header( "Location: menu.php" );
+if ( $mail -> send() ) {
+
+	$_SESSION["success"] = "Mensagem enviada com sucesso";
+	
+	header( "Location: menu.php" );
 												
-												 } else {
-												$_SESSION["danger"] = "Erro ao enviar mensagem " . $mail -> ErrorInfo;
-												 header( "Location: contato.php" );
-												 } 
+	} else {
+
+$_SESSION["danger"] = "Erro ao enviar mensagem " . $mail -> ErrorInfo;
+
+	header( "Location: contato.php" );
+
+} 
 								} 
-				catch ( Exception $e ) {
-								echo 'Message could not be sent.';
-								 echo 'Mailer Error: ' . $mail -> ErrorInfo;
-								 } 
-				
-				} 
+catch ( Exception $e ) {
+
+	echo 'Message could not be sent.';
+	
+	echo 'Mailer Error: ' . $mail -> ErrorInfo;
+	 } 
+		
+} 
 
 
 ?>

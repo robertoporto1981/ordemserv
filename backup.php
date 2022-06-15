@@ -2,14 +2,16 @@
 
 <!DOCTYPE html>
 <html>
-		<head>
+	
+	<head>
 		
 		<link type="text/css" rel="stylesheetcss" href="stylesheet.css"/>
              
-        <?php echo $sweet = $_SESSION['sweet_alert'];
-?>  
-      <link rel="stylesheet" href="css/bootstrap.css">  
-</head>
+    	<?php echo $sweet = $_SESSION['sweet_alert'];?>  
+      	
+		<link rel="stylesheet" href="css/bootstrap.css">  
+		
+	</head>
 
 <body>
     
@@ -40,14 +42,14 @@ $caminho_bkp = "C:/Backup/bk$dia.rar";
 // Verifico se foi gerado o arquivo na pasta backup:
 if ( file_exists( $caminho_bkp ) ) {
 				
-				// echo '<img src="images/carregando.gif" alt="Smiley face" height="50" width="50">';
-				// SQL:
-				$sql = "UPDATE BACKUP SET databackup = '$data'";
+// echo '<img src="images/carregando.gif" alt="Smiley face" height="50" width="50">';
+// SQL:
+	$sql = "UPDATE BACKUP SET databackup = '$data'";
 				
-				mysqli_query( $conexao, $sql ) or die ( "Erro ao gerar SQL!" );
+	mysqli_query( $conexao, $sql ) or die ( "Erro ao gerar SQL!" );
 				
 // Java script Sweet alert:
-				echo "<script>
+echo "<script>
 swal('Backup gerado com sucesso!')
 .then((value) => {
              window.location.href='menu.php';
@@ -56,15 +58,14 @@ swal('Backup gerado com sucesso!')
 </script>";
 				
 				
-				// Fecha conexao
+// Fecha conexao
 				
-				mysqli_query( $conexao, $sql ) or die ( "Erro ao gerar SQL!" );			
-             
+mysqli_query( $conexao, $sql ) or die ( "Erro ao gerar SQL!" );			             
                 
-				} else {
+} else {
 				
-				// Java script Sweet alert
-				echo "<script>
+// Java script Sweet alert
+echo "<script>
 swal('Nao foi possivel gerar arquivo de backup')
 .then((value) => {
              window.location.href='menu.php';

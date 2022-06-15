@@ -24,33 +24,37 @@
 
 if ( isset( $_SESSION['login'] ) ) {
 				
-				$usuario = $_SESSION['login'];
+	
+	$usuario = $_SESSION['login'];				
 				
+	
+} else {
 				
-				} else {
+	
+	echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";				
 				
-				echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
-				
-				
-				 } 
+	
+} 
 
 $serv = $_POST['serv'];
 
 
 if ( empty( $serv ) ) {
 				
-				$serv = "%%";
+	
+	$serv = "%%";
 				
-				} else {
+	
+} else {
 				
-				$serv = $_POST['serv'];
+	
+	$serv = $_POST['serv'];
 				
-				} 
+	
+} 
 
 // conexao com banco
 require_once 'conexao.php';
-
-
 
 $sql = "select * from servicos where descricao like ('%$serv%') ORDER BY descricao asc";
 
@@ -59,17 +63,23 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '</div>';
+	
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	
+	mysqli_close( $conexao );
 				
-				die;
+	
+	die;
 				
-				} 
+	
+} 
 
 
 $resultado = mysqli_num_rows( $consulta );
@@ -86,7 +96,8 @@ if ( $resultado == 0 ) {
 </script>";
 				
 				
-				} 
+
+} 
 
 echo '<table class="table table-bordered">
     
@@ -111,19 +122,25 @@ echo '<table class="table table-bordered">
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
 				
-				echo '<tr>';
+		
+	echo '<tr>';
 				
-				 echo '<td>' . $registro["cod"] . '</td>';
+	
+	echo '<td>' . $registro["cod"] . '</td>';
 				
-				 echo '<td>' . strtoupper( $registro["descricao"] ) . '</td>';
+	
+	echo '<td>' . strtoupper( $registro["descricao"] ) . '</td>';
 				
-				 echo '<td>' . "R$" . $registro["preco"] . ",00" . '</td>';
+	
+	echo '<td>' . "R$" . $registro["preco"] . ",00" . '</td>';
 				
-				 echo '<td>' . strtoupper( $registro["observacoes"] ) . '</td>';
+	
+	echo '<td>' . strtoupper( $registro["observacoes"] ) . '</td>';
 				
-				 echo '</tr>';
-				
-				} 
+	
+	echo '</tr>';				
+
+} 
 
 echo '</table>';
 

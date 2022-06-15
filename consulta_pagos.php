@@ -36,11 +36,10 @@ $busca = "pago";
 // Conexao
 require_once 'conexao.php';
 
-if ( empty( $busca ) )
-				
-				 {
-				echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='form_cadastro_produto.html';</script>";
-				 } 
+if ( empty( $busca ) ){
+	
+	echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='form_cadastro_produto.html';</script>";
+} 
 
 
 $sql = "select * from contasareceber where status = ('$busca') order by codoper desc";
@@ -49,20 +48,20 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '<br>';
+	echo '<br>';
 				
-				 echo $sql;
+	echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
-				 } 
+	die;
+} 
 
 
 // Armazena os dados da consulta em um array associativo
@@ -86,7 +85,7 @@ echo '<table class="table table-bordered">
       
       <th scope="col">CLIENTE:</th>
       
-      <th scope="col">DESCRIÇÃO:</th>
+      <th scope="col">DESCRIï¿½ï¿½O:</th>
       
       <th scope="col">VALOR:</th>
       
@@ -103,78 +102,81 @@ echo"<h3><center>RELATORIO PAGOS</center></h3>";
 
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo"<form action='./' id='formulario' method='post'>";
+	echo"<form action='./' id='formulario' method='post'>";
 				
-				 echo'<tr>';
+	echo'<tr>';
+			
+	echo '<td><a href="exclui_baixa_receber.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"ï¿½&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
 				
-				 echo '<td><a href="exclui_baixa_receber.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
+	echo '<td>' . $registro["codoper"] . '</td>';
 				
-				 echo '<td>' . $registro["codoper"] . '</td>';
+// echo '<td id="campos">'.$registro["data"] = date('d/m/Y').'</td>';
+	
+	$datalanc = $registro["data"];
 				
-				 // echo '<td id="campos">'.$registro["data"] = date('d/m/Y').'</td>';
-				$datalanc = $registro["data"];
+	$dia = substr( "$datalanc", 0, 2 );
+					
+	$mes = substr( "$datalanc", 2, 2 );
+					
+	$ano = substr( "$datalanc", 4, 8 );
 				
-				 $dia = substr( "$datalanc", 0, 2 );
+	$datalancamento = "$dia/$mes/$ano";
 				
-				 $mes = substr( "$datalanc", 2, 2 );
+	echo '<td>' . $datalancamento . '</td>';
 				
-				 $ano = substr( "$datalanc", 4, 8 );
+// echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
+	
+	$datavenc = $registro["datavenc"];
 				
-				 $datalancamento = "$dia/$mes/$ano";
+	$dia = substr( "$datavenc", 0, 2 );
 				
-				 echo '<td>' . $datalancamento . '</td>';
+	$mes = substr( "$datavenc", 2, 2 );
 				
-				 // echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
-				$datavenc = $registro["datavenc"];
+	$ano = substr( "$datavenc", 4, 8 );
 				
-				 $dia = substr( "$datavenc", 0, 2 );
+	$datavencimento = "$dia/$mes/$ano";
 				
-				 $mes = substr( "$datavenc", 2, 2 );
+	echo '<td>' . $datavencimento . '</td>';
 				
-				 $ano = substr( "$datavenc", 4, 8 );
+// echo '<td id="campos-codigo">'.$registro["datapag"].'</td>';
+	
+	$datapagto = $registro["datapag"];
 				
-				 $datavencimento = "$dia/$mes/$ano";
+	$dia = substr( "$datapagto", 0, 2 );
 				
-				 echo '<td>' . $datavencimento . '</td>';
+	$mes = substr( "$datapagto", 2, 2 );
 				
-				 // echo '<td id="campos-codigo">'.$registro["datapag"].'</td>';
-				$datapagto = $registro["datapag"];
+	$ano = substr( "$datapagto", 4, 8 );
 				
-				 $dia = substr( "$datapagto", 0, 2 );
+	$datapagamento = "$dia/$mes/$ano";
 				
-				 $mes = substr( "$datapagto", 2, 2 );
+	echo '<td>' . $datapagamento . '</td>';
 				
-				 $ano = substr( "$datapagto", 4, 8 );
+	echo '<td>' . $registro["cod"] . '</td>';
 				
-				 $datapagamento = "$dia/$mes/$ano";
+	echo '<td>' . $registro["nome"] . '</td>';
 				
-				 echo '<td>' . $datapagamento . '</td>';
+	echo '<td>' . $registro["descr"] . '</td>';
 				
-				 echo '<td>' . $registro["cod"] . '</td>';
+	echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
+			
+	echo '<td>' . $registro['parcela'] . '</td>';
 				
-				 echo '<td>' . $registro["nome"] . '</td>';
-				
-				 echo '<td>' . $registro["descr"] . '</td>';
-				
-				 echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
-				
-				 echo '<td>' . $registro['parcela'] . '</td>';
-				
-				 if ( $registro['status'] == 'RECEBER' ) {
+if ( $registro['status'] == 'RECEBER' ) {
 								
-								echo '<td>' . $registro["status"] . '</td>';
+	echo '<td>' . $registro["status"] . '</td>';
 								
-								 } else {
+	} else {
 								
-								echo '<td>' . $registro["status"] . '</td>';
+		echo '<td>' . $registro["status"] . '</td>';
 								
-								 // echo '<td><img src="images/certo.png" width="10px height="10px"></td>';
-				} 
+		// echo '<td><img src="images/certo.png" width="10px height="10px"></td>';
+	} 
 				
-				echo'</tr>';
+echo'</tr>';
+			
 				
-				
-				 } 
+} 
 
 echo'</table>';
 
@@ -185,27 +187,27 @@ $query = mysqli_query( $conexao, $sql2 );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '<br>';
+	echo '<br>';
 				
-				 echo $sql2;
+	echo $sql2;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
+	die;
 				
-				 } 
+} 
 
 while ( $exibir = mysqli_fetch_array( $query ) ) {
 				
-				$total = $exibir['0'];
+	$total = $exibir['0'];
 				
-				 } 
+} 
 
 
 ?>

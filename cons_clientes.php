@@ -40,20 +40,20 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == TRUE ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
-				 } 
+	die;
+} 
 
 echo '<font face="verdana"><table border style="width:100%">';
 
@@ -86,32 +86,35 @@ echo '<font face="verdana"><table border style="width:100%">';
 // Armazena os dados da consulta em um array associativo
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo '<tr>';
+	echo '<tr>';
 				
-				 // echo '<td id="campos">'.$registro["cod"].'</td>';
-				echo '<td id="campos"><a href="pedido_fechamento.php?busca=' . $registro["nome"] . '"#><input type="submit" value="SELECIONAR"' . $registr´['nome'] . '</td>';
+	// echo '<td id="campos">'.$registro["cod"].'</td>';
+	
+	echo '<td id="campos"><a href="pedido_fechamento.php?busca=' . $registro["nome"] . '"#><input type="submit" value="SELECIONAR"' . $registr´['nome'] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["nome"] . '</td>';
+	echo '<td id="campos">' . $registro["nome"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["nomefant"] . '</td>';
+	echo '<td id="campos">' . $registro["nomefant"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["rua"] . '</td>';
+	echo '<td id="campos">' . $registro["rua"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["numero"] . '</td>';
+	echo '<td id="campos">' . $registro["numero"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["bairro"] . '</td>';
+	echo '<td id="campos">' . $registro["bairro"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["cidade"] . '</td>';
+	echo '<td id="campos">' . $registro["cidade"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["uf"] . '</td>';
+	echo '<td id="campos">' . $registro["uf"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["telefone"] . '</td>';
+	echo '<td id="campos">' . $registro["telefone"] . '</td>';
 				
-				 echo '<td id="campos">' . $registro["celular"] . '</td>';
+	echo '<td id="campos">' . $registro["celular"] . '</td>';
 				
-				 echo '</tr>';
-				 $_SESSION['nome'] = $registro['nome'];
-				 } 
+	echo '</tr>';
+	
+	$_SESSION['nome'] = $registro['nome'];
+
+} 
 
 echo '</table>';
 

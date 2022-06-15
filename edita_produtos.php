@@ -21,44 +21,57 @@ $consulta = mysqli_query($conexao,$sql);
 
 while($produto = mysqli_fetch_array($consulta)){
 
-        $cod = $produto['cod'];
+    $cod = $produto['cod'];
         
-        $descr = $produto['descricao'];
+    $descr = $produto['descricao'];
 
-        $barras = $produto['codbarras'];
+    $barras = $produto['codbarras'];
+    
+	$ref = $produto['referencia'];
+    
+	$cor = $produto['cor'];
+    
+	$tamanho = $produto['tamanho'];
+        
+    
+	$marca = $produto['marca'];
+        
+    
+	$quantidade = $produto['quantidade'];
+        
+    
+	$grupo = $produto['categoria'];
+        
+    
+	$subgrupo = $produto['subgrupo'];      
+        
+    
+	$preco_compra = $produto['preco_compra'];
+        
+    
+	$preco_venda = $produto['preco_venda'];  
+        
+    
+	$nota_compra = $produto['nota_compra'];
+        
+    
+	$un = $produto['unidade'];
+        
+    
+	$fornec = $produto['fornecedor'];
+        
+    
+	$imagem_produto = $produto['imagem'];      
+        
+        
+    
+	$_SESSION['codigo'] = $produto['cod']; 
 
-        $ref = $produto['referencia'];
-
-        $cor = $produto['cor'];
-
-        $tamanho = $produto['tamanho'];
+    
+	$_SESSION['descr'] = $produto['descricao'];
         
-        $marca = $produto['marca'];
-        
-        $quantidade = $produto['quantidade'];
-        
-        $grupo = $produto['categoria'];
-        
-        $subgrupo = $produto['subgrupo'];      
-        
-        $preco_compra = $produto['preco_compra'];
-        
-        $preco_venda = $produto['preco_venda'];  
-        
-        $nota_compra = $produto['nota_compra'];
-        
-        $un = $produto['unidade'];
-        
-        $fornec = $produto['fornecedor'];
-        
-        $imagem_produto = $produto['imagem'];      
-        
-        
-        $_SESSION['codigo'] = $produto['cod']; 
-
-        $_SESSION['descr'] = $produto['descricao'];
-        
-        $_SESSION['imagem_produto'] = $produto['imagem']; 
+    
+	$_SESSION['imagem_produto'] = $produto['imagem']; 
         
 
 //Margem lucro R$ e %:

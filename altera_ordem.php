@@ -18,19 +18,19 @@ if ( mysqli_error( $conexao ) == true ) {
 				
 	echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-                 echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
                 
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				die;
+	die;
 				
-				} 
+} 
 
 mysqli_close( $conexao );
 

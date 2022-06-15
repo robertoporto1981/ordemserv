@@ -22,7 +22,9 @@ $cliente = strtoupper( $_POST['cliente'] );
 $datasaida = date( 'd/m/Y' );
 
 $dia = substr( "$datasaida", 0, 2 );
+
 $mes = substr( "$datasaida", 3, 2 );
+
 $ano = substr( "$datasaida", 6, 8 );
 
 $previsaosaida = "$ano$mes$dia";
@@ -85,7 +87,7 @@ if ( $status == "FINALIZADO" or "CANCELADO" or "NAO APROVADO" ) {
 				
 	$data = date( 'd/m/Y' );
 				
- $sql = ( "UPDATE ordem SET previsaosaida ='$previsaosaida', cliente = '$cliente',endereco = '$endereco',bairro = '$bairro',cidade = '$cidade',telef ='$telef', telef2 ='$telef2',marca ='$marca',serial = '$serial', acessorios = '$acessorios',equipamento = '$equipamento', modelo ='$modelo',detalhes = '$detalhes2', mensage = '$defeito',servexec = '$servexec',status = '$status',anotatec = '$anotacaotecnica' WHERE NumeroOrd = '$OS'" );
+	 $sql = ( "UPDATE ordem SET previsaosaida ='$previsaosaida', cliente = '$cliente',endereco = '$endereco',bairro = '$bairro',cidade = '$cidade',telef ='$telef', telef2 ='$telef2',marca ='$marca',serial = '$serial', acessorios = '$acessorios',equipamento = '$equipamento', modelo ='$modelo',detalhes = '$detalhes2', mensage = '$defeito',servexec = '$servexec',status = '$status',anotatec = '$anotacaotecnica' WHERE NumeroOrd = '$OS'" );
 				
 } 
 

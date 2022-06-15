@@ -68,19 +68,23 @@ $sql = 'INSERT INTO contasareceber VALUES ';
 
 for( $plano = 1; $plano <= $parcelas; $plano++ ) {
 				
-				$hoje += $dias;
-				// $dia = date("Ymd", $hoje);
-				 $dia = date( "Ymd", $hoje );
+	
+	$hoje += $dias;
+	
+	// $dia = date("Ymd", $hoje);
+	
+	$dia = date( "Ymd", $hoje );
 				
-				 $valorparcela;
+	
+	$valorparcela;
 				
-				$sql .= "(' ','$datalanc','{$dia}','','$codcliente','$nome','$descr','{$valorparcela}','{$plano}','$total','$status','$usuario','$parcelas'),";
+	
+	$sql .= "(' ','$datalanc','{$dia}','','$codcliente','$nome','$descr','{$valorparcela}','{$plano}','$total','$status','$usuario','$parcelas'),";
 				
-				} 
+	
+} 
 
 $sql = substr( $sql, 0, -1 );
-
-
 
 // echo"<script language='javascript' type='text/javascript'>alert('Incluido com sucesso!');window.location.href='contas_receber.html'</script>";
 // Java script Sweet alert
@@ -96,21 +100,29 @@ swal('Incluido com sucesso!')
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    
+	echo '<br>';
                 
-                 echo $sql;
+    
+	echo $sql;
 				
-				 echo '</div>';
+	
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	
+	mysqli_close( $conexao );
 				
-				 die;
+	
+	die;
 				
-				} 
+	
+} 
 
 mysqli_close( $conexao );
 

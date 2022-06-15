@@ -26,13 +26,13 @@
 date_default_timezone_set("America/Sao_Paulo");	
 
  
-		$usuario = $_SESSION['login'];	
+$usuario = $_SESSION['login'];	
 
-		$data = date("d/m/Y");
+$data = date("d/m/Y");
 	
-		$dia = date("d");
+$dia = date("d");
 
-		$mes = date("m");
+$mes = date("m");
 
 
 //Conexao
@@ -41,7 +41,7 @@ require_once 'conexao.php';
 
 $sql = "SELECT * FROM clientes WHERE MONTH(datanasc) = '$mes' AND DAY(datanasc) = '$dia' order by nome asc";
 
-		$consulta = mysqli_query($conexao,$sql);
+$consulta = mysqli_query($conexao,$sql);
 
 if(mysqli_error($conexao) == TRUE){
   
@@ -53,11 +53,11 @@ if(mysqli_error($conexao) == TRUE){
     
     echo $sql;
 
-  echo '</div>';
+    echo '</div>';
  
-  mysqli_close($conexao);
+    mysqli_close($conexao);
 
-  die;
+    die;
 
 }
 
@@ -105,8 +105,7 @@ die;
 
 while($registro = mysqli_fetch_assoc($consulta)){
     
-    	echo"<form action='./' id='formulario' method='post'>";
-    
+    	echo"<form action='./' id='formulario' method='post'>";    
   
   		echo'<tr>';   
   
@@ -126,11 +125,11 @@ while($registro = mysqli_fetch_assoc($consulta)){
 
 	    echo '<td>'.$data_nasc.'</td>';
   
- 		echo '<td>'.$registro['telefone'].'</td>';
+ 	  	echo '<td>'.$registro['telefone'].'</td>';
   
   		echo '<td>'.$registro['celular'].'</td>';
   
-		echo '<td>'.$registro['email'].'</td>';
+		  echo '<td>'.$registro['email'].'</td>';
   
   		echo "<td id='campos-whatsapp'><a href='https://api.whatsapp.com/send?phone=55".$registro['celular']."&text=%20Feliz aniversario'><img src='images/whatsapp.png' alt='Smiley face' height='20' width='30' border='0'/></a></a>";
 
@@ -139,11 +138,11 @@ while($registro = mysqli_fetch_assoc($consulta)){
   
 	  	echo "<br>";
          
-		echo'</tr>'; 
+		  echo'</tr>'; 
  
     
 }
- 		echo'</table>';	
+ 		  echo'</table>';	
   	
 	
 ?>

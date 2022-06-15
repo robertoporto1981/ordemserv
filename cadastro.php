@@ -16,16 +16,16 @@ $select = mysqli_query( $conexao, $query_select );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+    echo '<div class="error-mysql">';
 				
-				 echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
-				} 
+	die;
+} 
 
 
 $array = mysqli_fetch_array( $select );
@@ -34,31 +34,34 @@ $logarray = $array['login'];
 
 if ( $login == "" || $login == null ) {
 				
-				echo"<script language='javascript' type='text/javascript'>alert('O campo login deve ser preenchido');window.location.href='cadastro.html';</script>";
+	echo"<script language='javascript' type='text/javascript'>alert('O campo login deve ser preenchido');window.location.href='cadastro.html';</script>";
 				
-				} else {
+	} else {
 				
-				if ( $logarray == $login ) {
+if ( $logarray == $login ) {
 								
-								echo"<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastro.html';</script>";
+	echo"<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastro.html';</script>";
 								
-								 die();
+	die();
 								
-								} else {
+} else {
 								
-								$query = "INSERT INTO usuarios (nome,login,senha) VALUES ('$nome_usuario','$login','$senha')";
+$query = "INSERT INTO usuarios (nome,login,senha) VALUES ('$nome_usuario','$login','$senha')";
 								
-								 $insert = mysqli_query( $conexao, $query );
+$insert = mysqli_query( $conexao, $query );
 								
 								
-								if ( $insert ) {
+if ( $insert ) {
 												
-												echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='index.html'</script>";
-												} else {
+	echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='index.html'</script>";
+
+} else {
 												
-												echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='cadastro.html'</script>";
-												 } 
-								} 
-				} 
+	echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='cadastro.html'</script>";
+} 
+
+} 
+
+} 
 
 ?>

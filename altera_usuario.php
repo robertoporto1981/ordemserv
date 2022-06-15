@@ -49,7 +49,7 @@ if ( mysqli_error( $conexao ) == true ) {
 	mysqli_close( $conexao );
 				
 	die;
-				} 
+} 
 
 $array = mysqli_fetch_array( $sql );
 

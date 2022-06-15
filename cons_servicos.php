@@ -23,19 +23,21 @@ $sql = "SELECT * FROM produto where quantidade >= 1";
 $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+	die;
+} 
 
 
 // echo '<table>';
@@ -56,21 +58,21 @@ echo '</tr>';
 // Armazena os dados da consulta em um array associativo
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo '<tr>';
+	echo '<tr>';
 				
-				 echo '<td>' . $registro["descricao"] . '</td>';
+	echo '<td>' . $registro["descricao"] . '</td>';
 				
-				 echo '<td>' . $registro["quantidade"] . '</td>';
+	echo '<td>' . $registro["quantidade"] . '</td>';
 				
-				 echo '<td>' . $registro["preco_compra"] . '</td>';
+	echo '<td>' . $registro["preco_compra"] . '</td>';
 				
-				 echo '<td>' . $registro["preco_venda"] . '</td>';
+	echo '<td>' . $registro["preco_venda"] . '</td>';
 				
-				echo '</tr>';
+	echo '</tr>';
 				
-				} 
+} 
 
-echo '</table>';
+	echo '</table>';
 
 
 

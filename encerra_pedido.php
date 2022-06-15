@@ -88,19 +88,19 @@ $resultado = mysqli_num_rows($conexao,$consulta);
    
 while ($row = mysqli_fetch_array($consulta)) {
    
-  $numeronota = $row[0];
+    $numeronota = $row[0];
    
-  $cliente = $row[1];
+    $cliente = $row[1];
    
-  $portador = $row[2];
+    $portador = $row[2];
    
-  $total = $row[3];
+    $total = $row[3];
    
-  $dataemissao = $row[4];
+    $dataemissao = $row[4];
       
-  $troco = $row[5];
+    $troco = $row[5];
       
-  $pago = $row[6];
+    $pago = $row[6];
        
 }
 

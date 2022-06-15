@@ -25,7 +25,7 @@ if ( isset( $_SESSION['login'] ) ) {
 				
 } else {
 				
-		echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
+	echo"<script language='javascript' type='text/javascript'>window.location.href='index.html'</script>";
 				
 } 
 
@@ -93,19 +93,19 @@ mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-		echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-		echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                  
-        echo '<br>';
+    echo '<br>';
                                                   
-        echo $sql;
+    echo $sql;
 				
-		echo '</div>';
+	echo '</div>';
 				
-		mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-	 die;
+	die;
 				
 } 
 

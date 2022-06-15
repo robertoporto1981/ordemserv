@@ -46,9 +46,12 @@ require_once 'conexao.php';
 
 if ( empty( $busca ) )
 				
-				 {
-				echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='form_cadastro_produto.html';</script>";
-				} 
+	
+{
+	
+	echo"<script language='javascript' type='text/javascript'>alert('Nao foi encontrado nenhum registro!');window.location.href='form_cadastro_produto.html';</script>";
+	
+} 
 
 
 $sql = "select * from contasapagar where status = ('$busca') order by codoper desc";
@@ -57,21 +60,29 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
     
-                echo $sql;
+	echo '<br>';
+    
+    
+	echo $sql;
 				
-				echo '</div>';
+	
+	echo '</div>';
 				
-				mysqli_close( $conexao );
+	
+	mysqli_close( $conexao );
 				
-				die;
+	
+	die;
 				
-				} 
+	
+} 
 
 
 // Armazena os dados da consulta em um array associativo
@@ -108,65 +119,77 @@ echo '<table class="table table-bordered">
  // echo"<h1 id='borda'>Relatorio pagos</h1>";
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo"<form action='./' id='formulario' method='post'>";
+		
+	echo"<form action='./' id='formulario' method='post'>";				
+	
+	echo'<tr>';				
+	
+	echo '<td><a href="exclui_baixa_pagar.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"ï¿½&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
 				
-				
-				 echo'<tr>';
-				
-				 echo '<td><a href="exclui_baixa_pagar.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"¨&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
-				
-				 echo '<td>' . $registro["codoper"] . '</td>';
+				 
+	echo '<td>' . $registro["codoper"] . '</td>';
 				 			
-				 //Datas:                 
-                 $datalanc = $registro["data"];
-				
-				 $dia = substr( "$datalanc", 0, 2 );
-				
-				 $mes = substr( "$datalanc", 2, 2 );
-				
-				 $ano = substr( "$datalanc", 4, 8 );
-				
-				 $datalancamento = "$dia/$mes/$ano";
-				
-				 echo '<td>' . $datalancamento . '</td>';
+
+	//Datas:                 
+    
+	$datalanc = $registro["data"];				 
+	
+	$dia = substr( "$datalanc", 0, 2 );				
+	
+	$mes = substr( "$datalanc", 2, 2 );				
+	
+	$ano = substr( "$datalanc", 4, 8 );				
+	
+	$datalancamento = "$dia/$mes/$ano";				
+				 
+	echo '<td>' . $datalancamento . '</td>';
 				 				 
-				$datavenc = $registro["datavenc"];
-				
-				 $dia = substr( "$datavenc", 0, 2 );
-				
-				 $mes = substr( "$datavenc", 2, 2 );
-				
-				 $ano = substr( "$datavenc", 4, 8 );
-				
-				 $datavencimento = "$dia/$mes/$ano";
-				
-				 echo '<td>' . $datavencimento . '</td>';          
+	$datavenc = $registro["datavenc"];					
+	
+	$dia = substr( "$datavenc", 0, 2 );				
+	
+	$mes = substr( "$datavenc", 2, 2 );				
+	
+	$ano = substr( "$datavenc", 4, 8 );				
+	
+	$datavencimento = "$dia/$mes/$ano";					
+	
+	echo '<td>' . $datavencimento . '</td>';             
                  
-                 
-                 
-                 //fim
-                echo '<td>'.$registro["fornecedor"].'</td>';
+    
+	//fim
+    
+	echo '<td>'.$registro["fornecedor"].'</td>';
 				
-				echo '<td>' . $registro["descr"] . '</td>';
+	
+	echo '<td>' . $registro["descr"] . '</td>';
 				
-				 echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
+	
+	echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
 				
-				 echo '<td>' . $registro['parcela'] . '</td>';
+	
+	echo '<td>' . $registro['parcela'] . '</td>';
 				
-				if ( $registro['status'] == 'RECEBER' ) {
+
+if ( $registro['status'] == 'RECEBER' ) {
+	
+	echo '<td>' . $registro["status"] . '</td>';
 								
-								echo '<td>' . $registro["status"] . '</td>';
+	
+} else {
 								
-								 } else {
+	
+	echo '<td>' . $registro["status"] . '</td>';
 								
-								echo '<td>' . $registro["status"] . '</td>';
-								
-								 } 
+
+} 
 				
-				echo'</tr>';
+	
+echo'</tr>';
 				
 				
-				} 
+
+} 
 
 echo'</table>';
 
@@ -175,21 +198,28 @@ $sql2 = "SELECT sum(valor) FROM contasapagar where status = 'PAGO'";
 $query = mysqli_query( $conexao, $sql2 );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
 				
-				echo '</div>';
+	
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	
+	mysqli_close( $conexao );
+	
+	die;
+
+} 
 
 while ( $exibir = mysqli_fetch_array( $query ) ) {
 				
-				$total = $exibir['0'];
-				
-				} 
+		
+	$total = $exibir['0'];				
+
+} 
 
 
 

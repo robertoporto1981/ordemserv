@@ -18,13 +18,17 @@ $operador = $_SESSION['login'];
 // Recebe variáveis do pedido_fechamento.php:
 if ( empty( $cliente ) ) {
 				
-				$cliente = "CONSUMIDOR NAO IDENTIFICADO";
+	
+	$cliente = "CONSUMIDOR NAO IDENTIFICADO";
 				
-				} else {
+	
+} else {
 				
-				$cliente = $_SESSION['cliente'];
+	
+	$cliente = $_SESSION['cliente'];
 				
-				} 
+	
+} 
 
 // Recebe as variaveis do pedido fechamento:
 $portador = $_POST['porta'];
@@ -83,21 +87,29 @@ $resultado = mysqli_num_rows( $consulta );
 // Pega os dados retornados da query e transforma em array:
 while ( $nota = mysqli_fetch_array( $consulta ) ) {
 				
-				$numeronota = $nota[0];
+	
+	$numeronota = $nota[0];
 				
-				 $cliente = $nota[1];
+	
+	$cliente = $nota[1];
 				
-				 $portador = $nota[2];
+	
+	$portador = $nota[2];
 				
-				 $total = $nota[3];
+	
+	$total = $nota[3];
 				
-				 $dataemissao = $nota[4];
+	
+	$dataemissao = $nota[4];
 				
-				 $troco = $nota[5];
+	
+	$troco = $nota[5];
 				
-				 $pago = $nota[6];
+	
+	$pago = $nota[6];
 				
-				} 
+	
+} 
 
 // Dados empresa:
 
@@ -110,22 +122,31 @@ $sql2 = "select * from empresa where codigo = 1";
 // Pega os dados retornados da query e transforma em array:
 while ( $dados_empresa = mysqli_fetch_array( $consulta2 ) ) {
 				
-				$descricao = $dados_empresa[1];
+	
+	$descricao = $dados_empresa[1];
 				
-				 $endereco = $dados_empresa[2];
+	
+	$endereco = $dados_empresa[2];
 				
-				 $numero = $dados_empresa[3];
+	
+	$numero = $dados_empresa[3];
 				
-				 $municipio = $dados_empresa[5];
+	
+	$municipio = $dados_empresa[5];
 				
-				 $uf = $dados_empresa[6];
+	
+	$uf = $dados_empresa[6];
 				
-				 $cnpj = $dados_empresa[7];
+	
+	$cnpj = $dados_empresa[7];
 				
-				 $ie = $dados_empresa[8];
+	
+	$ie = $dados_empresa[8];
 				
-				 $telefone = $dados_empresa[9];
-				} 
+	
+	$telefone = $dados_empresa[9];
+	
+} 
 
 
 ?>
@@ -170,17 +191,17 @@ $sql3 = "SELECT * FROM itensnota where numeroitensnota = '$ultimanota' order by 
 
 $consulta = mysqli_query( $conexao, $sql3 );
 
-    echo '<td id="dados-cupom">COD:&nbsp;&nbsp;</td>';
+echo '<td id="dados-cupom">COD:&nbsp;&nbsp;</td>';
 
-    echo '<td id="dados-cupom">ITEM:&nbsp&nbsp</td>';
+echo '<td id="dados-cupom">ITEM:&nbsp&nbsp</td>';
 
-    echo '<td id="dados-cupom">QTD:&nbsp &nbsp</td>';
+echo '<td id="dados-cupom">QTD:&nbsp &nbsp</td>';
 
-    echo '<td id="dados-cupom">VL UNITARIO(R$):&nbsp&nbsp</td>';
+echo '<td id="dados-cupom">VL UNITARIO(R$):&nbsp&nbsp</td>';
 
-    echo '<td id="dados-cupom">TOTAL (R$): &nbsp&nbsp</td>';
+echo '<td id="dados-cupom">TOTAL (R$): &nbsp&nbsp</td>';
 
-    echo '<br>';
+echo '<br>';
     
 // Armazena os dados da consulta em um array associativo:
 while ( $dados_cupom_impressao = mysqli_fetch_assoc( $consulta ) ) {
@@ -211,9 +232,11 @@ $sql4 = "select sum(quantidade) from itensnota where numeroitensnota = '$ultiman
 
 while ( $quantidade_total_itens_nota = mysqli_fetch_array( $query ) ) {
 				
-				$totalitens = $quantidade_total_itens_nota['0'];
+		
+	$totalitens = $quantidade_total_itens_nota['0'];
 				
-				} 
+	
+} 
 
 ?>         
 
@@ -271,13 +294,17 @@ $consulta_itensnota = mysqli_query( $conexao, $sql7 );
 while ( $registro = mysqli_fetch_assoc( $consulta_itensnota ) ) {
 				
 				
-				$quantidade_produto = $registro['quantidade'];
+		
+	$quantidade_produto = $registro['quantidade'];
 				
-				 $codigo_produto = $registro['codprod'];
+	
+	$codigo_produto = $registro['codprod'];
 				
-				 $sql8 = "UPDATE PRODUTO SET quantidade = quantidade -$quantidade_produto WHERE cod = $codigo_produto";
+	
+	$sql8 = "UPDATE PRODUTO SET quantidade = quantidade -$quantidade_produto WHERE cod = $codigo_produto";
 				
-				 $query = mysqli_query( $conexao, $sql8 );
+	
+	$query = mysqli_query( $conexao, $sql8 );
 }
 } 
 
@@ -286,42 +313,57 @@ while ( $registro = mysqli_fetch_assoc( $consulta_itensnota ) ) {
 
 if ( $portador == 901 ) {
 				
-				$sql5 = "INSERT INTO contasareceber VALUES (' ','$data_emissao','','','$cliente','Ref. a ECF N.: $ultimanota',' $total','01','$total','RECEBER','ROBERTO')";
+	
+	$sql5 = "INSERT INTO contasareceber VALUES (' ','$data_emissao','','','$cliente','Ref. a ECF N.: $ultimanota',' $total','01','$total','RECEBER','ROBERTO')";
 				
-				 $query = mysqli_query( $conexao, $sql5 );
-				}  
+	
+	$query = mysqli_query( $conexao, $sql5 );
+	
+}  
 
 // Portador 900 - a vista:
 if ( $portador == "900" ) {
 				
-				 $sql6 = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','A VISTA','VENDA BALCAO','')";
+	
+	$sql6 = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','A VISTA','VENDA BALCAO','')";
 				
-				 $query = mysqli_query( $conexao, $sql6 );
-				} 
+	
+	$query = mysqli_query( $conexao, $sql6 );
+	
+} 
 
 // Portador 1000 - PIX:
 if ( $portador == "1000" ) {
 				
-				 $sql = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','A VISTA','VENDA BALCAO','')";
+	
+	$sql = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','A VISTA','VENDA BALCAO','')";
 				
-				 $query = mysqli_query( $conexao, $sql );
-				} 
+	
+	$query = mysqli_query( $conexao, $sql );
+	
+} 
 
 // Portador 200 - Cartao crédito:
 if ( $portador == 200 ) {
 				
-				$sql9 = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','CARTAO DE CREDITO','VENDA BALCAO','')";
+	
+	$sql9 = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','CARTAO DE CREDITO','VENDA BALCAO','')";
 				
-				 $query = mysqli_query( $conexao, $sql9 );
-				 } 
+	
+	$query = mysqli_query( $conexao, $sql9 );
+	
+} 
 
 // Portador 201 - Cartao débito:
 if ( $portador == 201 ) {
 				
-				 $sql10 = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','DEBITO','VENDA BALCAO','')";
+	
+	$sql10 = "INSERT INTO entradasaidas VALUES('','$data_emissao','ENTRADA','Ref. a ECF N.:$ultimanota','$total','$usuario','','DEBITO','VENDA BALCAO','')";
 				
-				 $query = mysqli_query( $conexao, $sql10 );
-		} 
+	
+	$query = mysqli_query( $conexao, $sql10 );
+	
+} 
 
 
 // Portador 987 - Devolução:
@@ -334,15 +376,20 @@ $consulta_itensnota = mysqli_query( $conexao, $sql11 );
 
 while ( $registro = mysqli_fetch_assoc( $consulta_itensnota ) ) {				
 				
-				$quantidade_produto = $registro['quantidade'];
+	
+	$quantidade_produto = $registro['quantidade'];	
+	
+	
+	$codigo_produto = $registro['codprod'];
 				
-				 $codigo_produto = $registro['codprod'];
+	
+	$sql12 = "UPDATE PRODUTO SET quantidade = quantidade +'$quantidade_produto' WHERE cod = $codigo_produto";
 				
-				 $sql12 = "UPDATE PRODUTO SET quantidade = quantidade +'$quantidade_produto' WHERE cod = $codigo_produto";
+	
+	$query = mysqli_query( $conexao, $sql12 );
 				
-				 $query = mysqli_query( $conexao, $sql12 );
-				
-				}                 
+	
+}                 
 }
 
 
@@ -350,11 +397,14 @@ while ( $registro = mysqli_fetch_assoc( $consulta_itensnota ) ) {
 
 if ( $portador == "987" ) {
 				
-		     	$sql13 = "INSERT INTO entradasaidas VALUES('','$data_emissao','SAIDA','Ref. a ECF N.:$ultimanota','$total','$usuario','','DEVOLUCAO/TROCAS','DEVOLUCAO/TROCAS BALCAO','')";
+	
+	$sql13 = "INSERT INTO entradasaidas VALUES('','$data_emissao','SAIDA','Ref. a ECF N.:$ultimanota','$total','$usuario','','DEVOLUCAO/TROCAS','DEVOLUCAO/TROCAS BALCAO','')";
 				
-				 $query = mysqli_query( $conexao, $sql13 );
+	
+	$query = mysqli_query( $conexao, $sql13 );
 				 
-    } 
+    
+} 
 
 
 

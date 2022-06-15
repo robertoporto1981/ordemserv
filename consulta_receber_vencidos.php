@@ -53,19 +53,22 @@ AND contasareceber.datavenc < '$data_atual'";
 $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				echo '</div>';
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	mysqli_close( $conexao );
+	
+	die;
+	
+} 
 
 
 // Armazena os dados da consulta em um array associativo
@@ -106,59 +109,56 @@ echo '<table class="table table-bordered">
 
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				echo"<form action='./' id='formulario' method='post'>";
+	echo"<form action='./' id='formulario' method='post'>";
 				
-				 echo'<tr>';
-					
+	echo'<tr>';					
 				
-				 echo '<td>' . $registro["codoper"] . '</td>';
+	echo '<td>' . $registro["codoper"] . '</td>';
 				
-				 // echo '<td id="campos">'.$registro["data"].'</td>';
-				$datalanc = $registro["data"];
+	// echo '<td id="campos">'.$registro["data"].'</td>';
+	$datalanc = $registro["data"];			 
 				
-				 
+	$datalancamento = date('d/m/Y',strtotime($datalanc));
 				
-				 $datalancamento = date('d/m/Y',strtotime($datalanc));
+	echo '<td>' . $datalancamento . '</td>';
 				
-				 echo '<td>' . $datalancamento . '</td>';
-				
-				 // echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
-				$datavenc = $registro["datavenc"];				 
-				
+	// echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
+	
+	$datavenc = $registro["datavenc"];				 				
 				 				
-				 $datavencimento = date('d/m/Y',strtotime($datavenc));
+	$datavencimento = date('d/m/Y',strtotime($datavenc));
 				
-				 echo '<td>' . $datavencimento . '</td>';
+	echo '<td>' . $datavencimento . '</td>';
 				
 				
-				 // echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
+	// echo '<td id="campos">'.$registro["datavenc"] = date('d/m/Y').'</td>';
 				
-				echo '<td>' . $registro["codcliente"] . '</td>';				 
+	echo '<td>' . $registro["codcliente"] . '</td>';				 
 
-				echo '<td>' . $registro["nome"] . '</td>';
+	echo '<td>' . $registro["nome"] . '</td>';
 				
-				 echo '<td>' . $registro["descr"] . '</td>';
+	echo '<td>' . $registro["descr"] . '</td>';
 				
-				 echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
+	echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
 				
-				 echo '<td>' . "R$" . number_format( $registro["total"], 2, ',', '.' ) . '</td>';
+	echo '<td>' . "R$" . number_format( $registro["total"], 2, ',', '.' ) . '</td>';
 				
-				 echo '<td>' . $registro['parcela'] . '</td>';
+	echo '<td>' . $registro['parcela'] . '</td>';
 				
-				if ( $registro['status'] == 'RECEBER' ) {
+if ( $registro['status'] == 'RECEBER' ) {
 								
-								echo '<td>' . $registro["status"] . '</td>';
+	echo '<td>' . $registro["status"] . '</td>';
 								
-								 } else {
+	} else {
 								
-								echo '<td>' . $registro["status"] . '</td>';
+		echo '<td>' . $registro["status"] . '</td>';
 								
 								 } 
-				echo '<td>' . $registro["email"] . '</td>';
+		echo '<td>' . $registro["email"] . '</td>';
                 
-				echo'</tr>';
+echo'</tr>';
 				
-				} 
+} 
 
 echo'</table>';
 
@@ -168,25 +168,35 @@ $sql2 = "SELECT sum(valor) FROM `contasareceber` where status = 'RECEBER' and da
 $query = mysqli_query( $conexao, $sql2 );
 
 if ( mysqli_error( $conexao ) == true ) {
-				echo '<div class="error-mysql">';
+	
+	echo '<div class="error-mysql">';
 				
-				echo( "Erro! <br> " . mysqli_error( $conexao ) );
+	
+	echo( "Erro! <br> " . mysqli_error( $conexao ) );
                 
-                echo '<br>';
+    
+	echo '<br>';
                 
-                 echo $sql2;
+    
+	echo $sql2;
 				
-				echo '</div>';
+	
+	echo '</div>';
 				
-				mysqli_close( $conexao );
-				die;
-				} 
+	
+	mysqli_close( $conexao );
+	
+	die;
+
+} 
 
 while ( $exibir = mysqli_fetch_array( $query ) ) {
 				
-				$total = $exibir['0'];
+	
+	$total = $exibir['0'];
 				
-				} 
+	
+} 
 
 
 

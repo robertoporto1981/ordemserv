@@ -51,12 +51,12 @@ $email = $_POST['email'];
 
 if ( $_POST['site'] == null or true ) {
 				
-				$site = $_POST['site'];
+	$site = $_POST['site'];
 				
-				 } else {
+} else {
 				
-				$site = $_SESSION['site'];
-				 } 
+	$site = $_SESSION['site'];
+} 
 
 $observ = ltrim( $_POST['observ'] );
 
@@ -65,30 +65,35 @@ $string = array ( utf8_decode( strtoupper( $_POST['nome'] ) ), utf8_decode( strt
 
 $caracteres_sem_acento = array( 
 				
-				'Š' => 'S', 'š' => 's', 'Ð' => 'Dj', '?' => 'Z', '?' => 'z', 'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A',
+				'ï¿½' => 'S', 'ï¿½' => 's', 'ï¿½' => 'Dj', '?' => 'Z', '?' => 'z', 'ï¿½' => 'A', 'ï¿½' => 'A', 'ï¿½' => 'A', 'ï¿½' => 'A', 'ï¿½' => 'A',
 				
-				 'Å' => 'A', 'Æ' => 'A', 'Ç' => 'C', 'È' => 'E', 'É' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I',
+				 'ï¿½' => 'A', 'ï¿½' => 'A', 'ï¿½' => 'C', 'ï¿½' => 'E', 'ï¿½' => 'E', 'ï¿½' => 'E', 'ï¿½' => 'E', 'ï¿½' => 'I', 'ï¿½' => 'I', 'ï¿½' => 'I',
 				
-				 'Ï' => 'I', 'Ñ' => 'N', 'N' => 'N', 'Ò' => 'O', 'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O', 'Ù' => 'U', 'Ú' => 'U',
+				 'ï¿½' => 'I', 'ï¿½' => 'N', 'N' => 'N', 'ï¿½' => 'O', 'ï¿½' => 'O', 'ï¿½' => 'O', 'ï¿½' => 'O', 'ï¿½' => 'O', 'ï¿½' => 'O', 'ï¿½' => 'U', 'ï¿½' => 'U',
 				
-				 'Û' => 'U', 'Ü' => 'U', 'Ý' => 'Y', 'Þ' => 'B', 'ß' => 'Ss', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ã' => 'a', 'ä' => 'a',
+				 'ï¿½' => 'U', 'ï¿½' => 'U', 'ï¿½' => 'Y', 'ï¿½' => 'B', 'ï¿½' => 'Ss', 'ï¿½' => 'a', 'ï¿½' => 'a', 'ï¿½' => 'a', 'ï¿½' => 'a', 'ï¿½' => 'a',
 				
-				 'å' => 'a', 'æ' => 'a', 'ç' => 'c', 'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', 'ì' => 'i', 'í' => 'i', 'î' => 'i',
+				 'ï¿½' => 'a', 'ï¿½' => 'a', 'ï¿½' => 'c', 'ï¿½' => 'e', 'ï¿½' => 'e', 'ï¿½' => 'e', 'ï¿½' => 'e', 'ï¿½' => 'i', 'ï¿½' => 'i', 'ï¿½' => 'i',
 				
-				 'ï' => 'i', 'ð' => 'o', 'ñ' => 'n', 'n' => 'n', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'õ' => 'o', 'ö' => 'o', 'ø' => 'o', 'ù' => 'u',
+				 'ï¿½' => 'i', 'ï¿½' => 'o', 'ï¿½' => 'n', 'n' => 'n', 'ï¿½' => 'o', 'ï¿½' => 'o', 'ï¿½' => 'o', 'ï¿½' => 'o', 'ï¿½' => 'o', 'ï¿½' => 'o', 'ï¿½' => 'u',
 				
-				 'ú' => 'u', 'û' => 'u', 'ü' => 'u', 'ý' => 'y', 'ý' => 'y', 'þ' => 'b', 'ÿ' => 'y', 'ƒ' => 'f',
+				 'ï¿½' => 'u', 'ï¿½' => 'u', 'ï¿½' => 'u', 'ï¿½' => 'y', 'ï¿½' => 'y', 'ï¿½' => 'b', 'ï¿½' => 'y', 'ï¿½' => 'f',
 				
-				 'a' => 'a', 'î' => 'i', 'â' => 'a', '?' => 's', '?' => 't', 'A' => 'A', 'Î' => 'I', 'Â' => 'A', '?' => 'S', '?' => 'T',
+				 'a' => 'a', 'ï¿½' => 'i', 'ï¿½' => 'a', '?' => 's', '?' => 't', 'A' => 'A', 'ï¿½' => 'I', 'ï¿½' => 'A', '?' => 'S', '?' => 'T',
 				
 				 );
 
-// Variáveis tratadas:
+// Variaveis tratadas:
 $nome = strtoupper( strtr( $string[0], $caracteres_sem_acento ) );
+
 $rua = strtoupper( strtr( $string[1], $caracteres_sem_acento ) );
+
 $bairro = strtoupper( strtr( $string[2], $caracteres_sem_acento ) );
+
 $cidade = strtoupper( strtr( $string[3], $caracteres_sem_acento ) );
+
 $complemento = strtoupper( strtr( $string[4], $caracteres_sem_acento ) );
+
 $observ = strtr( $string[5], $caracteres_sem_acento );
 
 
@@ -103,22 +108,22 @@ mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
 				
-				 echo '<br>';
+	echo '<br>';
 				
-				 echo $sql;
+	echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
 				
-				 die;
+	die;
 				
-				 } 
+} 
 
 mysqli_close( $conexao );
 

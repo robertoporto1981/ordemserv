@@ -67,37 +67,37 @@ echo '<table class="table table-bordered">
 
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-				// Data:
-				$Data = $registro["dataentr"];
+// Data:
+			$Data = $registro["dataentr"];
 							 		
-				$data = date('d/m/Y',strtotime($Data));
+			$data = date('d/m/Y',strtotime($Data));
 				 
 				
-				// Dados da tabela:
-				echo '<tbody>';
+// Dados da tabela:
+			echo '<tbody>';
 				
-				 echo '<tr>';
+			echo '<tr>';
 				
-				 echo '<td>' . $registro["NumeroOrd"] . '</td>';
+			echo '<td>' . $registro["NumeroOrd"] . '</td>';
 				
-				 echo '<td>' . $data . '</td>';
+			echo '<td>' . $data . '</td>';
 				
-				 echo '<td>' . $registro["equipamento"] . '</td>';
+			echo '<td>' . $registro["equipamento"] . '</td>';
 				
-				 echo '<td>' . $registro["marca"] . '</td>';
+			echo '<td>' . $registro["marca"] . '</td>';
 				
-				 echo '<td>' . $MODELO = $registro["modelo"] . '</td>';
+			echo '<td>' . $MODELO = $registro["modelo"] . '</td>';
 				
-				 echo '<td>' . $DEFEITO = $registro["mensage"] . '</td>';
+			echo '<td>' . $DEFEITO = $registro["mensage"] . '</td>';
 				
-				 echo '<td>' . $SOLUCAO = trim( $registro["servexec"] ) . '</td>';
+			echo '<td>' . $SOLUCAO = trim( $registro["servexec"] ) . '</td>';
 				
-				 echo '</tr>';
+			echo '</tr>';
 				
-				 echo '</tbody>';
+			echo '</tbody>';
 				
 				
-				} 
+} 
 
 echo '</table>';
 

@@ -25,13 +25,13 @@ if(mysqli_error($conexao) == TRUE){
 	
 	echo("Erro! <br> " . mysqli_error($conexao));
     
-    echo '<br>';
-                
-                 echo $sql;
+    echo '<br>';                
+    
+	echo $sql;
     
     echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 
 	echo '</div>';
  

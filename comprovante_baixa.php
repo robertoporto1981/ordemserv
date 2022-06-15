@@ -16,44 +16,44 @@ $consulta = mysqli_query( $conexao, $sql );
 
 if ( mysqli_error( $conexao ) == true ) {
 				
-				echo '<div class="error-mysql">';
+	echo '<div class="error-mysql">';
 				
-				 echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
+	echo( "Mysql query Erro! <br> " . mysqli_error( $conexao ) );
                  
-                 echo '<br>';
+    echo '<br>';
                 
-                 echo $sql;
+    echo $sql;
 				
-				 echo '</div>';
+	echo '</div>';
 				
-				 mysqli_close( $conexao );
+	mysqli_close( $conexao );
 				
-				 die;
+	die;
 				
-				} 
+} 
 
 // Pega dados da consulta e transforma em array
 while ( $contasareceber = mysqli_fetch_array( $consulta ) ) {
 				
-				$codigooperacao = $contasareceber[0];
+	$codigooperacao = $contasareceber[0];
 				
-				 $datapagamento = $contasareceber[3];
+	$datapagamento = $contasareceber[3];
 				
-				 $cliente = $contasareceber[4];
+	$cliente = $contasareceber[4];
 				
-				 $prestacao = $contasareceber[6];
+	$prestacao = $contasareceber[6];
 				
-				 $vencimento = $contasareceber[2];
+	$vencimento = $contasareceber[2];
 				
-				 $valor = $contasareceber[6];
+	$valor = $contasareceber[6];
 				
-				 $parcela = $contasareceber[7];
+	$parcela = $contasareceber[7];
 				
-				 $total = $contasareceber[8];
+	$total = $contasareceber[8];
 				
-				 $n_total_parcelas = $contasareceber[11];
+	$n_total_parcelas = $contasareceber[11];
                  
-				} 
+} 
 
 ?> 
 

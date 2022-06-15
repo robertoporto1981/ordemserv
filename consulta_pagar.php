@@ -91,36 +91,37 @@ echo '<table class="table table-bordered">
  // echo"<h1 id='borda'>Relatorio contas a pagar</h1>";
 while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 				
-		echo"<form action='./' id='formulario' method='post'>";
+	echo"<form action='./' id='formulario' method='post'>";
 				
-		echo'<tr>';
+	echo'<tr>';
 				
-		echo '<td><a href="baixa_pagar.php?codoper=' . $registro["codoper"] . '"#><img src="images/receber.png"></td>';
+	echo '<td><a href="baixa_pagar.php?codoper=' . $registro["codoper"] . '"#><img src="images/receber.png"></td>';
 				
-		echo '<td><a href="exclui_baixa_pagar.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"�&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
+	echo '<td><a href="exclui_baixa_pagar.php?codoper=' . $registro["codoper"] . '"&descr=' . $registro["descr"] . '"�&valor=' . $registro["valor"] . '"#><img src="images/lixeira.png" width="20px"></td>';
 				
-		echo '<td>' . $registro["codoper"] . '</td>';
+	echo '<td>' . $registro["codoper"] . '</td>';
 				
-	// echo '<td id="campos">'.$registro["data"].'</td>';
-		$Data = $registro["data"];						 
+// echo '<td id="campos">'.$registro["data"].'</td>';
+	
+	$Data = $registro["data"];						 
 				
-		$data = date('d/m/Y',strtotime($Data));
+	$data = date('d/m/Y',strtotime($Data));
 				
-		echo '<td>' . $data . '</td>';			
+	echo '<td>' . $data . '</td>';			
 				
-		$Datavenc = $registro["datavenc"];				 
+	$Datavenc = $registro["datavenc"];				 
 				
-		$datavencimento = date('d/m/Y',strtotime($Datavenc));
+	$datavencimento = date('d/m/Y',strtotime($Datavenc));
 				
-		echo '<td>' . $datavencimento . '</td>';				
+	echo '<td>' . $datavencimento . '</td>';				
 				
-		echo '<td>' . $registro["fornecedor"] . '</td>';
+	echo '<td>' . $registro["fornecedor"] . '</td>';
 				
-		echo '<td>' . $registro["descr"] . '</td>';
+	echo '<td>' . $registro["descr"] . '</td>';
 				
-		echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
+	echo '<td>' . "R$" . number_format( $registro["valor"], 2, ',', '.' ) . '</td>';
 				
-		echo '<td>' . $registro['parcela'] . '</td>';
+	echo '<td>' . $registro['parcela'] . '</td>';
 				
 	if ( $registro['status'] == 'pagar' ) {
 								
@@ -130,9 +131,10 @@ while ( $registro = mysqli_fetch_assoc( $consulta ) ) {
 								
 			echo '<td>' . strtoupper( $registro["status"] ) . '</td>';
 								
-								} 
-				echo'</tr>';				
-	} 
+		} 
+echo'</tr>';				
+
+} 
 
 echo'</table>';
 
@@ -153,7 +155,8 @@ if ( mysqli_error( $conexao ) == true ) {
 	echo '</div>';
 				
 	mysqli_close( $conexao );
-die;
+	
+	die;
 
 } 
 
@@ -162,7 +165,7 @@ while ( $exibir = mysqli_fetch_array( $query ) ) {
 				
 	$total = $exibir['0'];
 
-	// echo $exibir['0'];
+// echo $exibir['0'];
 
 } 
 
