@@ -426,7 +426,7 @@ $ano = date( "Y" );
                     <div class="form-group col-sm-1">                 
                         <label>&nbsp;
                         </label>            
-                        <a href="http://maps.google.com/maps?q=<?php echo $dados_cliente['rua'] . "+" . $dados_cliente['numero'] ?> " target="_blank" class="form-control">
+                        <a href="http://maps.google.com/maps?q=<?php echo $dados_cliente['rua'] . "+" . $dados_cliente['numero'] ."+" . $dados_cliente['bairro'] . "+" . $dados_cliente['cidade'] ."+". $dados_cliente['uf'] ?> " target="_blank" class="form-control">
                             <img src='images/maps.jpg' alt='Smiley face' height="40" width="40" border="0" /></a></a>    
                     </div>
                     <div class="form-group col-md-4">	
@@ -486,7 +486,7 @@ $ano = date( "Y" );
                         </div>
  <?php
  
-//Contas a receber em aberto:
+//Mostra contas a receber em aberto:
 
 $cod_cliente = $dados_cliente['cod'];
 

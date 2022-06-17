@@ -82,18 +82,17 @@ $margem_lucro_perce = $margem_lucro /  $preco_venda * 100;
 
 $preco_sugerido = $preco_compra * 400 / 100;
 
+
 //Prazo Pag Seguro cálculo para até 6x:
 
 //0.17847 referente a 6x, (0.17885) fator multiplicador Pag Seguro.
 
 $a_prazo = $preco_venda * 0.017885; 
 
-$total_a_prazo_6x = $a_prazo * 6 + $preco_venda;            
-          
+$total_a_prazo_6x = $a_prazo * 6 + $preco_venda;     
         
        
- }   
-    
+
 ?>
  	
 
